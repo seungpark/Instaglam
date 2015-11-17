@@ -1,6 +1,6 @@
-<h1 class="user-new">New User!</h1>
+<h1 class="login-h1">Log In!</h1>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= session_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>
     Username:
@@ -14,5 +14,5 @@
   </label>
   <br>
 
-  <button type="submit">Sign Up</button>
+  <button type="submit">Sign In!</button>
 </form>
