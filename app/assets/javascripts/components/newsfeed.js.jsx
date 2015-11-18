@@ -17,16 +17,15 @@ var NewsFeed = React.createClass({
   },
 
   render: function() {
-    debugger;
     return (
       <div className="newsfeed-container">
         <ul className="newsfeed-ul">
           {this.state.photos.map(function (photo) {
             return (
               <ul className="newsfeed-item" key={photo.id} data-photoid={photo.id}>
-                <li>{photo.title}</li>
-                <li>{photo.caption}</li>
-                <li>{photo.user}</li>
+                <li className="photo-title">{photo.title}</li>
+                <li className="photo-caption">{photo.caption}</li>
+                <li className="photo-user">{photo.user}</li>
               </ul>
             )
           }.bind(this) )}
