@@ -12,7 +12,7 @@ users = User.create([
   {username: "guest", password: "hello123"},
   {username: "guest2", password: "hello123"},
   {username: "guest3", password: "hello123"},
-  {username: "guest4", password: "hello123"},
+  {username: "guest4", password: "hello123"}
 ])
 
 
@@ -21,9 +21,30 @@ photos = Photo.create([
   {title: "photo2", caption: "caption2", user_id: 2},
   {title: "photo3", caption: "caption3", user_id: 3},
   {title: "photo4", caption: "caption4", user_id: 4},
-  {title: "photo5", caption: "caption5", user_id: 5},
+  {title: "photo5", caption: "caption5", user_id: 5}
 ])
 
+tags = Tag.create([
+  {name: "tag1"},
+  {name: "tag2"},
+  {name: "tag3"},
+  {name: "tag4"},
+  {name: "tag5"},
+  {name: "tag6"}
+])
+
+
+taggings = Tagging.create([
+  {photo_id:1, tag_id:1},
+  {photo_id:1, tag_id:2},
+  {photo_id:1, tag_id:3},
+  {photo_id:2, tag_id:4},
+  {photo_id:2, tag_id:5},
+  {photo_id:3, tag_id:4},
+  {photo_id:3, tag_id:5},
+  {photo_id:3, tag_id:6},
+  {photo_id:3, tag_id:2},  
+])
 
   # column name | data type | details
   # ------------|-----------|-----------------------

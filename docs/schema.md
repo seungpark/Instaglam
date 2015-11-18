@@ -6,15 +6,22 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 caption     | text      | not null
-tags        | text      | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 
 
-## follows
+## followers
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+user_id     | integer   | not null
 follower_id | integer   | not null
+
+## following_user_pages
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null
+following_user_id | integer | not null
 
 
 ## tags
@@ -27,7 +34,6 @@ name        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
 photo_id    | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
 
