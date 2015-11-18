@@ -6,6 +6,7 @@ $(function(){
   var IndexRoute = ReactRouter.IndexRoute;
   var App = React.createClass({
     render: function(){
+      debugger;
       return (
           <div>
             <header><h1>Instaglam</h1></header>
@@ -14,11 +15,12 @@ $(function(){
       );
     }
   });
-  var routes = (
+  React.render(
+    <Router>
       <Route path="/" component={App}>
-      <IndexRoute component={NewsFeed}/>
-
+        <IndexRoute component={FeedFilter}/>
       </Route>
-  );
-  React.render(<Router>{routes}</Router>, root);
+    </Router>,
+    root
+  )
 });
