@@ -1,0 +1,3 @@
+PhotoConstants = {
+  PHOTOS_RECEIVED: "PHOTOS RECEIVED"
+};

@@ -16,7 +16,8 @@ $(function(){
   });
   var routes = (
       <Route path="/" component={App}>
-        <Route path="users/:userId" component={FilterFeed}/>
+      <IndexRoute component={NewsFeed}/>
+
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);

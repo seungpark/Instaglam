@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(login_params[:username], login_params[:password])
     if @user
       sign_in(@user)
-      redirect_to new_session_url, flash: { success: "Welcome #{@user.username}!" }
+      redirect_to root_url, flash: { success: "Welcome #{@user.username}!" }
     else
       redirect_to new_session_url, alert: "Invalid Login"
     end
