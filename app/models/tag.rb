@@ -1,6 +1,7 @@
 class Tag < ActiveRecord::Base
   validates :name, presence: true
 
+
   has_many :taggings
 
   has_many(
@@ -8,4 +9,5 @@ class Tag < ActiveRecord::Base
     through: :taggings,
     source: :photo
   )
+
 end

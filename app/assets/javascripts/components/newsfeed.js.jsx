@@ -25,7 +25,7 @@ var NewsFeed = React.createClass({
               <ul className="newsfeed-item" key={photo.id} data-photoid={photo.id}>
                 <li className="photo-title">{photo.title}</li>
                 <li className="photo-caption">{photo.caption}</li>
-                <li className="photo-user">{photo.user}</li>
+                <li className="photo-user">{photo.username}</li>
               </ul>
             )
           }.bind(this) )}

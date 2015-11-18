@@ -2,12 +2,17 @@ class Api::PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
-    render json: @photos
+    render 'index'
   end
 
   def create
     @photo = Photo.new(photo_params)
-    render json: @photo
+    redirect_to root
+  end
+
+  def show
+    @photo = Photo.find(params[:id])
+    render 'show'
   end
 
   private
