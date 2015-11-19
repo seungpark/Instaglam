@@ -23,14 +23,8 @@
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case PhotoConstants.PHOTOS_RECEIVED:
-        debugger
           PhotoStore.resetPhotos(payload.photos);
           PhotoStore.emit(CHANGE_EVENT);
-          break;
-        case PhotoConstants.USER_RECEIVED:
-        debugger
-          Photostore.resetPhotos(payload.userId);
-          Photostore.emit(CHANGE_EVENT);
           break;
       }
     })
