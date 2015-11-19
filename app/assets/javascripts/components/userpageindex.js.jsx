@@ -7,7 +7,7 @@
         <div className="userphotos-index">
         <ul className="userphotos-index-ul">
           {this.props.photos.map(function (photo) {
-            return <Photo
+            return <IndexPhoto
               photo={photo}
               key={photo.id} />
           }.bind(this))}

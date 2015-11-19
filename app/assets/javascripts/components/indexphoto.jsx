@@ -1,5 +1,5 @@
 (function(root){
-  root.Photo = React.createClass({
+  root.IndexPhoto = React.createClass({
 
     render: function() {
       return (

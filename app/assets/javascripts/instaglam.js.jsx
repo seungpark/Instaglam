@@ -24,6 +24,7 @@ $(function(){
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter}/>
         <Route path="/:username" component={UserPage}/>
+        <Route path="/postnewphoto" component={PhotoForm}/>
       </Route>
     </Router>,
     root

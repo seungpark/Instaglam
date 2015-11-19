@@ -27,7 +27,7 @@
         <div className="newsfeed">
           <ul className="newsfeed-ul">
             {this.state.photos.map(function (photo) {
-              return <Photo
+              return <IndexPhoto
                 photo={photo}
                 key={photo.id} />
             }.bind(this) )}

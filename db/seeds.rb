@@ -43,12 +43,32 @@ taggings = Tagging.create([
   {photo_id:3, tag_id:4},
   {photo_id:3, tag_id:5},
   {photo_id:3, tag_id:6},
-  {photo_id:3, tag_id:2},  
+  {photo_id:3, tag_id:2},
 ])
 
-  # column name | data type | details
-  # ------------|-----------|-----------------------
-  # id          | integer   | not null, primary key
-  # title       | string    | not null
-  # caption     | text      | not null
-  # user_id     | integer   | not null, foreign key (references users), indexed
+comments = Comment.create([
+  {photo_id:1 , user_id:1 , body: "test1"},
+  {photo_id:1 , user_id:2 , body: "test2"},
+  {photo_id:1 , user_id:3 , body: "test3"},
+  {photo_id:2 , user_id:1 , body: "test4"},
+  {photo_id:2 , user_id:1 , body: "test5"},
+  {photo_id:2 , user_id:2 , body: "helloworld"},
+  {photo_id:2 , user_id:3 , body: "byeworld"},
+  {photo_id:2 , user_id:4 , body: "helloagain"},
+  {photo_id:3 , user_id:1 , body: "byeagain"},
+  {photo_id:3 , user_id:1 , body: "commentbodytest1"},
+  {photo_id:3 , user_id:2 , body: "commentbodytest2"},
+  {photo_id:3 , user_id:3 , body: "heres a really long body test for the comment check for overflow of text"},
+  {photo_id:3 , user_id:1 , body: "last comment"},
+  ])
+
+
+
+
+  # create_table "comments", force: :cascade do |t|
+  #   t.integer  "photo_id",   null: false
+  #   t.integer  "user_id",    null: false
+  #   t.string   "body",       null: false
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  # end

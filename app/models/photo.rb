@@ -11,6 +11,8 @@ class Photo < ActiveRecord::Base
     source: :tag
   )
 
+  has_many :comments
+
 end
 
 
