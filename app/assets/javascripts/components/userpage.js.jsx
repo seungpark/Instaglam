@@ -18,7 +18,7 @@
 
     render: function() {
       return(
-        <div className="userpage">
+        <div className="userpage-index">
           <UserPageIndex photos={this.state.photos}/>
         </div>
       )

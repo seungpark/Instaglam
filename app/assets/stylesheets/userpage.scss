@@ -1,5 +1,5 @@
 
-.userpage-index {
+.userphotos-index {
   display: flex;
   position: relative;
   vertical-align: baseline;
@@ -8,22 +8,13 @@
 }
 
 
-.userpage-index-ul {
+.userphotos-index-ul {
   display:flex;
   position: relative;
   margin: auto;
   vertical-align: baseline;
   flex-direction: column;
   -webkit-flex-direction: column;
-}
-
-.newsfeed-item {
-  border: 1px solid black;
-}
-
-.newsfeed-item > li {
-  list-style: none;
-  margin: 20px 0px
 }
 
 .photograph {
