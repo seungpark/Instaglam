@@ -3,7 +3,7 @@
 
     render: function() {
       return (
-        <ul className="newsfeed-item" key={this.props.photo.id}>
+        <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user">
             <ReactRouter.Link to={"/users/" + this.props.photo.username}>{this.props.photo.username}
             </ReactRouter.Link>

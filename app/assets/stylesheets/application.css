@@ -27,11 +27,6 @@ h1, h2, p, strong, em, a, div, img {
   background: transparent;
 }
 
-.photograph {
-  width: 600px;
-  height: auto;
-}
-
 
 
 a {
@@ -43,13 +38,13 @@ a {
   color: #125688;
 }
 
- .newsfeed {
-   display: flex;
-   position: relative;
-   vertical-align: baseline;
-   align-items: center;
-   align-self: center;
- }
+.newsfeed {
+  display: flex;
+  position: relative;
+  vertical-align: baseline;
+  align-items: center;
+  align-self: center;
+}
 
 
 .newsfeed-ul {
@@ -61,11 +56,16 @@ a {
   -webkit-flex-direction: column;
 }
 
-.newsfeed-item {
+.photo-item {
   border: 1px solid black;
 }
 
-.newsfeed-item > li {
+.photo-item > li {
   list-style: none;
   margin: 20px 0px
+}
+
+.photograph {
+  width: 600px;
+  height: auto;
 }
