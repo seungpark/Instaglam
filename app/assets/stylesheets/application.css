@@ -27,6 +27,13 @@ h1, h2, p, strong, em, a, div, img {
   background: transparent;
 }
 
+.photograph {
+  width: 600px;
+  height: auto;
+}
+
+
+
 a {
   display: inline-block;
   font-size: 15px;
@@ -36,7 +43,7 @@ a {
   color: #125688;
 }
 
- .newsfeed-container {
+ .newsfeed {
    display: flex;
    position: relative;
    vertical-align: baseline;

@@ -20,7 +20,7 @@
     render: function() {
 
       return (
-        <div className="newsfeed-container">
+        <div className="newsfeed">
           <ul className="newsfeed-ul">
             {this.state.photos.map(function (photo) {
               return <Photo
