@@ -5,7 +5,7 @@
       return (
         <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user">
-            <ReactRouter.Link to={"/users/" + this.props.photo.username}>{this.props.photo.username}
+            <ReactRouter.Link to={"/" + this.props.photo.username}>{this.props.photo.username}
             </ReactRouter.Link>
           </li>
           <li className="photo-title">{this.props.photo.title}</li>
