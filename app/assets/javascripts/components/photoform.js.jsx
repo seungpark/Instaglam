@@ -1,6 +1,6 @@
 (function(root) {
 
-  root.PhotoForm = react.createClass({
+  root.PhotoForm = React.createClass({
 
     _changeTitle: function(e) {
       this.setState({ title: e.currentTarget.value });
