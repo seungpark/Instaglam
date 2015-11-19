@@ -16,10 +16,18 @@
       ApiUtil.fetchUserPhotos(username);
     },
 
+//need to feed prop to UserPageProfile
+//currentUser={CurrentUserStore.currentUser}
+
     render: function() {
       return(
-        <div className="userpage-index">
-          <UserPageIndex photos={this.state.photos}/>
+        <div className="userpage">
+          <div className="userpage-profile-container">
+            <UserPageProfile />
+          </div>
+          <div className="userpage-index">
+            <UserPageIndex photos={this.state.photos}/>
+          </div>
         </div>
       )
     }
