@@ -28,7 +28,6 @@
     },
 
     render: function(){
-      debugger;
       return(
       <div>
         <NewsFeed photos={this.state.photos} history={this.history} />

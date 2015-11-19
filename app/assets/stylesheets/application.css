@@ -15,7 +15,7 @@
  */
 
  .newsfeed-container {
-   display:flex;
+   display: flex;
    position: relative;
    vertical-align: baseline;
    align-items: center;
@@ -26,12 +26,14 @@
 .newsfeed-ul {
   display:flex;
   position: relative;
+  margin: auto;
   vertical-align: baseline;
   flex-direction: column;
   -webkit-flex-direction: column;
 }
 
 .newsfeed-item {
+  border: 1px solid black;
 }
 
 .newsfeed-item > li {

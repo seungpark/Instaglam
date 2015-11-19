@@ -18,7 +18,6 @@
     },
 
     render: function() {
-      debugger;
       return (
         <div className="newsfeed-container">
           <ul className="newsfeed-ul">
