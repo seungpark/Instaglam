@@ -11,5 +11,5 @@ ApiActions = {
       actionType: PhotoConstants.PHOTOS_RECEIVED,
       photos: photos
     });
-  }
+  },
 };

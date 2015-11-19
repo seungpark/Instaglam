@@ -10,10 +10,24 @@ class UsersController < ApplicationController
     current_user
     if @user.save
       sign_in(@user)
-      redirect_to
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to root_url
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :edit
     end
   end
 

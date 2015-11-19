@@ -15,7 +15,7 @@ class Api::PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    redirect_to root
+    redirect_to root_url
   end
 
   def show

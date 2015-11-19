@@ -1,0 +1,26 @@
+a {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  overflow: hidden;
+  color: #125688;
+}
+
+.newsfeed {
+  display: flex;
+  position: relative;
+  vertical-align: baseline;
+  align-items: center;
+  align-self: center;
+}
+
+
+.newsfeed-ul {
+  display:flex;
+  position: relative;
+  margin: auto;
+  vertical-align: baseline;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}

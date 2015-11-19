@@ -16,10 +16,14 @@
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchPhotos();
     },
+    //
+    // <div className="edit-page">
+    //   <a href={"/users/" +
+    // </div>
 
     render: function() {
-
       return (
+
         <div className="newsfeed">
           <ul className="newsfeed-ul">
             {this.state.photos.map(function (photo) {

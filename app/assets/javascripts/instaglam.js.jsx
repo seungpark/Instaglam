@@ -23,7 +23,7 @@ $(function(){
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter}/>
-        <Route path="/users/:username" component={UserPage}/>
+        <Route path="/:username" component={UserPage}/>
       </Route>
     </Router>,
     root
