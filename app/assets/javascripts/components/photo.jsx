@@ -9,6 +9,7 @@
             </ReactRouter.Link>
           </li>
           <li className="photo-title">{this.props.photo.title}</li>
+          <img src="https://lh5.googleusercontent.com/-njFXgQhgQE8/AAAAAAAAAAI/AAAAAAAAAAA/dOa_qDVksz0/s0-c-k-no-ns/photo.jpg"/>
           <li className="photo-caption">{this.props.photo.caption}</li>
         </ul>
       )
