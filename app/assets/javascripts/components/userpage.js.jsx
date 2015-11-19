@@ -19,7 +19,7 @@
     render: function() {
       return(
         <div className="userpage-photos-container">
-          {UserPageContainer}
+          <UserPageIndex photos={this.state.photos}/>
         </div>
       )
     }
