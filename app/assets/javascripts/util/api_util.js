@@ -1,11 +1,23 @@
 ApiUtil = {
   fetchPhotos: function(){
-    var result = $.ajax({
+    $.ajax({
       url: "api/photos",
       type: 'GET',
       dataType: 'json',
       success: function (data) {
         ApiActions.receiveAll(data);
+      }
+    });
+  },
+
+  fetchUserPhotos: function(username){
+    $.ajax({
+      url: "api/photos/",
+      type: 'GET',
+      dataType: 'json',
+      data: {username: username},
+      success: function(data) {
+        ApiActions.receiveUserPhotos(data);
       }
     });
   },

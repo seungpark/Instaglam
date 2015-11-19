@@ -18,11 +18,12 @@
     },
 
     render: function() {
+
       return (
         <div className="newsfeed-container">
           <ul className="newsfeed-ul">
             {this.state.photos.map(function (photo) {
-              return <NewsFeedItem
+              return <Photo
                 photo={photo}
                 key={photo.id} />
             }.bind(this) )}

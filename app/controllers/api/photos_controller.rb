@@ -1,7 +1,14 @@
 class Api::PhotosController < ApplicationController
 
   def index
-    @photos = Photo.all
+    if params.has_key?("username")
+      userid = User.find_by(username: params[:username]).id
+      @photos = Photo.select {|photo| photo.user_id == userid}
+    else
+      @photos = Photo.all
+    end
+    # params.username ?  : @photos = Photo.all
+
     render 'index'
   end
     # render 'index' goes to views/api/photos/index.json.jbuilder
