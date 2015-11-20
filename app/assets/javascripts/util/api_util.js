@@ -22,10 +22,19 @@ ApiUtil = {
     });
   },
 
-  createPhoto: function(data){
-    $.post('api/photos', { photo: data }, function(photo) {
-      ApiActions.receiveAll([photo]);
+  createPhoto: function(formData, callback) {
+    $.ajax({
+      url: '/api/photos',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function(photo) {
+        PhotoActions.receivePhoto(photo);
+        callback && callback();
+      }
     });
-  },
+  }
 
 };

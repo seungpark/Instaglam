@@ -2,6 +2,9 @@
 
   var _photos = [];
   var CHANGE_EVENT = "PHOTOSTORE CHANGED";
+  var _addPhoto = function(newPhoto) {
+    _photos.unshift(newPhoto);
+  };
 
   root.PhotoStore = $.extend({}, EventEmitter.prototype, {
     all: function() {
@@ -24,6 +27,10 @@
       switch(payload.actionType){
         case PhotoConstants.PHOTOS_RECEIVED:
           PhotoStore.resetPhotos(payload.photos);
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.PHOTO_RECEIVED:
+          _addPhoto(payload.photo);
           PhotoStore.emit(CHANGE_EVENT);
           break;
       }

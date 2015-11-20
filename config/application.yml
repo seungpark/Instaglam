@@ -1,8 +1,8 @@
 development:
-  s3_bucket: "XXXX-BUCKET-NAME-DEV"
+  s3_bucket: "instaglam-dev"
 
 production:
-  s3_bucket: "XXXX-BUCKET-NAME-PRO"
+  s3_bucket: "instaglam-prod"
 
-s3_access_key_id: "XXXX"
-s3_secret_access_key: "XXXX"
+s3_access_key_id: "AKIAI5CFNZGWFBEFFKQA"
+s3_secret_access_key: "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"

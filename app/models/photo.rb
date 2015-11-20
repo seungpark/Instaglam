@@ -1,5 +1,8 @@
 class Photo < ActiveRecord::Base
 
+  has_attached_file :image, default_url: "missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   validates :title, :user_id, presence: true
 
   belongs_to :user
@@ -14,6 +17,13 @@ class Photo < ActiveRecord::Base
 
   has_many :comments
 
+end
+
+class AddDetailsToProducts < ActiveRecord::Migration
+  def change
+    add_column :products, :part_number, :string
+    add_column :products, :price, :decimal
+  end
 end
 
 

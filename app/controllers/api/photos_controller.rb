@@ -17,8 +17,9 @@ class Api::PhotosController < ApplicationController
     # render 'index' goes to views/api/photos/index.json.jbuilder
 
   def create
-    @photo = Photo.new(photo_params)
-    redirect_to root_url
+    puts photo_params
+    @photo = Photo.create!(photo_params)
+    render 'show'
   end
 
   def show
@@ -28,8 +29,8 @@ class Api::PhotosController < ApplicationController
     # render 'show' goes to views/api/photos/show.json.jbuilder
 
   private
-  def photos_params
-    params.require(:photo).permit(:title, :caption, :user_id)
+  def photo_params
+    params.require(:photo).permit(:title, :caption, :user_id, :image)
   end
 
 end
