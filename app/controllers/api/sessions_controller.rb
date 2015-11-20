@@ -25,9 +25,6 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  #creating session is working!
-  #checked in byebug
-
   def destroy
     sign_out!
     render json: {}
