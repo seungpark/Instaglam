@@ -9,9 +9,7 @@ var Header = React.createClass ({
             <span className="home-logo">Instaglam</span>
           </ReactRouter.Link>
           </div>
-          <div className="header-user-info">
-            <HeaderUser/>
-          </div>
+          <HeaderUser/>
         </div>
       </div>
     )

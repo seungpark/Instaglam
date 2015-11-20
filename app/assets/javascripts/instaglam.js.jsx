@@ -10,7 +10,11 @@ $(function(){
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { currentUser: null };
+      if (CurrentUserStore.currentUser()) {
+        return { currentUser: CurrentUserStore.currentUser() };
+      } else {
+        return { currentUser: null };
+      }
     },
 
     componentWillMount: function() {
@@ -28,20 +32,22 @@ $(function(){
 
 
     render: function(){
+      
       if (!this.state.currentUser) {
         return (
           <div>
             <SessionForm/>
           </div>
         );
+      } else {
+        return (
+            <div>
+              <Header/>
+              {this.props.children}
+            </div>
+        );
       }
 
-      return (
-          <div>
-            <Header/>
-            {this.props.children}
-          </div>
-      );
     }
   });
 
