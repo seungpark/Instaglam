@@ -4,6 +4,7 @@ $(function(){
   var Router = ReactRouter.Router;
   var Route = ReactRouter.Route;
   var IndexRoute = ReactRouter.IndexRoute;
+
   var App = React.createClass({
     render: function(){
       return (
@@ -23,6 +24,7 @@ $(function(){
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter}/>
+        <Route path="signin" component={ SessionForm}/>
         <Route path="/:username" component={UserPage}/>
         <Route path="/postnewphoto" component={PhotoForm}/>
       </Route>
