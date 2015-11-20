@@ -8,9 +8,9 @@ var Header = React.createClass ({
           <ReactRouter.Link to={"/"}>
             <span className="home-logo">Instaglam</span>
           </ReactRouter.Link>
+          </div>
           <div className="header-user-info">
             <HeaderUser/>
-          </div>
           </div>
         </div>
       </div>
