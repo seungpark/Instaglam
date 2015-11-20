@@ -2,8 +2,11 @@ class Api::PhotosController < ApplicationController
 
   def index
     if params.has_key?("username")
+
       userid = User.find_by(username: params[:username]).id
-      @photos = Photo.select {|photo| photo.user_id == userid}
+      @photos = Photo.where(user_id: userid)
+      # @photos = Photo.select{|photo| photo.user_id == userid}
+      # select {|photo| photo.user_id == userid}
     else
       @photos = Photo.all
     end
