@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_out!
-    #conditional added for debugging
     if current_user
       current_user.reset_session_token!
       session[:session_token] = nil
