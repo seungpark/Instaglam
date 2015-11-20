@@ -6,7 +6,7 @@
       return(
         <div className="userphotos-index">
         <ul className="userphotos-index-ul">
-          {this.props.photos.map(function (photo) {
+          {this.props.photos.reverse().map(function (photo) {
             return <IndexPhoto
               photo={photo}
               key={photo.id} />

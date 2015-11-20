@@ -22,6 +22,7 @@
     // </div>
 
     render: function() {
+      debugger
       return (
 
         <div className="newsfeed">

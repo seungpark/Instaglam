@@ -1,5 +1,5 @@
 (function(root) {
-  root.Header = React.createClass({
+  root.HeaderUser = React.createClass({
 
     getInitialState: function () {
       return {

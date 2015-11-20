@@ -63,7 +63,7 @@
       formData.append("photo[caption]", caption);
       formData.append("photo[user_id]", userid);
       formData.append("photo[image]", file);
-      debugger
+      
       ApiUtil.createPhoto(formData, this.resetForm);
     },
 
