@@ -12,7 +12,6 @@ var SessionsApiUtil = {
         console.log("reaching login-success");
       }
     });
-    debugger
   }
 
 };

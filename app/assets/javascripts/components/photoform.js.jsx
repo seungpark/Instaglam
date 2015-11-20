@@ -11,7 +11,6 @@
     },
 
     render: function() {
-      debugger;
       <div>
 
 
