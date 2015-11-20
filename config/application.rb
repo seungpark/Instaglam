@@ -31,6 +31,6 @@ module InstaglamReact
         :secret_access_key => ENV["s3_secret_access_key"]
       }
     }
-    
+
   end
 end

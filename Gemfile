@@ -29,6 +29,10 @@ gem 'flux-rails-assets', '~> 2.1.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bcrypt-ruby', require: 'bcrypt'
 
+gem 'paperclip'
+gem 'aws-sdk', '~> 1.6'
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
