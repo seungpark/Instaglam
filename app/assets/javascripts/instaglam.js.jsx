@@ -6,7 +6,36 @@ $(function(){
   var IndexRoute = ReactRouter.IndexRoute;
 
   var App = React.createClass({
+
+    mixins: [ReactRouter.History],
+
+    getInitialState: function() {
+      return { currentUser: null };
+    },
+
+    componentWillMount: function() {
+      CurrentUserStore.addChangeHandler(this._ensureSignedIn);
+      SessionsApiUtil.fetchCurrentUser();
+    },
+
+    _ensureSignedIn: function() {
+      if (!CurrentUserStore.isSignedIn()) {
+        this.history.pushState(null, "/signin");
+      }
+
+      this.setState({ currentUser: CurrentUserStore.currentUser() });
+    },
+
+
     render: function(){
+      if (!this.state.currentUser) {
+        return (
+          <div>
+            <SessionForm/>
+          </div>
+        );
+      }
+
       return (
           <div>
             <Header/>
