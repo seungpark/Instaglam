@@ -32,7 +32,6 @@ $(function(){
 
 
     render: function(){
-      
       if (!this.state.currentUser) {
         return (
           <div>
@@ -58,7 +57,7 @@ $(function(){
   React.render(
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={FeedFilter}/>
+        <IndexRoute component={FeedFilter} />
         <Route path="signin" component={ SessionForm}/>
         <Route path="/:username" component={UserPage}/>
         <Route path="/postnewphoto" component={PhotoForm}/>
