@@ -2,7 +2,6 @@
   root.Header = React.createClass ({
 
     render: function(){
-      debugger
       return (
         <div className="header-shell">
           <div className="header-logo">

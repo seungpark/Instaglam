@@ -32,7 +32,6 @@ $(function(){
 
 
     render: function(){
-      debugger
       if (!this.state.currentUser) {
         return (
           <div>

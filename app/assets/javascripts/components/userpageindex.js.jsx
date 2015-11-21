@@ -3,7 +3,6 @@
   root.UserPageIndex = React.createClass({
 
     render: function() {
-    debugger
       return(
         <div className="userphotos-index">
         <ul className="userphotos-index-ul">
