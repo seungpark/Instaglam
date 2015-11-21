@@ -12,7 +12,7 @@
     },
 
     resetPhotos: function(photos){
-      _photos = photos;
+      _photos = photos.reverse();
     },
 
     addChangeListener: function(callback){
@@ -26,7 +26,7 @@
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case PhotoConstants.PHOTOS_RECEIVED:
-          PhotoStore.resetPhotos(payload.photos.reverse());
+          PhotoStore.resetPhotos(payload.photos);
           PhotoStore.emit(CHANGE_EVENT);
           break;
         case PhotoConstants.PHOTO_RECEIVED:

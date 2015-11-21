@@ -3,10 +3,11 @@
   root.UserPageIndex = React.createClass({
 
     render: function() {
+    debugger
       return(
         <div className="userphotos-index">
         <ul className="userphotos-index-ul">
-          {this.props.photos.reverse().map(function (photo) {
+          {this.props.photos.map(function (photo) {
             return <IndexPhoto
               photo={photo}
               key={photo.id} />
