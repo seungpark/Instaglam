@@ -21,11 +21,13 @@
 
     render: function() {
       if (CurrentUserStore.isSignedIn()) {
-        var currentUserHomePage = "/#/" + CurrentUserStore.currentUser().username;
+        var currentUserHomePage = "/" + CurrentUserStore.currentUser().username;
+        debugger
         return (
           <div className="header-user">
           <ul className="header-user-nav">
-            <li><ReactRouter.Link to={currentUserHomePage}>{ CurrentUserStore.currentUser().username }</ReactRouter.Link></li>
+            <li><ReactRouter.Link to={currentUserHomePage}>{CurrentUserStore.currentUser().username}
+            </ReactRouter.Link></li>
             <li><a href="/#/newphoto">Add New Photo</a></li>
             <li><button onClick={ this.signout }>Sign Out!</button></li>
           </ul>
@@ -45,7 +47,12 @@
 
   })
 })(this);
-
-<ReactRouter.Link to={"/"}>
-  <span className="home-logo">Instaglam</span>
-</ReactRouter.Link>
+//
+//
+// <ReactRouter.Link to={"/" + this.props.photo.username}>{this.props.photo.username}
+// </ReactRouter.Link>
+//
+// currentUserHomePage = "/" + CurrentUserStore.currentUser().username;
+//
+// <ReactRouter.Link to={currentUserHomePage}>{CurrentUserStore.currentUser().username}
+// </ReactRouter.Link>

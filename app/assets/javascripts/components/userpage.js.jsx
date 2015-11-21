@@ -10,9 +10,20 @@
       this.setState({ photos: PhotoStore.all() });
     },
 
-    componentDidMount: function() {
+    componentWillMount: function() {
       PhotoStore.addChangeListener(this._photosChanged);
       var username = this.props.params.username;
+      ApiUtil.fetchUserPhotos(username);
+    },
+
+    componentWillUnmount: function(){
+      PhotoStore.removeChangeListener(this._photosChanged);
+    },
+
+    componentWillReceiveProps: function(newProps) {
+
+      PhotoStore.addChangeListener(this._photosChanged);
+      var username = newProps.params.username;
       ApiUtil.fetchUserPhotos(username);
     },
 
@@ -20,6 +31,7 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
+
       return(
         <div className="userpage">
           <div className="userpage-profile-container">

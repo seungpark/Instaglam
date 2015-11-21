@@ -1,7 +1,8 @@
 class Api::UsersController < ApplicationController
 
   def show
-    render json: User.find(params[:id])
+    @user = User.find(params[:id])
+    render :show
   end
 
   private
