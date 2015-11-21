@@ -1,5 +1,0 @@
-development:
-  s3_bucket: "instaglam-dev"
-
-production:
-  s3_bucket: "instaglam-prod"
