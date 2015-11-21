@@ -60,7 +60,7 @@ $(function(){
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter} />
         <Route path="signin" component={ SessionForm}/>
-        <Route path="/postnewphoto" component={PhotoForm}/>
+        <Route path="/newphoto" component={PhotoForm}/>
         <Route path="/:username" component={UserPage}/>
       </Route>
     </Router>,

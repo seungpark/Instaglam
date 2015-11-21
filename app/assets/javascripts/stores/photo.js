@@ -26,7 +26,7 @@
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case PhotoConstants.PHOTOS_RECEIVED:
-          PhotoStore.resetPhotos(payload.photos);
+          PhotoStore.resetPhotos(payload.photos.reverse());
           PhotoStore.emit(CHANGE_EVENT);
           break;
         case PhotoConstants.PHOTO_RECEIVED:

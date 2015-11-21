@@ -21,11 +21,17 @@
 
     render: function() {
       if (CurrentUserStore.isSignedIn()) {
+        var currentUserHomePage = "/#/" + CurrentUserStore.currentUser().username;
         return (
-          <div>
-            { this.state.currentUser.username }
-            <button onClick={ this.signout }>Sign Out!</button>
+          <div className="header-user">
+          <ul className="header-user-nav">
+            <li><a href={currentUserHomePage}>{ CurrentUserStore.currentUser().username }</a></li>
+            <li><a href="/#/newphoto">Add New Photo</a></li>
+            <li><button onClick={ this.signout }>Sign Out!</button></li>
+          </ul>
+
           </div>
+
         );
       } else {
         return (
