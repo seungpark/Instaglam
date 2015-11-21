@@ -25,7 +25,7 @@
         return (
           <div className="header-user">
           <ul className="header-user-nav">
-            <li><a href={currentUserHomePage}>{ CurrentUserStore.currentUser().username }</a></li>
+            <li><ReactRouter.Link to={currentUserHomePage}>{ CurrentUserStore.currentUser().username }</ReactRouter.Link></li>
             <li><a href="/#/newphoto">Add New Photo</a></li>
             <li><button onClick={ this.signout }>Sign Out!</button></li>
           </ul>
@@ -45,3 +45,7 @@
 
   })
 })(this);
+
+<ReactRouter.Link to={"/"}>
+  <span className="home-logo">Instaglam</span>
+</ReactRouter.Link>

@@ -1,16 +1,18 @@
 
 .photo-item {
   border: 1px solid black;
+  margin: auto;
 }
 
 .photo-item > li {
   list-style: none;
-  margin: 20px 0px
+  margin: 20px;
 }
 
 .photograph {
   width: 600px;
   height: auto;
+  margin: auto;
 }
 
 .preview-image {
