@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require flux
