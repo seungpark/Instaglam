@@ -44,21 +44,22 @@ ApiUtil = {
       dataType: 'json',
       data: {photo_id: photoid},
       success: function(data) {
+        debugger
         ApiActions.receivePhotoLikes(data);
       }
     });
   },
 
-  createLike: function(likeData){
+  createLike: function(photoid, currentuserid){
     $.ajax({
       url:'/api/likes',
       type: 'POST',
       dataType: 'json',
-      data: likeData,
+      data: {photo_id: photoid, user_id: currentuserid},
       success: function(like) {
         LikeActions.receiveLike(like);
       }
-    })
+    });
   }
 
 };

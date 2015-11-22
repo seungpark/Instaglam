@@ -10,7 +10,12 @@ class Api::LikesController < ApplicationController
   end
 
   def create
-    byebug
+    photoid = params[:photo_id].to_i
+    userid = params[:user_id].to_i
+    @like = Like.new(photo_id: photoid, user_id: userid)
+    if @like.save
+      render 'show'
+    end
   end
 
   def show
@@ -18,9 +23,5 @@ class Api::LikesController < ApplicationController
     render 'show'
   end
 
-  private
-  def likes_params
-
-  end
 
 end

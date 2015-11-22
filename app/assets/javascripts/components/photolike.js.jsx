@@ -1,23 +1,29 @@
 (function(root) {
   root.PhotoLike = React.createClass ({
 
+    mixins: [ReactRouter.History],
+
     getInitialState: function() {
       return { likes: [] };
     },
 
     componentWillMount: function () {
-      LikeStore.addChangeListener(this._likesChanged);
+      debugger
       ApiUtil.fetchLikes(this.props.photo.id);
+      LikeStore.addChangeListener(this._likesChanged);
+      debugger
+      //goes to render once before going to ApiUtil.fetchLikes
     },
 
     _likesChanged: function() {
       this.setState({ likes: LikeStore.all() });
+      debugger
     },
 
     _handleHeartClick: function(e) {
       e.preventDefault();
 
-      ApiUtil.receiveLike(this.props.photo.id, currentUserStore.currentUser().id);
+      ApiUtil.createLike(this.props.photo.id, CurrentUserStore.currentUser().id);
     },
 
     render: function() {

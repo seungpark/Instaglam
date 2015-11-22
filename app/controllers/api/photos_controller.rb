@@ -17,7 +17,6 @@ class Api::PhotosController < ApplicationController
     # render 'index' goes to views/api/photos/index.json.jbuilder
 
   def create
-    puts photo_params
     @photo = Photo.create!(photo_params)
     render 'show'
   end
