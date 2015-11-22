@@ -44,7 +44,6 @@ ApiUtil = {
       dataType: 'json',
       data: {photo_id: photoid},
       success: function(data) {
-        debugger
         ApiActions.receivePhotoLikes(data);
       }
     });
@@ -60,6 +59,18 @@ ApiUtil = {
         LikeActions.receiveLike(like);
       }
     });
+  },
+
+  deleteLike: function(photoid, currentuserid){
+    $.ajax({
+      url:'/api/likes/like',
+      type: 'DELETE',
+      dataType: 'json',
+      data: {photo_id: photoid, user_id: currentuserid},
+      success: function(like) {
+        LikeActions.deleteLike(like);
+      }
+    })
   }
 
 };

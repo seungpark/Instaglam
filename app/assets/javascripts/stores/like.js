@@ -13,7 +13,6 @@
 
     addChangeListener: function(callback) {
       this.on(CHANGE_EVENT, callback);
-      debugger
     },
 
     removeChangeListener: function(callback) {
@@ -30,12 +29,9 @@
 
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
-        case LikeConstants.LIKES_RECEIVED:
-        debugger
-          LikeStore._resetLikes(payload.likes);
-          LikeStore.emit(CHANGE_EVENT);
-          break;
+
         case LikeConstants.LIKE_RECEIVED:
+        debugger
           LikeStore._addLike(payload.like);
           LikeStore.emit(CHANGE_EVENT);
           break;

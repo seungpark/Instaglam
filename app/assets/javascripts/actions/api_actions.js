@@ -14,7 +14,6 @@ ApiActions = {
   },
 
   receivePhotoLikes: function(likes){
-    debugger
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKES_RECEIVED,
       likes: likes

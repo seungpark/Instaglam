@@ -1,9 +1,16 @@
 LikeActions = {
-  receiveLike: function(like, currentUserId) {
+  receiveLike: function(like) {
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKE_RECEIVED,
       like: like,
-      currentUserId: currentUserId
+    });
+  },
+
+  deleteLike: function(like) {
+    debugger
+    AppDispatcher.dispatch({
+      actionType: LikeConstants.LIKE_DELETED,
+      like: like
     });
   }
-}
+};
