@@ -7,6 +7,8 @@
 
   root.FeedFilter = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     _photosChanged: function(){
       this.setState({photos: _getAllPhotos()});
     },

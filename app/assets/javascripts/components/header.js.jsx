@@ -1,6 +1,8 @@
 (function(root) {
   root.Header = React.createClass ({
 
+    mixins: [ReactRouter.History],
+
     render: function(){
       return (
         <div className="header-shell">

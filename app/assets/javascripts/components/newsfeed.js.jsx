@@ -1,6 +1,8 @@
 (function(root){
   root.NewsFeed = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     getInitialState: function () {
       return {photos: PhotoStore.all()};
       // var userId = parseInt(this.props.params.userId);

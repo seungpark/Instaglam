@@ -2,6 +2,8 @@
 
   root.UserPage = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     getInitialState: function() {
       return {photos: []};
     },

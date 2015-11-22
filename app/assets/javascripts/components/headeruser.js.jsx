@@ -1,6 +1,8 @@
 (function(root) {
   root.HeaderUser = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     getInitialState: function () {
       return {
         currentUser: CurrentUserStore.currentUser()

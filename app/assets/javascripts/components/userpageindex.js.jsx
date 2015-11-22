@@ -2,6 +2,8 @@
 
   root.UserPageIndex = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     render: function() {
       return(
         <div className="userphotos-index">

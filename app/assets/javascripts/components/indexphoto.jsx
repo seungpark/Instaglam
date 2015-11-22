@@ -1,6 +1,8 @@
 (function(root){
   root.IndexPhoto = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     render: function() {
       return (
         <ul className="photo-item" key={this.props.photo.id}>

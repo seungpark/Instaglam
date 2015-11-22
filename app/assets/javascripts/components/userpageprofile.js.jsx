@@ -2,7 +2,7 @@
 
   root.UserPageProfile = React.createClass ({
 
-    //need current user here for rendering adding link to edit page
+    mixins: [ReactRouter.History],
 
     render: function() {
       return (

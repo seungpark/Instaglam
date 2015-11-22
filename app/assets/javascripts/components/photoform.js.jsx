@@ -1,6 +1,8 @@
 (function(root) {
   root.PhotoForm = React.createClass({
 
+    mixins: [ReactRouter.History],
+
     getInitialState: function() {
       return { title: "", caption: "", imageUrl: "", imageFile: null };
     },
@@ -63,7 +65,7 @@
       formData.append("photo[caption]", caption);
       formData.append("photo[user_id]", userid);
       formData.append("photo[image]", file);
-      
+
       ApiUtil.createPhoto(formData, this.resetForm);
     },
 
