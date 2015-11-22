@@ -59,9 +59,21 @@ comments = Comment.create([
   {photo_id:3 , user_id:1 , body: "commentbodytest1"},
   {photo_id:3 , user_id:2 , body: "commentbodytest2"},
   {photo_id:3 , user_id:3 , body: "heres a really long body test for the comment check for overflow of text"},
-  {photo_id:3 , user_id:1 , body: "last comment"},
+  {photo_id:3 , user_id:1 , body: "last comment"}
   ])
 
+likes = Like.create([
+  {photo_id:1 , user_id:1},
+  {photo_id:1 , user_id:2},
+  {photo_id:1 , user_id:3},
+  {photo_id:1 , user_id:4},
+  {photo_id:13 , user_id:2},
+  {photo_id:13 , user_id:3},
+  {photo_id:13 , user_id:4},
+  {photo_id:13 , user_id:1},
+  {photo_id:13 , user_id:5},
+  {photo_id:12 , user_id:3},
+])
 
 
 

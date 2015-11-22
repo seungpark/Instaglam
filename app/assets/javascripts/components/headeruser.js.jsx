@@ -22,7 +22,6 @@
     render: function() {
       if (CurrentUserStore.isSignedIn()) {
         var currentUserHomePage = "/" + CurrentUserStore.currentUser().username;
-        debugger
         return (
           <div className="header-user">
           <ul className="header-user-nav">
@@ -47,12 +46,3 @@
 
   })
 })(this);
-//
-//
-// <ReactRouter.Link to={"/" + this.props.photo.username}>{this.props.photo.username}
-// </ReactRouter.Link>
-//
-// currentUserHomePage = "/" + CurrentUserStore.currentUser().username;
-//
-// <ReactRouter.Link to={currentUserHomePage}>{CurrentUserStore.currentUser().username}
-// </ReactRouter.Link>

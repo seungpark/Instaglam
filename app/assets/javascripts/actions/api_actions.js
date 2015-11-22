@@ -12,4 +12,11 @@ ApiActions = {
       photos: photos
     });
   },
+
+  receivePhotoLikes: function(likes){
+    AppDispatcher.dispatch({
+      actionType: LikeConstants.LIKES_RECEIVED,
+      likes: likes
+    })
+  }
 };

@@ -35,6 +35,30 @@ ApiUtil = {
         callback && callback();
       }
     });
+  },
+
+  fetchLikes: function(photoid){
+    $.ajax({
+      url: '/api/likes',
+      type: 'GET',
+      dataType: 'json',
+      data: {photo_id: photoid},
+      success: function(data) {
+        ApiActions.receivePhotoLikes(data);
+      }
+    });
+  },
+
+  createLike: function(likeData){
+    $.ajax({
+      url:'/api/likes',
+      type: 'POST',
+      dataType: 'json',
+      data: likeData,
+      success: function(like) {
+        LikeActions.receiveLike(like);
+      }
+    })
   }
 
 };

@@ -31,7 +31,6 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
-
       return(
         <div className="userpage">
           <div className="userpage-profile-container">
