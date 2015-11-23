@@ -8,25 +8,18 @@
       return { comments: this.props.comments };
     },
 
-    // _commentsChanged: function() {
-    //   this.setState({ comments: CommentStore.all() });
+    // _commentsAdded: function() {
+    //   this.setState({ comments: this.props.comments.push(CommentStore.newComment()) });
     // },
     //
     // componentWillMount: function() {
-    //   CommentStore.addChangeListener(this._commentsChanged);
-    //   var photoid = this.props.photo.id;
-    //   ApiUtil.fetchPhotoComments(photoid);
+    //   CommentStore.addAdditionListener(this._commentsAdded);
     // },
     //
     // componentWillUnmount: function(){
     //   CommentStore.removeChangeListener(this._commentsChanged);
     // },
-    //
-    // componentWillReceiveProps: function(newProps){
-    //   CommentStore.addChangeListener(this._commentsChanged);
-    //   var photoid = this.props.photo.id;
-    //   ApiUtil.fetchPhotoComments(photoid);
-    // },
+
 
     render: function() {
       return (

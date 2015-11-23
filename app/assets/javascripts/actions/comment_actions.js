@@ -1,9 +1,9 @@
 CommentActions = {
 
-  receivePhotoComments: function(comments){
+  createPhotoComment: function(comment){
     AppDispatcher.dispatch({
-      actionType: CommentConstants.COMMENTS_RECEIVED,
-      comments: comments
+      actionType: CommentConstants.COMMENT_ADDED,
+      comment: comment
     });
   }
 

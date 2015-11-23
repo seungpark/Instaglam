@@ -73,17 +73,17 @@ ApiUtil = {
     });
   },
 
-  fetchPhotoComments: function(photoid) {
-    $.ajax({
-      url: '/api/comments',
-      type: 'GET',
-      dataType: 'json',
-      data: {photo_id: photoid},
-      success: function(data) {
-        CommentActions.receivePhotoComments(data);
-      }
-    });
-  },
+  // fetchPhotoComments: function(photoid) {
+  //   $.ajax({
+  //     url: '/api/comments',
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     data: {photo_id: photoid},
+  //     success: function(data) {
+  //       CommentActions.receivePhotoComments(data);
+  //     }
+  //   });
+  // },
 
   createPhotoComment: function(photoid, currentuserid, body){
     $.ajax({

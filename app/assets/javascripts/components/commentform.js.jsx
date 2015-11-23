@@ -6,7 +6,6 @@
 
 
     getInitialState: function() {
-      debugger
       return {body: ""};
     },
 

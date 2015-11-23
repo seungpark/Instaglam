@@ -1,30 +1,30 @@
 (function (root) {
 
-  var _comments = [];
-  var CHANGE_EVENT = "COMMENTSTORE CHANGED";
+  var _newComment;
+  var ADD_COMMENT = "ADD COMMENT";
 
   root.CommentStore = $.extend({}, EventEmitter.prototype, {
 
     mixins: [ReactRouter.History],
 
-    all: function() {
-      return _comments.slice(0);
+    newComment: function() {
+      return _newComment;
     },
 
     _addComment: function(comment) {
-      _comments.unshift(comment);
+      _newComment = comment;
     },
+    //
+    // _removeComment: function(comment) {
+    //   _comments.shift(comment);
+    // },
+    //
+    // _resetComments: function(comments) {
+    //   _comments = comments.reverse();
+    // },
 
-    _removeComment: function(comment) {
-      _comments.shift(comment);
-    },
-
-    _resetComments: function(comments) {
-      _comments = comments.reverse();
-    },
-
-    addChangeListener: function(callback) {
-      this.on(CHANGE_EVENT, callback);
+    addAdditionListener: function(callback) {
+      this.on(ADD_COMMENT, callback);
     },
 
     removeChangeListener: function(callback){
@@ -33,17 +33,11 @@
 
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
-        case CommentConstants.COMMENTS_RECEIVED:
-          CommentStore._resetComments(payload.comments);
-          CommentStore.emit(CHANGE_EVENT);
-          break;
-        case CommentConstants.COMMENT_RECEIVED:
-          CommentStore._addComment(payload.comment);
-          CommentStore.emit(CHANGE_EVENT);
+        case CommentConstants.COMMENT_ADDED:
+          CommentStore._addComment(payload.comment)
+          CommentStore.emit(ADD_COMMENT);
           break;
         case LikeConstants.COMMENT_DELETED:
-          CommentStore._removeComment(payload.comment);
-          CommentStore.emit(CHANGE_EVENT);
           break;
       }
     })
