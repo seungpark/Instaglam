@@ -13,8 +13,25 @@
           <li className="photo-title">{this.props.photo.title}</li>
           <img className="photograph" src={this.props.photo.image_url}/>
           <li className="photo-caption">{this.props.photo.caption}</li>
-          <li className="photo-likes"> <PhotoLike photo={this.props.photo}/> </li>
-          <li className="photo-comments"> <PhotoComment photo={this.props.photo} /> </li>
+          <li className="photo-like"> <PhotoLike
+              photo={this.props.photo}
+              key={this.props.photo.id}
+              likes={this.props.photo.likes}
+              user={CurrentUserStore.currentUser()}
+            /> </li>
+          <li className="photo-comments">
+            <PhotoComment
+              photo={this.props.photo}
+              key={this.props.photo.id}
+              comments={this.props.photo.comments}
+              user={CurrentUserStore.currentUser()}
+           /> </li>
+           <li className="submit-comment">
+            <CommentForm
+              photo={this.props.photo}
+              key={this.props.photo.id}
+              user={CurrentUserStore.currentUser()}
+          /> </li>
         </ul>
       )
 

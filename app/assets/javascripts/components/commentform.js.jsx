@@ -6,23 +6,20 @@
 
 
     getInitialState: function() {
-      return {
-        photoid: this.props.photo.id,
-        userid: CurrentUserStore.currentUser().id,
-        comment: ""
-      };
+      debugger
+      return {body: ""};
     },
 
     _changeComment: function(e) {
       this.setState({
-        comment: e.currentTarget.value
+        body: e.currentTarget.value
       });
     },
 
     _handleSubmit: function(e) {
-      var photoid = this.state.photoid,
-          userid = this.state.userid,
-          body = this.state.comment;
+      var photoid = this.props.photo.id,
+          userid = this.props.user.id,
+          body = this.state.body;
 
       ApiUtil.createPhotoComment(photoid, userid, body);
     },
