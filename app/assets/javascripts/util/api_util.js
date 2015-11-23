@@ -80,7 +80,6 @@ ApiUtil = {
       dataType: 'json',
       data: {photo_id: photoid},
       success: function(data) {
-        debugger
         CommentActions.receivePhotoComments(data);
       }
     });
@@ -93,7 +92,6 @@ ApiUtil = {
       dataType: 'json',
       data: {photo_id: photoid, user_id: currentuserid, body: body},
       success: function(data) {
-        debugger
         CommentActions.createPhotoComment(data);
       }
     })

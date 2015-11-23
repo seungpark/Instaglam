@@ -34,7 +34,6 @@
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case CommentConstants.COMMENTS_RECEIVED:
-        debugger
           CommentStore._resetComments(payload.comments);
           CommentStore.emit(CHANGE_EVENT);
           break;

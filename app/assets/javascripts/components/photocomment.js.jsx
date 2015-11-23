@@ -13,7 +13,6 @@
     },
 
     componentWillMount: function() {
-      debugger
       CommentStore.addChangeListener(this._commentsChanged);
       var photoid = this.props.photo.id;
       ApiUtil.fetchPhotoComments(photoid);

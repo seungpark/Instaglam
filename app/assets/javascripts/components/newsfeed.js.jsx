@@ -29,6 +29,7 @@
         <div className="newsfeed">
           <ul className="newsfeed-ul">
             {this.state.photos.map(function (photo) {
+              debugger
               return <IndexPhoto
                 photo={photo}
                 key={photo.id} />
