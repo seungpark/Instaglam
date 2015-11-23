@@ -17,6 +17,6 @@ class Photo < ActiveRecord::Base
 
   has_many :comments
 
-  has_many :likes
+  has_many :likes, foreign_key: :photo_id, primary_key: :id
 
 end
