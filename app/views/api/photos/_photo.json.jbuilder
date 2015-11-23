@@ -5,5 +5,4 @@ json.extract!(
 
 json.username (photo.user.username)
 json.image_url asset_path(photo.image.url)
-json.likes (photo.likes)
 json.comments (photo.comments)
