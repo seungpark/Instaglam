@@ -50,6 +50,7 @@ ApiUtil = {
   },
 
   createLike: function(photoid, currentuserid){
+    debugger
     $.ajax({
       url:'/api/likes',
       type: 'POST',
@@ -62,6 +63,7 @@ ApiUtil = {
   },
 
   deleteLike: function(photoid, currentuserid){
+    debugger
     $.ajax({
       url:'/api/likes/like',
       type: 'DELETE',

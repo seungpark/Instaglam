@@ -1,5 +1,6 @@
 LikeActions = {
   receiveLike: function(like) {
+    debugger
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKE_RECEIVED,
       like: like,

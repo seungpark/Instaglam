@@ -13,17 +13,15 @@
     componentWillMount: function () {
       debugger
       LikeStore.addChangeListener(this._likedChanged)
-      var liked = this.props.photo.likes.find(function (like) {
-        if (like.user_id === this.me().id) {
-          return true;
-        }
-      }.bind(this));
-      this.setState({ liked: !!liked });
-
     },
 
-    _likedChanged: function() {
-      this.setState({ liked: !this.state.liked });
+    _likedChanged: function() {var liked = this.props.photo.likes.find(function (like) {
+      if (like.user_id === this.me().id) {
+        return true;
+      }
+    }.bind(this));
+
+    this.setState({ liked: !!liked });
     },
 
     _handleHeartClick: function(e) {
