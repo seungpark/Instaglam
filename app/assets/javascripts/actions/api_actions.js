@@ -17,6 +17,6 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKES_RECEIVED,
       likes: likes
-    })
+    });
   }
 };

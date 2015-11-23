@@ -23,7 +23,6 @@
     },
 
     componentWillReceiveProps: function(newProps) {
-
       PhotoStore.addChangeListener(this._photosChanged);
       var username = newProps.params.username;
       ApiUtil.fetchUserPhotos(username);

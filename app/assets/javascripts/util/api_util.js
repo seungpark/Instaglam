@@ -50,7 +50,6 @@ ApiUtil = {
   },
 
   createLike: function(photoid, currentuserid){
-    debugger
     $.ajax({
       url:'/api/likes',
       type: 'POST',
@@ -63,7 +62,6 @@ ApiUtil = {
   },
 
   deleteLike: function(photoid, currentuserid){
-    debugger
     $.ajax({
       url:'/api/likes/like',
       type: 'DELETE',
@@ -71,6 +69,32 @@ ApiUtil = {
       data: {photo_id: photoid, user_id: currentuserid},
       success: function(like) {
         LikeActions.deleteLike(like);
+      }
+    });
+  },
+
+  fetchPhotoComments: function(photoid) {
+    $.ajax({
+      url: '/api/comments',
+      type: 'GET',
+      dataType: 'json',
+      data: {photo_id: photoid},
+      success: function(data) {
+        debugger
+        CommentActions.receivePhotoComments(data);
+      }
+    });
+  },
+
+  createPhotoComment: function(photoid, currentuserid, body){
+    $.ajax({
+      url: 'api/comments',
+      type: 'POST',
+      dataType: 'json',
+      data: {photo_id: photoid, user_id: currentuserid, body: body},
+      success: function(data) {
+        debugger
+        CommentActions.createPhotoComment(data);
       }
     })
   }

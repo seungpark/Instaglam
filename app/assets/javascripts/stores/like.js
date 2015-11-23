@@ -31,12 +31,10 @@
       switch(payload.actionType){
 
         case LikeConstants.LIKE_RECEIVED:
-        debugger
           LikeStore._addLike(payload.like);
           LikeStore.emit(CHANGE_EVENT);
           break;
         case LikeConstants.LIKE_DELETED:
-          debugger
           LikeStore.__removeLike(payload.like);
           LikeStore.emit(CHANGE_EVENT);
           break;

@@ -11,7 +11,6 @@
     },
 
     componentWillMount: function () {
-      debugger
       LikeStore.addChangeListener(this._likedChanged)
     },
 
@@ -26,7 +25,6 @@
 
     _handleHeartClick: function(e) {
       e.preventDefault();
-        debugger
       if (this.state.liked) {
         //if photo is liked
         ApiUtil.deleteLike(this.props.photo.id, this.me().id);

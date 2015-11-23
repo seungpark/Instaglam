@@ -14,6 +14,7 @@
           <img className="photograph" src={this.props.photo.image_url}/>
           <li className="photo-caption">{this.props.photo.caption}</li>
           <li className="photo-likes"> <PhotoLike photo={this.props.photo}/> </li>
+          <li className="photo-comments"> <PhotoComment photo={this.props.photo} /> </li>
         </ul>
       )
 

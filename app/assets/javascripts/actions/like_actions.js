@@ -1,6 +1,5 @@
 LikeActions = {
   receiveLike: function(like) {
-    debugger
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKE_RECEIVED,
       like: like,
@@ -8,7 +7,6 @@ LikeActions = {
   },
 
   deleteLike: function(like) {
-    debugger
     AppDispatcher.dispatch({
       actionType: LikeConstants.LIKE_DELETED,
       like: like
