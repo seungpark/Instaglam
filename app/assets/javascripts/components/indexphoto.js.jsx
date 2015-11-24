@@ -18,6 +18,8 @@
               key={this.props.photo.id}
               likes={this.props.photo.likes}
               user={CurrentUserStore.currentUser()}
+              source={this.props.source}
+              belongstouser={this.props.belongstouser}
             /> </li>
           <li className="photo-comments">
             <PhotoComment

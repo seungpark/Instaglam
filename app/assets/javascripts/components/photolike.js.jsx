@@ -2,36 +2,10 @@
   root.PhotoLike = React.createClass ({
 
     mixins: [ReactRouter.History],
-    me: function () {
-      return CurrentUserStore.currentUser();
-    },
-
-    getInitialState: function() {
-      return { likes: this.props.photo.likes, liked: false };
-    },
 
     componentWillMount: function () {
-      LikeStore.addChangeListener(this._likedChanged)
-    },
-
-    _likedChanged: function() {var liked = this.props.photo.likes.find(function (like) {
-      if (like.user_id === this.me().id) {
-        return true;
-      }
-    }.bind(this));
-
-    this.setState({ liked: !!liked });
-    },
-
-    _handleHeartClick: function(e) {
-      e.preventDefault();
-      if (this.state.liked) {
-        //if photo is liked
-        ApiUtil.deleteLike(this.props.photo.id, this.me().id);
-      } else {
-        ApiUtil.createLike(this.props.photo.id, this.me().id);
-      }
-      this.setState({ liked: !this.state.liked });
+      debugger
+      this.setState({ liked: true })
     },
 
     render: function() {
