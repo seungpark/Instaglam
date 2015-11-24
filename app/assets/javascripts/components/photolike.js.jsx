@@ -4,7 +4,6 @@
     mixins: [ReactRouter.History],
 
     componentWillMount: function () {
-      debugger
       this.setState({ liked: true })
     },
 
@@ -15,7 +14,7 @@
             <div className="heart-image" onClick={this._handleHeartClick}>
               <img className="heart-liked" />LIKED
             </div>
-            <div className="like-count">{this.state.likes.length}</div>
+            <div className="like-count">{this.state.liked}</div>
           </div>
         )
       } else
@@ -24,7 +23,7 @@
           <div className="heart-image" onClick={this._handleHeartClick}>
             <img className="heart-unliked" />NOT LIKED
           </div>
-          <div className="like-count">{this.state.likes.length}</div>
+          <div className="like-count">{this.state.liked}</div>
         </div>
       );
     }

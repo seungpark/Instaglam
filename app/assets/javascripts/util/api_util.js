@@ -124,4 +124,16 @@ ApiUtil = {
     });
   },
 
+  deletePhotoCommentFromUserpage: function(commentid, username){
+    $.ajax({
+      url: 'api/comments/' + commentid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {id: commentid},
+      success: function(data) {
+        ApiUtil.fetchUserPhotos(username);
+      }
+    });
+  }
+
 };

@@ -32,8 +32,9 @@
               <Comment
                 comment={comment}
                 body={comment.body}
-                author={comment.author}
+                author={comment.user}
                 source={this.props.source}
+                belongstouser={this.props.belongstouser}
               />
               </li>
             )
