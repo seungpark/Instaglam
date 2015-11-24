@@ -3,8 +3,32 @@
 
     mixins: [ReactRouter.History],
 
+    getInitialState: function() {
+      return {age: this._getPhotoAge() };
+    },
+
+    _getPhotoAge: function() {
+      var createTime = Date.parse(this.props.photo.created_at),
+          timeNow = Date.now(),
+          secPassed = parseInt((timeNow - createTime) / 1000),
+          minPassed = parseInt(secPassed / 60),
+          hrPassed = parseInt(minPassed / 60),
+          dayPassed = parseInt(hrPassed / 24),
+          wkPassed = parseInt(dayPassed / 7);
+      if (wkPassed >= 1) {
+        return (wkPassed + "w");
+      } else if (dayPassed >= 1) {
+        return (dayPassed + "d");
+      } else if (hrPassed >= 1) {
+        return (hrPassed + "h");
+      } else if (minPassed >= 1) {
+        return (minPassed + "m");
+      } else {
+        return (secPassed + "s");
+      }
+    },
+
     render: function() {
-      debugger
       return (
         <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user">
@@ -12,9 +36,9 @@
             </ReactRouter.Link>
           </li>
           <li className="photo-title">{this.props.photo.title}</li>
+          <li className="photo-age">{this.state.age}</li>
           <img className="photograph" src={this.props.photo.image_url}/>
           <li className="photo-caption">{this.props.photo.caption}</li>
-          <li className="photo-age">{this.props.photo.caption}</li>
           <li className="photo-like"> <PhotoLike
               photo={this.props.photo}
               key={this.props.photo.id}
