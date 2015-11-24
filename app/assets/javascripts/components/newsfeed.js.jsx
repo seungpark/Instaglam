@@ -36,6 +36,7 @@
               return <IndexPhoto
                 key={photo.id}
                 photo={photo}
+                author={photo.user}
                 comments={photo.comments}
                 likes={photo.likes}
                 user={CurrentUserStore.currentUser()}

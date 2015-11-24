@@ -29,14 +29,14 @@
     },
 
     render: function() {
-      debugger
       return (
         <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user-avatar">
-
+            <img src={this.props.photo.author_avatar_url}/>
           </li>
           <li className="photo-user-link">
-            <ReactRouter.Link to={"/" + this.props.photo.username}>{this.props.photo.username}
+            <ReactRouter.Link to={"/" + this.props.photo.user.username}>
+              {this.props.photo.user.username}
             </ReactRouter.Link>
           </li>
           <li className="photo-title">{this.props.photo.title}</li>

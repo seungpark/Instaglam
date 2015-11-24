@@ -29,10 +29,12 @@
     },
 
     changeTitle: function(e) {
+      e.preventDefault();
       this.setState({ title: e.currentTarget.value });
     },
 
     changeCaption: function(e) {
+      e.preventDefault();
       this.setState({ caption: e.currentTarget.value });
     },
 
