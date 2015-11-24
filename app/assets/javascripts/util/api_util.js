@@ -85,17 +85,31 @@ ApiUtil = {
   //   });
   // },
 
-  createPhotoComment: function(photoid, currentuserid, body){
+  createPhotoCommentFromNewsfeed: function(commentdata){
     $.ajax({
       url: 'api/comments',
       type: 'POST',
       dataType: 'json',
-      data: {photo_id: photoid, user_id: currentuserid, body: body},
+      data: commentdata,
       success: function(data) {
         CommentActions.createPhotoComment(data);
-        // ApiUtil.fetchPhotos();
+        ApiUtil.fetchPhotos();
       }
-    })
+    });
+  },
+
+  createPhotoCommentFromUserpage: function(commentdata){
+    var username = commentdata.user;
+    $.ajax({
+      url: 'api/comments',
+      type: 'POST',
+      dataType: 'json',
+      data: commentdata,
+      success: function(data) {
+        CommentActions.createPhotoComment(data);
+        ApiUtil.fetchUserPhotos(username);
+      }
+    });
   }
 
 };

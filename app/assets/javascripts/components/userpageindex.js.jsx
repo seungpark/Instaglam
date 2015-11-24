@@ -11,7 +11,9 @@
           {this.props.photos.map(function (photo) {
             return <IndexPhoto
               photo={photo}
-              key={photo.id} />
+              key={photo.id}
+              source={"userpage"}
+              />
           }.bind(this))}
         </ul>
         </div>

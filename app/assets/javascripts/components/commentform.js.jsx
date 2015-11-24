@@ -15,12 +15,24 @@
       });
     },
 
-    _handleSubmit: function(e) {
-      var photoid = this.props.photo.id,
-          userid = this.props.user.id,
-          body = this.state.body;
+    _clearForm: function() {
+      this.setState({ body: "" });
+    },
 
-      ApiUtil.createPhotoComment(photoid, userid, body);
+    _handleSubmit: function(e) {
+      var data = {
+        photo_id: this.props.photo.id,
+        user_id: this.props.user.id,
+        body: this.state.body,
+        user: this.props.photo.username
+      };
+
+      if (this.props.source === "newsfeed") {
+        ApiUtil.createPhotoCommentFromNewsfeed(data);
+      } else if (this.props.source === "userpage") {
+        ApiUtil.createPhotoCommentFromUserpage(data);
+      }
+      this._clearForm();
     },
 
     render: function() {
@@ -28,7 +40,7 @@
         <div className="submit-comment-box">
           <h3>Submit Comment</h3>
           <form className="comment-form" onSubmit={this._handleSubmit}>
-            <input type="text" onChange={this._changeComment} value={this.state.comment} />
+            <input type="text" onChange={this._changeComment} value={this.state.body} />
             <button>Submit</button>
           </form>
         </div>

@@ -31,6 +31,7 @@
               photo={this.props.photo}
               key={this.props.photo.id}
               user={CurrentUserStore.currentUser()}
+              source={this.props.source}
           /> </li>
         </ul>
       )
