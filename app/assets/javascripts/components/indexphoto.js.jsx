@@ -4,6 +4,7 @@
     mixins: [ReactRouter.History],
 
     render: function() {
+      debugger
       return (
         <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user">
@@ -13,6 +14,7 @@
           <li className="photo-title">{this.props.photo.title}</li>
           <img className="photograph" src={this.props.photo.image_url}/>
           <li className="photo-caption">{this.props.photo.caption}</li>
+          <li className="photo-age">{this.props.photo.caption}</li>
           <li className="photo-like"> <PhotoLike
               photo={this.props.photo}
               key={this.props.photo.id}
