@@ -37,17 +37,17 @@ ApiUtil = {
     });
   },
 
-  fetchLikes: function(photoid){
-    $.ajax({
-      url: '/api/likes',
-      type: 'GET',
-      dataType: 'json',
-      data: {photo_id: photoid},
-      success: function(data) {
-        ApiActions.receivePhotoLikes(data);
-      }
-    });
-  },
+  // fetchLikes: function(photoid){
+  //   $.ajax({
+  //     url: '/api/likes',
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     data: {photo_id: photoid},
+  //     success: function(data) {
+  //       ApiActions.receivePhotoLikes(data);
+  //     }
+  //   });
+  // },
 
   createLikeFromNewsfeed: function(data, callback){
     $.ajax({
@@ -104,18 +104,18 @@ ApiUtil = {
       }
     });
   },
-
-  deleteLike: function(photoid, currentuserid){
-    $.ajax({
-      url:'/api/likes/like',
-      type: 'DELETE',
-      dataType: 'json',
-      data: {photo_id: photoid, user_id: currentuserid},
-      success: function(like) {
-        LikeActions.deleteLike(like);
-      }
-    });
-  },
+  // 
+  // deleteLike: function(photoid, currentuserid){
+  //   $.ajax({
+  //     url:'/api/likes/like',
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     data: {photo_id: photoid, user_id: currentuserid},
+  //     success: function(like) {
+  //       LikeActions.deleteLike(like);
+  //     }
+  //   });
+  // },
 
   // fetchPhotoComments: function(photoid) {
   //   $.ajax({

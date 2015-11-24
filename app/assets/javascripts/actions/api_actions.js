@@ -13,10 +13,10 @@ ApiActions = {
     });
   },
 
-  receivePhotoLikes: function(likes){
-    AppDispatcher.dispatch({
-      actionType: LikeConstants.LIKES_RECEIVED,
-      likes: likes
-    });
-  }
+  // receivePhotoLikes: function(likes){
+  //   AppDispatcher.dispatch({
+  //     actionType: LikeConstants.LIKES_RECEIVED,
+  //     likes: likes
+  //   });
+  // }
 };

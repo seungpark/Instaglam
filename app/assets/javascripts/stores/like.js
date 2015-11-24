@@ -1,3 +1,4 @@
+//OBSOLETE NEVER CALLED
 (function (root) {
 
   var _likes = [];

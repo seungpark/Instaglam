@@ -1,3 +1,4 @@
+//OBSOLETE
 LikeActions = {
   receiveLike: function(like) {
     AppDispatcher.dispatch({
