@@ -58,8 +58,9 @@ $(function(){
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter} />
-        <Route path="signin" component={ SessionForm}/>
+        <Route path="signin" component={SessionForm}/>
         <Route path="/newphoto" component={PhotoForm}/>
+        <Route path="/editprofile" component={ProfileEdit}/>
         <Route path="/:username" component={UserPage}/>
       </Route>
     </Router>,

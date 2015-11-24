@@ -1,4 +1,4 @@
 json.extract!(
   user,
-  :id, :username
+  :id, :username, :created_at, :avatar_file_name
 )
