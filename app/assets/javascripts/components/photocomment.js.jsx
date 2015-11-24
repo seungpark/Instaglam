@@ -33,6 +33,7 @@
                 comment={comment}
                 body={comment.body}
                 author={comment.author}
+                source={this.props.source}
               />
               </li>
             )

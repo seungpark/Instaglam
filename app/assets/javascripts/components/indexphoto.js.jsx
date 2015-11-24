@@ -25,6 +25,8 @@
               key={this.props.photo.id}
               comments={this.props.photo.comments}
               user={CurrentUserStore.currentUser()}
+              source={this.props.source}
+              belongstouser={this.props.belongstouser}
            /> </li>
            <li className="submit-comment">
             <CommentForm

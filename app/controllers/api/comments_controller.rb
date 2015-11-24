@@ -27,12 +27,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    byebug
-    photoid = params[:photo_id]
-    userid = params[:user_id]
-    body = params[:body]
-    @comment = Comment.where(["photo_id = ? and user_id = ? and body = ?", photoid, userid, body ])[0]
-    @comment.destroy
+    @comment = Comment.where(id: params[:id])[0]
+    @comment.destroy!
+    render json: {}
   end
 
 end

@@ -92,7 +92,7 @@ ApiUtil = {
       dataType: 'json',
       data: commentdata,
       success: function(data) {
-        CommentActions.createPhotoComment(data);
+        // CommentActions.createPhotoComment(data);
         ApiUtil.fetchPhotos();
       }
     });
@@ -106,10 +106,23 @@ ApiUtil = {
       dataType: 'json',
       data: commentdata,
       success: function(data) {
-        CommentActions.createPhotoComment(data);
+        // CommentActions.createPhotoComment(data);
         ApiUtil.fetchUserPhotos(username);
       }
     });
-  }
+  },
+
+  deletePhotoCommentFromNewsfeed: function(commentid){
+    $.ajax({
+      url: 'api/comments/' + commentid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {id: commentid},
+      success: function(data) {
+        debugger
+        ApiUtil.fetchPhotos();
+      }
+    });
+  },
 
 };
