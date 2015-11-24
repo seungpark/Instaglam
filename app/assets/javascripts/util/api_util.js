@@ -119,7 +119,6 @@ ApiUtil = {
       dataType: 'json',
       data: {id: commentid},
       success: function(data) {
-        debugger
         ApiUtil.fetchPhotos();
       }
     });
