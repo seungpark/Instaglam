@@ -67,12 +67,10 @@ likes = Like.create([
   {photo_id:1 , user_id:2},
   {photo_id:1 , user_id:3},
   {photo_id:1 , user_id:4},
-  {photo_id:13 , user_id:2},
-  {photo_id:13 , user_id:3},
-  {photo_id:13 , user_id:4},
-  {photo_id:13 , user_id:1},
-  {photo_id:13 , user_id:5},
-  {photo_id:12 , user_id:3},
+  {photo_id:2 , user_id:2},
+  {photo_id:2 , user_id:3},
+  {photo_id:2 , user_id:4},
+  {photo_id:2 , user_id:5},
 ])
 
 

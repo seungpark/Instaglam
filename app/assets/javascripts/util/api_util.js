@@ -49,14 +49,58 @@ ApiUtil = {
     });
   },
 
-  createLike: function(photoid, currentuserid){
+  createLikeFromNewsfeed: function(data, callback){
     $.ajax({
       url:'/api/likes',
       type: 'POST',
       dataType: 'json',
-      data: {photo_id: photoid, user_id: currentuserid},
+      data: data,
       success: function(like) {
-        LikeActions.receiveLike(like);
+        ApiUtil.fetchPhotos();
+        callback && callback();
+        // LikeActions.receiveLike(like);
+      }
+    });
+  },
+
+  createLikeFromUserpage: function(data, username, callback){
+    $.ajax({
+      url:'/api/likes',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function(like) {
+        ApiUtil.fetchUserPhotos(username);
+        callback && callback();
+        // LikeActions.receiveLike(like);
+      }
+    });
+  },
+
+  deleteLikeFromNewsfeed: function(data, likeid, callback){
+    $.ajax({
+      url:'/api/likes/' + likeid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: data,
+      success: function(like) {
+        ApiUtil.fetchPhotos();
+        callback && callback();
+        // LikeActions.receiveLike(like);
+      }
+    });
+  },
+
+  deleteLikeFromUserpage: function(data, likeid, username, callback){
+    $.ajax({
+      url:'/api/likes/' + likeid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: data,
+      success: function(like) {
+        ApiUtil.fetchUserPhotos(username);
+        callback && callback();
+        // LikeActions.receiveLike(like);
       }
     });
   },

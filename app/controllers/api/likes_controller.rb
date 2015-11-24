@@ -26,10 +26,9 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    photoid = params[:photo_id]
-    userid = params[:user_id]
-    @like = Like.where(["photo_id = ? and user_id = ?", photoid, userid ])[0]
-    @like.destroy
+    @like = Like.where(id: params[:id])[0]
+    @like.destroy!
+    render json: {}
   end
 
     # @like = Like.where(photo_id: photoid, user_id: userid)
