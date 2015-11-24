@@ -18,6 +18,10 @@
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchPhotos();
     },
+    
+    componentWillUnmount: function(){
+      PhotoStore.removeChangeListener(this._photosChanged);
+    },
     //
     // <div className="edit-page">
     //   <a href={"/users/" +
