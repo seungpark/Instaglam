@@ -93,6 +93,7 @@ ApiUtil = {
       data: {photo_id: photoid, user_id: currentuserid, body: body},
       success: function(data) {
         CommentActions.createPhotoComment(data);
+        // ApiUtil.fetchPhotos();
       }
     })
   }
