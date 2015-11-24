@@ -10,13 +10,10 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    # not safe
-    # no user id params
-    #  current_user.comments.new
-    photoid = params[:photo_id].to_i
-    userid = params[:user_id].to_i
-    body = params[:body]
-    @comment = Comment.new(photo_id: photoid, user_id: userid, body: body)
+    @comment = current_user.comments.new(
+      photo_id: params[:photo_id].to_i,
+      body: params[:body]
+    )
     if @comment.save
       render 'show'
     else

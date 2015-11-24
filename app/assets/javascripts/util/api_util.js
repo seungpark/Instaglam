@@ -104,7 +104,7 @@ ApiUtil = {
       }
     });
   },
-  // 
+  //
   // deleteLike: function(photoid, currentuserid){
   //   $.ajax({
   //     url:'/api/likes/like',
@@ -157,12 +157,14 @@ ApiUtil = {
   },
 
   deletePhotoCommentFromNewsfeed: function(commentid){
+    debugger
     $.ajax({
       url: 'api/comments/' + commentid,
       type: 'DELETE',
       dataType: 'json',
       data: {id: commentid},
       success: function(data) {
+        debugger
         ApiUtil.fetchPhotos();
       }
     });

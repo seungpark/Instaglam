@@ -57,7 +57,6 @@
 
 
     render: function() {
-      debugger
       if (this.state.liked) {
         return (
           <div className="like-container">

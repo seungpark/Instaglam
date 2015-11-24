@@ -3,6 +3,7 @@
   root.Comment = React.createClass({
 
     _handleDelete: function(e) {
+      debugger
       e.preventDefault();
       var commentid = this.props.comment.id;
       if (this.props.source === "newsfeed") {
@@ -14,8 +15,7 @@
     },
 
     render: function() {
-      debugger
-      if (this.props.comment.user_id === CurrentUserStore.currentUser().id) {
+      if (this.props.comment.user.id === CurrentUserStore.currentUser().id) {
         return (
           <div className="comments-list">
           <ul className="comment-author-content">

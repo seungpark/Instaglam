@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   has_many :likes
 
+  has_many :comments
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
