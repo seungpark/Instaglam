@@ -1,6 +1,8 @@
 json.extract!(
   comment,
-  :photo_id, :user_id, :body
+  :photo_id, :body
 )
 
-json.user comment.user
+json.user do
+  json.extract! comment.user, :id, :username
+end

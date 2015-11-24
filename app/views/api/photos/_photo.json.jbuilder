@@ -5,5 +5,7 @@ json.extract!(
 
 json.username (photo.user.username)
 json.image_url asset_path(photo.image.url)
-json.comments (photo.comments)
+json.comments do
+  json.partial! "api/comments/comment", collection: photo.comments, as: :comment 
+end
 json.likes (photo.likes)

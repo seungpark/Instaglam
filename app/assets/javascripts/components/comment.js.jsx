@@ -14,13 +14,14 @@
     },
 
     render: function() {
+      debugger
       if (this.props.comment.user_id === CurrentUserStore.currentUser().id) {
         return (
           <div className="comments-list">
           <ul className="comment-author-content">
             <li className="comment-author">
               <ReactRouter.Link to={"/"}>
-                <span className="comment-user">{this.props.comment.user_id}</span>
+                <span className="comment-user">{this.props.comment.user.username}</span>
               </ReactRouter.Link>
             </li>
             <li className="comment-content">

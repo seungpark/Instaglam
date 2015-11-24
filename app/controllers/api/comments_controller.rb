@@ -10,6 +10,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
+    # not safe
+    # no user id params
+    #  current_user.comments.new
     photoid = params[:photo_id].to_i
     userid = params[:user_id].to_i
     body = params[:body]
