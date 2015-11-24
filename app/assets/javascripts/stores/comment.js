@@ -1,3 +1,4 @@
+//OBSOLETE NOT CALLED ANYWHERE
 (function (root) {
 
   var _newComment;

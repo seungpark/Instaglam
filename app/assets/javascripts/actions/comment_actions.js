@@ -1,3 +1,5 @@
+//OBSOLETE NOT CALLED ANYWHERE
+
 CommentActions = {
 
   createPhotoComment: function(comment){
