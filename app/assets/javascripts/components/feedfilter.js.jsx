@@ -1,23 +1,16 @@
 (function(root){
 
-  function _getAllPhotos() {
-    return PhotoStore.all();
-  }
-
-
   root.FeedFilter = React.createClass({
 
     mixins: [ReactRouter.History],
 
     _photosChanged: function(){
-      this.setState({photos: _getAllPhotos()});
+      this.setState({photos: PhotoStore.all() });
     },
 
 
     getInitialState: function(){
-      return {
-        photos: _getAllPhotos(),
-      };
+      return { photos: PhotoStore.all() };
     },
 
     componentDidMount: function(){

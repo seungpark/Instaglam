@@ -8,7 +8,7 @@ class Api::PhotosController < ApplicationController
       # @photos = Photo.select{|photo| photo.user_id == userid}
       # select {|photo| photo.user_id == userid}
     else
-      @photos = Photo.all
+      @photos = Photo.order(created_at: :desc)
     end
     # params.username ?  : @photos = Photo.all
 

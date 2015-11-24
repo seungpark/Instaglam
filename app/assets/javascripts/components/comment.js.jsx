@@ -19,7 +19,7 @@
           <div className="comments-list">
           <ul className="comment-author-content">
             <li className="comment-author">
-              <ReactRouter.Link to={"/"}>
+              <ReactRouter.Link to={"/" + this.props.comment.user.username}>
                 <span className="comment-user">{this.props.comment.user.username}</span>
               </ReactRouter.Link>
             </li>

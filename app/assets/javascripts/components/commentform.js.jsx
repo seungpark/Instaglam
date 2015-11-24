@@ -20,6 +20,8 @@
     },
 
     _handleSubmit: function(e) {
+      e.preventDefault();
+      //default behavior: makes a get request for the current url
       var data = {
         photo_id: this.props.photo.id,
         user_id: this.props.user.id,

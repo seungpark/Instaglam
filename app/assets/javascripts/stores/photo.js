@@ -12,7 +12,7 @@
     },
 
     resetPhotos: function(photos){
-      _photos = photos.reverse();
+      _photos = photos;
     },
 
     addChangeListener: function(callback){
