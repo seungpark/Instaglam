@@ -37,6 +37,18 @@ ApiUtil = {
     });
   },
 
+  fetchUserInfo: function(username, callback) {
+    $.ajax({
+      url: '/api/users/',
+      type: 'GET',
+      dataType: 'json',
+      data: {username: username},
+      success: function(userdata){
+        callback && callback(userdata[0]);
+      }
+    });
+  },
+
   // fetchLikes: function(photoid){
   //   $.ajax({
   //     url: '/api/likes',

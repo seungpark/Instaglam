@@ -5,17 +5,28 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return {photos: []};
+      return { photos: [], user: null };
     },
 
     _photosChanged: function() {
       this.setState({ photos: PhotoStore.all() });
     },
 
+    _fetchUserInfo: function(username){
+      ApiUtil.fetchUserInfo(username, this._setUserInfo);
+    },
+
+    _setUserInfo: function(userinfo){
+      this.setState({ user: userinfo });
+    },
+
     componentWillMount: function() {
       PhotoStore.addChangeListener(this._photosChanged);
-      var username = this.props.params.username;
-      ApiUtil.fetchUserPhotos(username);
+      ApiUtil.fetchUserPhotos(this.props.params.username);
+    },
+
+    componentDidMount: function() {
+      this._fetchUserInfo(this.props.params.username);
     },
 
     componentWillUnmount: function(){
@@ -35,7 +46,7 @@
       return(
         <div className="userpage">
           <div className="userpage-profile-container">
-            <UserPageProfile />
+            <UserPageProfile pageuser={this.state.user}/>
           </div>
           <div className="userpage-index">
             <UserPageIndex photos={this.state.photos}/>
