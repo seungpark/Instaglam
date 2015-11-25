@@ -29,7 +29,7 @@
       if (this.props.source === "newsfeed") {
         ApiUtil.createLikeFromNewsfeed(data, callback);
       } else if (this.props.source === "userpage") {
-        ApiUtil.createLikeFromUserpage(data, this.props.belongstouser, callback);
+        ApiUtil.createLikeFromUserpage(data, this.props.photo.user.username, callback);
       }
     },
 
@@ -50,7 +50,7 @@
       if (this.props.source === "newsfeed") {
         ApiUtil.deleteLikeFromNewsfeed(data, likeid, callback);
       } else if (this.props.source === "userpage") {
-        ApiUtil.deleteLikeFromUserpage(data, likeid, this.props.belongstouser, callback);
+        ApiUtil.deleteLikeFromUserpage(data, likeid, this.props.photo.user.username, callback);
       }
 
     },

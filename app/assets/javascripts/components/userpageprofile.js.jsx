@@ -5,7 +5,6 @@
     mixins: [ReactRouter.History],
 
     render: function() {
-      debugger
       if (this.props.pageuser && this.props.pageuser.id === CurrentUserStore.currentUser().id) {
         return (
           <div className="userpage-profile">
