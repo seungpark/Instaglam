@@ -9,7 +9,7 @@
 
     render: function() {
       return (
-        <div>
+        <div className="photo-form group">
           <h2>New Photo</h2>
           <form onSubmit={this.handleSubmit}>
             <label>Title
