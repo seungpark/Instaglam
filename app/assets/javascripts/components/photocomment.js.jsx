@@ -34,10 +34,10 @@
                 body={comment.body}
                 author={comment.user}
                 source={this.props.source}
-                belongstouser={this.props.belongstouser}
+                photoauthor={this.props.photo.user.username}
               />
               </li>
-            )
+            );
           }.bind(this))}
         </ul>
         </div>

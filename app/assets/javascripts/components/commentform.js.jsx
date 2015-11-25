@@ -26,7 +26,7 @@
         photo_id: this.props.photo.id,
         user_id: this.props.user.id,
         body: this.state.body,
-        user: this.props.photo.username
+        user: this.props.photo.user.username
       };
 
       if (this.props.source === "newsfeed") {

@@ -14,11 +14,11 @@
               key={photo.id}
               source={"userpage"}
               belongstouser={this.props.photos[0].username}
-              />
+              />;
           }.bind(this))}
         </ul>
         </div>
-      )
+      );
     }
 
   });

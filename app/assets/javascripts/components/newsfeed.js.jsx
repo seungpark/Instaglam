@@ -41,7 +41,7 @@
                 likes={photo.likes}
                 user={CurrentUserStore.currentUser()}
                 source={"newsfeed"}
-                />
+                />;
             }.bind(this) )}
 
           </ul>

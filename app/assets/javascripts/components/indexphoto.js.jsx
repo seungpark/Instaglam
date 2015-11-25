@@ -29,6 +29,7 @@
     },
 
     render: function() {
+      debugger
       return (
         <ul className="photo-item" key={this.props.photo.id}>
           <li className="photo-user-avatar">

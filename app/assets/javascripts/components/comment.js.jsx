@@ -5,10 +5,11 @@
     _handleDelete: function(e) {
       e.preventDefault();
       var commentid = this.props.comment.id;
+      debugger
       if (this.props.source === "newsfeed") {
         ApiUtil.deletePhotoCommentFromNewsfeed(commentid);
       } else if (this.props.source === "userpage") {
-        ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.belongstouser);
+        ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.photoauthor);
       }
 
     },
