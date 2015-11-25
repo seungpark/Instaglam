@@ -13,6 +13,23 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def update
+    @user = User.find(params[:id])
+    if params.has_key?("user")
+      if @user.update_attributes({avatar: params[:user][:avatar]})
+        render :show
+      end
+    else
+      if @user.update_attributes({name: params[:name], bio: params[:bio]})
+        render :show
+      end
+      # redirect_to makes another patch request
+      # else
+      #   flash.now[:errors] = @user.errors.full_messages
+      #   render :edit
+    end
+  end
+
   private
   def user_params
   end

@@ -32,7 +32,7 @@ $(function(){
 
 
     render: function(){
-      if (!this.state.currentUser) {
+      if (!CurrentUserStore.isSignedIn()) {
         return (
           <div>
             <SessionForm/>

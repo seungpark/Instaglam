@@ -49,6 +49,30 @@ ApiUtil = {
     });
   },
 
+  updateUserInfo: function(id, nameAndBio) {
+    $.ajax({
+      url: '/api/users/' + id,
+      type: 'PATCH',
+      dataType: 'json',
+      data: nameAndBio,
+      success: function(userdata){
+      }
+    });
+  },
+
+  updateUserAvatar: function(id, formData) {
+    $.ajax({
+      url: '/api/users/' + id,
+      type: 'PATCH',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function(userdata){
+      }
+    });
+  },
+
   // fetchLikes: function(photoid){
   //   $.ajax({
   //     url: '/api/likes',

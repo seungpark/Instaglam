@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
     end
 
     @user = current_user
-    render json: @user
+    render :show
   end
 
   def create
