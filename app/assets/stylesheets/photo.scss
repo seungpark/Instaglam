@@ -11,8 +11,14 @@
   .photo-header{
     display: flex;
 
+    li {
+      height: 100%;
+    }
+    
     .photo-user-avatar > img{
-      width: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
 
     .photo-user-link {
@@ -23,6 +29,29 @@
     }
 
     .photo-age{
+    }
+  }
+
+  .photo-like {
+    .heart-image {
+      float: left;
+    }
+  }
+
+  .photo-comments {
+    margin: 0px;
+    left: -20px;
+    position: relative;
+
+    .photo-comments-list {
+      padding-left: 0px;
+
+      .comment-author-content {
+        display: flex;
+      }
+      .comment-content {
+        padding: 0px 10px;
+      }
     }
   }
 }
