@@ -19,6 +19,7 @@
     },
 
     _addLike: function(e) {
+      e.preventDefault();
       var data = {
         photo_id: this.props.photo.id,
         user_id: this.props.user.id
@@ -35,15 +36,19 @@
 
 
     _deleteLike: function(e) {
+      e.preventDefault();
       var data = {
         photo_id: this.props.photo.id,
         user_id: this.props.user.id
       };
-      var likeid = this.props.likes.find( function(like) {
+      var like = this.props.likes.find( function(like) {
         if(like.user_id === CurrentUserStore.currentUser().id) {
           return true;
         }
-      }).id;
+      });
+
+      if (like) {var likeid = like.id;}
+
       var callback = function () {
         this.setState({ liked: false, likeCount: this.state.likeCount - 1 });
       }.bind(this);
