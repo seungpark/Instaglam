@@ -6,16 +6,14 @@
     render: function(){
       return (
         <div className="header-shell">
-          <div className="header-main">
+          <ul className="header-main group">
             <div className="header-logo">
               <ReactRouter.Link to={"/"}>
                 <span className="home-logo">Instaglam</span>
               </ReactRouter.Link>
             </div>
-            <div className="header-user">
               <HeaderUser/>
-            </div>
-          </div>
+          </ul>
         </div>
       );
     }
