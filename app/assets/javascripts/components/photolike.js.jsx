@@ -1,7 +1,9 @@
 (function(root) {
+
   root.PhotoLike = React.createClass ({
 
     mixins: [ReactRouter.History],
+
 
     getInitialState: function() {
       return {liked: false, likeCount: this.props.likes.length};
@@ -37,12 +39,12 @@
 
     _deleteLike: function(e) {
       e.preventDefault();
-      var data = {
-        photo_id: this.props.photo.id,
-        user_id: this.props.user.id
-      };
+      // var data = {
+      //   photo_id: this.props.photo.id,
+      //   user_id: this.props.user.id
+      // };
       var like = this.props.likes.find( function(like) {
-        if(like.user_id === CurrentUserStore.currentUser().id) {
+        if (like.user_id === CurrentUserStore.currentUser().id) {
           return true;
         }
       });
@@ -53,9 +55,9 @@
         this.setState({ liked: false, likeCount: this.state.likeCount - 1 });
       }.bind(this);
       if (this.props.source === "newsfeed") {
-        ApiUtil.deleteLikeFromNewsfeed(data, likeid, callback);
+        ApiUtil.deleteLikeFromNewsfeed(likeid, callback);
       } else if (this.props.source === "userpage") {
-        ApiUtil.deleteLikeFromUserpage(data, likeid, this.props.photo.user.username, callback);
+        ApiUtil.deleteLikeFromUserpage(likeid, this.props.photo.user.username, callback);
       }
 
     },
@@ -66,7 +68,7 @@
         return (
           <div className="like-container">
             <div className="heart-image" onClick={this._deleteLike}>
-              <img className="heart-liked" />FILLED-HEART
+              <img className="heart-liked" src={assets.filledHeart}/>
             </div>
             <div className="like-count">{this.state.likeCount}</div>
           </div>
@@ -75,7 +77,7 @@
       return(
         <div className="like-container">
           <div className="heart-image" onClick={this._addLike}>
-            <img className="heart-unliked" />EMPTY-HEART
+            <img className="heart-unliked" src={assets.emptyHeart}/>
           </div>
           <div className="like-count">{this.state.likeCount}</div>
         </div>

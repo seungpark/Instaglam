@@ -113,12 +113,11 @@ ApiUtil = {
     });
   },
 
-  deleteLikeFromNewsfeed: function(data, likeid, callback){
+  deleteLikeFromNewsfeed: function(likeid, callback){
     $.ajax({
       url:'/api/likes/' + likeid,
       type: 'DELETE',
       dataType: 'json',
-      data: data,
       success: function(like) {
         ApiUtil.fetchPhotos();
         callback && callback();
@@ -127,12 +126,11 @@ ApiUtil = {
     });
   },
 
-  deleteLikeFromUserpage: function(data, likeid, username, callback){
+  deleteLikeFromUserpage: function(likeid, username, callback){
     $.ajax({
       url:'/api/likes/' + likeid,
       type: 'DELETE',
       dataType: 'json',
-      data: data,
       success: function(like) {
         ApiUtil.fetchUserPhotos(username);
         callback && callback();
