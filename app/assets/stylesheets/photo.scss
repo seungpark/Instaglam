@@ -1,7 +1,30 @@
 
 .photo-item {
-  border: 1px solid black;
+  border: 1px solid #edeeee;
+  border-radius: 3px;
   margin: auto;
+  padding: 10px 0px;
+  margin-bottom: 60px;
+  width: 600px;
+  background-color: white;
+
+  .photo-header{
+    display: flex;
+
+    .photo-user-avatar > img{
+      width: 30px;
+    }
+
+    .photo-user-link {
+    }
+
+    .photo-title {
+      margin: 0px 30%;
+    }
+
+    .photo-age{
+    }
+  }
 }
 
 .photo-item > li {
@@ -9,10 +32,13 @@
   margin: 20px;
 }
 
-.photograph {
-  width: 600px;
-  height: auto;
-  margin: auto;
+.photograph-container{
+
+  .photograph {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
 }
 
 .preview-image {

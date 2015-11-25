@@ -29,20 +29,23 @@
     },
 
     render: function() {
-      debugger
       return (
         <ul className="photo-item" key={this.props.photo.id}>
-          <li className="photo-user-avatar">
-            <img src={this.props.photo.author_avatar_url}/>
-          </li>
-          <li className="photo-user-link">
-            <ReactRouter.Link to={"/" + this.props.photo.user.username}>
-              {this.props.photo.user.username}
-            </ReactRouter.Link>
-          </li>
-          <li className="photo-title">{this.props.photo.title}</li>
-          <li className="photo-age">{this.state.age}</li>
-          <img className="photograph" src={this.props.photo.image_url}/>
+          <div className="photo-header">
+            <li className="photo-user-avatar">
+              <img src={this.props.photo.author_avatar_url}/>
+            </li>
+            <li className="photo-user-link">
+              <ReactRouter.Link to={"/" + this.props.photo.user.username}>
+                {this.props.photo.user.username}
+              </ReactRouter.Link>
+            </li>
+            <li className="photo-title">{this.props.photo.title}</li>
+            <li className="photo-age">{this.state.age}</li>
+          </div>
+          <div className="photograph-container">
+            <img className="photograph" src={this.props.photo.image_url}/>
+          </div>
           <li className="photo-caption">{this.props.photo.caption}</li>
           <li className="photo-like"> <PhotoLike
               photo={this.props.photo}
@@ -75,5 +78,3 @@
 
   });
 })(this);
-
-//instead of <a> user <Link>

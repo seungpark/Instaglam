@@ -35,3 +35,7 @@ a {
   overflow: hidden;
   color: #125688;
 }
+
+ul {
+  list-style: none;
+}
