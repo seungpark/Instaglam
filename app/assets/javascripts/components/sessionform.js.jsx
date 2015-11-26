@@ -27,22 +27,23 @@
         <div className="signin-page">
           <Header/>
           <form className="signin-form" onSubmit={this.submit} ref="form">
-          <h1>Sign In!</h1>
 
-          <label className="signin-username">
-            Username
-            <input type="text" name="username" ref="username"/>
-          </label>
+            <h1>Sign In!</h1>
 
-          <label className="signin-password">
-            Password
-            <input type="password" name="password" ref="password"/>
-          </label>
+            <label className="signin-username">
+              Username
+              <input type="text" name="username" placeholder="Username" ref="username"/>
+            </label>
 
-          <button className="signin-button">Sign In!</button>
-          <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
+            <label className="signin-password">
+              Password
+              <input type="password" name="password" placeholder="Password" ref="password"/>
+            </label>
 
-        </form>
+            <button className="signin-button">Sign In!</button>
+            <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
+
+          </form>
         </div>
       )
     }
