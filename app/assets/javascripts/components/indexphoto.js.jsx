@@ -30,7 +30,7 @@
 
     render: function() {
       return (
-        <ul className="photo-item" key={this.props.photo.id}>
+        <div className="photo-item" key={this.props.photo.id}>
           <div className="photo-header">
             <li className="photo-user-avatar">
               <img src={this.props.photo.author_avatar_url}/>
@@ -71,8 +71,8 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
           /> </li>
-        </ul>
-      )
+        </div>
+      );
 
     }
 

@@ -3,10 +3,22 @@
   border: 1px solid #edeeee;
   border-radius: 3px;
   margin: auto;
-  padding: 10px 0px;
+  padding-top: 10px;
   margin-bottom: 60px;
   width: 600px;
   background-color: white;
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+
+  a {
+    color: #125688;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0d3c5f;
+  }
 
   .photo-header{
     display: flex;
@@ -29,6 +41,7 @@
     }
 
     .photo-age{
+      color: #a5a7aa;
     }
   }
 
@@ -36,6 +49,15 @@
     .heart-image {
       float: left;
     }
+    .heart-image:hover {
+      cursor: pointer;
+    }
+  }
+
+  .comments-container {
+    position: relative;
+    left: 40px;
+    width: 570px;
   }
 
   .photo-comments {
@@ -52,6 +74,41 @@
       .comment-content {
         padding: 0px 10px;
       }
+
+      button {
+        background: transparent;
+        border: none;
+        font-size: 15;
+        color: #a5a7aa;
+      }
+      button:focus {
+        color: black;
+      }
+    }
+  }
+
+  .submit-comment {
+    margin: 20px;
+  }
+
+  .submit-comment-box {
+    border-top: 1px solid #edeeee;
+
+
+    input {
+      font-size: 15px;
+      line-height: 18px;
+      width: 100%;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+    }
+
+    button {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size:0;
     }
   }
 }

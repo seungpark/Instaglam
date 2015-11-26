@@ -40,9 +40,8 @@
     render: function() {
       return (
         <div className="submit-comment-box">
-          <h3>Submit Comment</h3>
           <form className="comment-form" onSubmit={this._handleSubmit}>
-            <input type="text" onChange={this._changeComment} value={this.state.body} />
+            <input type="text" placeholder="Add a Comment.." onChange={this._changeComment} value={this.state.body} />
             <button>Submit</button>
           </form>
         </div>

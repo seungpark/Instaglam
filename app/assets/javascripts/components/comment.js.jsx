@@ -27,7 +27,7 @@
             <li className="comment-content">
               {this.props.comment.body}
             </li>
-            <li><button onClick={ this._handleDelete }>Delete</button></li>
+            <li><p><button onClick={ this._handleDelete }>X</button></p></li>
           </ul>
           </div>
         );
