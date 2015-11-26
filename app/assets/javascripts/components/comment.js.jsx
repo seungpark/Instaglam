@@ -5,7 +5,6 @@
     _handleDelete: function(e) {
       e.preventDefault();
       var commentid = this.props.comment.id;
-      debugger
       if (this.props.source === "newsfeed") {
         ApiUtil.deletePhotoCommentFromNewsfeed(commentid);
       } else if (this.props.source === "userpage") {
@@ -20,8 +19,8 @@
           <div className="comments-list">
           <ul className="comment-author-content">
             <li className="comment-author">
-              <ReactRouter.Link to={"/" + this.props.comment.user.username}>
-                <span className="comment-user">{this.props.comment.user.username}</span>
+              <ReactRouter.Link to={"/" + this.props.author.username}>
+                <span className="comment-user">{this.props.author.username}</span>
               </ReactRouter.Link>
             </li>
             <li className="comment-content">
@@ -36,8 +35,8 @@
           <div className="comments-list">
           <ul className="comment-author-content">
             <li className="comment-author">
-              <ReactRouter.Link to={"/"}>
-                <span className="comment-user">{this.props.comment.user_id}</span>
+              <ReactRouter.Link to={"/"+ this.props.author.username}>
+                <span className="comment-user">{this.props.author.username}</span>
               </ReactRouter.Link>
             </li>
             <li className="comment-content">
