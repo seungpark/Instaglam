@@ -38,8 +38,10 @@
         );
       } else {
         return (
-          <div>
-            <a href="#/signin">Sign In!</a>
+          <div className="header-user">
+            <ul className="header-user-nav">
+              <li><a href="#/signin">Sign In!</a></li>
+            </ul>
           </div>
         );
       }
