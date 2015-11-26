@@ -5,7 +5,6 @@
     mixins: [ReactRouter.History],
 
     submit: function(e) {
-      debugger
       if (typeof e !== "undefined") {
         e.preventDefault();
       }
@@ -21,7 +20,6 @@
       React.findDOMNode(this.refs.username).value = "guest";
       React.findDOMNode(this.refs.password).value = "hello123";
       this.submit();
-      debugger
     },
 
     render: function() {
