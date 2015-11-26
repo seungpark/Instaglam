@@ -23,6 +23,13 @@
   .photo-header{
     display: flex;
 
+  .photo-item > div {
+    list-style: none;
+    position: relative;
+    padding-bottom: 5px;
+    left: 15px;
+  }
+
     li {
       height: 100%;
     }
@@ -45,9 +52,22 @@
     }
   }
 
+  .photo-caption{
+    position: relative;
+    padding-bottom: 5px;
+    left: 15px;
+  }
+
   .photo-like {
+    position: relative;
+    top: 10px;
+    padding-bottom: 20px;
+    left: 10px;
+
     .heart-image {
       float: left;
+      position: relative;
+      bottom: 10px;
     }
     .heart-image:hover {
       cursor: pointer;
@@ -80,8 +100,9 @@
         border: none;
         font-size: 15;
         color: #a5a7aa;
+        outline: none;
       }
-      button:focus {
+      button:hover {
         color: black;
       }
     }
@@ -111,11 +132,6 @@
       font-size:0;
     }
   }
-}
-
-.photo-item > li {
-  list-style: none;
-  margin: 20px;
 }
 
 .photograph-container{

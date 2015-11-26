@@ -70,7 +70,7 @@
             <div className="heart-image" onClick={this._deleteLike}>
               <img className="heart-liked" src={assets.filledHeart}/>
             </div>
-            <div className="like-count">{this.state.likeCount}</div>
+            <div className="like-count">{this.state.likeCount} Likes</div>
           </div>
         )
       } else
@@ -79,7 +79,7 @@
           <div className="heart-image" onClick={this._addLike}>
             <img className="heart-unliked" src={assets.emptyHeart}/>
           </div>
-          <div className="like-count">{this.state.likeCount}</div>
+          <div className="like-count">{this.state.likeCount} Likes</div>
         </div>
       );
     }

@@ -32,30 +32,30 @@
       return (
         <div className="photo-item" key={this.props.photo.id}>
           <div className="photo-header">
-            <li className="photo-user-avatar">
+            <div className="photo-user-avatar">
               <img src={this.props.photo.author_avatar_url}/>
-            </li>
-            <li className="photo-user-link">
+            </div>
+            <div className="photo-user-divnk">
               <ReactRouter.Link to={"/" + this.props.photo.user.username}>
                 {this.props.photo.user.username}
               </ReactRouter.Link>
-            </li>
-            <li className="photo-title">{this.props.photo.title}</li>
-            <li className="photo-age">{this.state.age}</li>
+            </div>
+            <div className="photo-title">{this.props.photo.title}</div>
+            <div className="photo-age">{this.state.age}</div>
           </div>
           <div className="photograph-container">
             <img className="photograph" src={this.props.photo.image_url}/>
           </div>
-          <li className="photo-caption">{this.props.photo.caption}</li>
-          <li className="photo-like"> <PhotoLike
+          <div className="photo-caption">{this.props.photo.caption}</div>
+          <div className="photo-like"> <PhotoLike
               photo={this.props.photo}
               key={this.props.photo.id}
               likes={this.props.photo.likes}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               belongstouser={this.props.belongstouser}
-            /> </li>
-          <li className="photo-comments">
+            /> </div>
+          <div className="photo-comments">
             <PhotoComment
               photo={this.props.photo}
               key={this.props.photo.id}
@@ -63,14 +63,14 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               belongstouser={this.props.belongstouser}
-           /> </li>
-           <li className="submit-comment">
+           /> </div>
+           <div className="submit-comment">
             <CommentForm
               photo={this.props.photo}
               key={this.props.photo.id}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
-          /> </li>
+          /> </div>
         </div>
       );
 
