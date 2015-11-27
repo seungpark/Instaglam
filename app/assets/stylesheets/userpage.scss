@@ -1,3 +1,42 @@
+.userpage-profile {
+  padding-bottom: 30px;
+  display: flex;
+  position: relative;
+  left: 50px;
+
+  .userpage-avatar {
+    display: block;
+    position: relative;
+    margin: 0px 30px 0px 40px;
+    img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+    }
+  }
+  .userpage-username {
+    display: block;
+    position: static;
+  }
+  .userpage-edit-button {
+    display: inline-block;
+    position: static;
+  }
+  .userpage-name {
+    display: inline;
+    position: static;
+  }
+  .userpage-bio {
+    display: inline;
+    position: static;
+  }
+  .userpage-photo-count{
+    display: inline;
+    position: static;
+  }
+
+}
+
 
 .userphotos-index {
   display: flex;
@@ -17,17 +56,6 @@
   -webkit-flex-direction: column;
 }
 
-.photograph {
-  width: 600px;
-  height: auto;
-}
-
 .userpage {
   padding-top: 115px;
-}
-
-.userpage-avatar > img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
 }

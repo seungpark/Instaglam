@@ -5,7 +5,6 @@
     mixins: [ReactRouter.History],
 
     render: function() {
-      debugger
       var posts;
       if (this.props.pageuser && this.props.pageuser.photos.length === 1) {
         posts = " post";
@@ -18,22 +17,24 @@
             <div className="userpage-avatar">
               <img src={this.props.pageuser.avatar_url}/>
             </div>
-            <div className="userpage-username">
-              {this.props.pageuser.username}
-            </div>
-            <div className="userpage-edit-button">
+            <div className="username-and-edit">
+              <h1 className="userpage-username">
+                {this.props.pageuser.username}
+              </h1>
               <ReactRouter.Link to={"/editprofile"}>{"Edit Profile"}
               </ReactRouter.Link>
             </div>
-            <div className="userpage-name">
-              {this.props.pageuser.name}
+            <div className="name-and-bio">
+              <h2 className="userpage-name">
+                {this.props.pageuser.name}
+              </h2>
+              <span className="userpage-bio">
+                {this.props.pageuser.bio}
+              </span>
             </div>
-            <div className="userpage-bio">
-              {this.props.pageuser.bio}
-            </div>
-            <div className="userpage-photo-count">
-              {this.props.pageuser.photos.length + posts}
-            </div>
+            <ul className="userpage-stats">
+              <li>{this.props.pageuser.photos.length + posts}</li>
+            </ul>
           </div>
         );
 
@@ -43,18 +44,22 @@
             <div className="userpage-avatar">
               <img src={this.props.pageuser.avatar_url}/>
             </div>
-            <div className="userpage-username">
-              {this.props.pageuser.username}
+            <div className="username-and-edit">
+              <h1 className="userpage-username">
+                {this.props.pageuser.username}
+              </h1>
             </div>
-            <div className="userpage-name">
-              {this.props.pageuser.name}
+            <div className="name-and-bio">
+              <h2 className="userpage-name">
+                {this.props.pageuser.name}
+              </h2>
+              <span className="userpage-bio">
+                {this.props.pageuser.bio}
+              </span>
             </div>
-            <div className="userpage-bio">
-              {this.props.pageuser.bio}
-            </div>
-            <div className="userpage-photo-count">
-              {this.props.pageuser.photos.length + posts}
-            </div>
+            <ul className="userpage-stats">
+              <li>{this.props.pageuser.photos.length + posts}</li>
+            </ul>
           </div>
         );
       } else {

@@ -28,7 +28,7 @@ h1, h2, p, strong, em, a, div, img, ul {
 }
 
 a {
-  display: inline-block;
+  display: block;
   font-size: 15px;
   font-weight: 600;
   line-height: 18px;
