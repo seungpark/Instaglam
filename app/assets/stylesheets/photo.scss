@@ -99,30 +99,30 @@
   }
 
   .comments-container {
-    
+
     // position: relative;
     // left: 40px;
     // width: 570px;
   }
 
   .photo-comments {
-    // margin: 0px;
-    // left: -20px;
-    // position: relative;
+    ul > li {
+      display: block;
+    }
 
-    .photo-comments-list {
+    .comment-content{
+      display: inline-flex;
 
-      .comment-author-content {
-        // display: flex;
-      }
-      .comment-content {
-        // padding: 0px 10px;
+      .comment-author{
+        position: relative;
+        bottom: 1px;
+        padding-right: 3px;
       }
 
       button {
         background: transparent;
         border: none;
-        font-size: 15;
+        font-size: 17;
         color: #a5a7aa;
         outline: none;
       }

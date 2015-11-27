@@ -30,8 +30,7 @@
         );
       } else {
         return (
-          <div className="comments-content">
-          <ul className="comment-author">
+          <ul className="comment-content">
             <li className="comment-author">
               <ReactRouter.Link to={"/"+ this.props.author.username}>
                 <span className="comment-user">{this.props.author.username}</span>
@@ -41,7 +40,6 @@
               {this.props.comment.body}
             </li>
           </ul>
-          </div>
         );
       }
     }
