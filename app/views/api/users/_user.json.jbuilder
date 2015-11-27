@@ -4,11 +4,11 @@ json.extract!(
 )
 
 json.followers do
-  json.array! @user.followers, :id, :username, :name
+  json.array! user.followers, :id, :username, :name
 end
 
 json.following_users do
-  json.array! @user.following_users, :id, :username, :name
+  json.array! user.following_users, :id, :username, :name
 end
 
 
