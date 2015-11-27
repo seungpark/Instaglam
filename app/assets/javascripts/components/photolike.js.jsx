@@ -66,7 +66,7 @@
     render: function() {
       if (this.state.liked) {
         return (
-          <div className="like-container">
+          <div className="photo-like">
             <div className="heart-image" onClick={this._deleteLike}>
               <img className="heart-liked" src={assets.filledHeart}/>
             </div>
@@ -75,7 +75,7 @@
         )
       } else
       return(
-        <div className="like-container">
+        <div className="photo-like">
           <div className="heart-image" onClick={this._addLike}>
             <img className="heart-unliked" src={assets.emptyHeart}/>
           </div>

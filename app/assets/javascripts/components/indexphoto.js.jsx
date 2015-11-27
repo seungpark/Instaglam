@@ -35,7 +35,7 @@
             <div className="photo-user-avatar">
               <img src={this.props.photo.author_avatar_url}/>
             </div>
-            <div className="photo-user-divnk">
+            <div className="photo-user-link">
               <ReactRouter.Link to={"/" + this.props.photo.user.username}>
                 {this.props.photo.user.username}
               </ReactRouter.Link>
@@ -46,15 +46,15 @@
           <div className="photograph-container">
             <img className="photograph" src={this.props.photo.image_url}/>
           </div>
-          <div className="photo-caption">{this.props.photo.caption}</div>
-          <div className="photo-like"> <PhotoLike
+          <PhotoLike
               photo={this.props.photo}
               key={this.props.photo.id}
               likes={this.props.photo.likes}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               belongstouser={this.props.belongstouser}
-            /> </div>
+            />
+          <div className="photo-caption">{this.props.photo.caption}</div>
           <div className="photo-comments">
             <PhotoComment
               photo={this.props.photo}
