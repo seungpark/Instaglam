@@ -16,30 +16,28 @@
     render: function() {
       if (this.props.comment.user.id === CurrentUserStore.currentUser().id) {
         return (
-          <div className="comments-list">
-          <ul className="comment-author-content">
+          <ul className="comment-content">
             <li className="comment-author">
               <ReactRouter.Link to={"/" + this.props.author.username}>
                 <span className="comment-user">{this.props.author.username}</span>
               </ReactRouter.Link>
             </li>
-            <li className="comment-content">
+            <li className="comment-body">
               {this.props.comment.body}
             </li>
             <li><p><button onClick={ this._handleDelete }>X</button></p></li>
           </ul>
-          </div>
         );
       } else {
         return (
-          <div className="comments-list">
-          <ul className="comment-author-content">
+          <div className="comments-content">
+          <ul className="comment-author">
             <li className="comment-author">
               <ReactRouter.Link to={"/"+ this.props.author.username}>
                 <span className="comment-user">{this.props.author.username}</span>
               </ReactRouter.Link>
             </li>
-            <li className="comment-content">
+            <li className="comment-body">
               {this.props.comment.body}
             </li>
           </ul>

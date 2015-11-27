@@ -23,7 +23,6 @@
 
     render: function() {
       return (
-        <div className="comments-container">
 
         <ul className="photo-comments-list">
           {this.props.comments.map(function (comment) {
@@ -40,7 +39,6 @@
             );
           }.bind(this))}
         </ul>
-        </div>
       );
     }
 
