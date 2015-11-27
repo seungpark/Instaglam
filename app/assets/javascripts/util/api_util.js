@@ -1,13 +1,11 @@
 ApiUtil = {
   fetchPhotosForFeed: function(followingUserIds){
-    debugger
     $.ajax({
       url: "api/photos/",
       type: 'GET',
       dataType: 'json',
       data: {user_id: followingUserIds},
       success: function (data) {
-        debugger
         ApiActions.receiveFeedPhotos(data);
       }
     });
@@ -50,6 +48,18 @@ ApiUtil = {
         callback && callback(userdata[0]);
       }
     });
+  },
+
+  createUser: function(userinfo, callback) {
+    $.ajax({
+      url:'/api/users/',
+      type: 'POST',
+      dataType: 'json',
+      data: {userinfo: userinfo},
+      success: function(user){
+        callback && callback();
+      }
+    })
   },
 
   updateUserInfo: function(id, nameAndBio) {

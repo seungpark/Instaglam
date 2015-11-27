@@ -44,6 +44,7 @@
             <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
 
           </form>
+          <ReactRouter.Link to="/signup">Sign Up! </ReactRouter.Link>
         </div>
       )
     }

@@ -13,6 +13,17 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def create
+    @user = User.new(
+      username: user_params[:username],
+      password: user_params[:password],
+      name: user_params[:name],
+      bio: user_params[:bio]
+    )
+    @user.save
+    render :show
+  end
+
   def update
     @user = User.find(params[:id])
     if params.has_key?("user")
@@ -32,6 +43,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
+    params.require(:userinfo).permit(:username, :password, :name, :bio)
   end
 
 

@@ -53,9 +53,11 @@ $(function(){
   // var routes = ();
   // cant put <Route /> in here and feed it to React.render?
 
-
   React.render(
     <Router>
+      <Router>
+        <Route path="/signup" component={UserForm}/>
+      </Router>
       <Route path="/" component={App}>
         <IndexRoute component={FeedFilter} />
         <Route path="signin" component={SessionForm}/>
