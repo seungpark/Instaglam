@@ -15,7 +15,7 @@
 
     componentDidMount: function(){
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchPhotos();
+      ApiUtil.fetchFeedPhotos();
     },
 
     componentWillUnmount: function(){
@@ -23,6 +23,7 @@
     },
 
     render: function(){
+      debugger
       return(
       <div>
         <NewsFeed photos={this.state.photos} history={this.history} />

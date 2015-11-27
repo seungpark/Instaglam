@@ -9,7 +9,6 @@ var SessionsApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
-        console.log("reaching signin-success");
       }
     });
   },
@@ -31,7 +30,6 @@ var SessionsApiUtil = {
       type: 'DELETE',
       dataType: 'json',
       success:function () {
-        console.log("signed out");
         CurrentUserActions.receiveCurrentUser({});
       }
     });
