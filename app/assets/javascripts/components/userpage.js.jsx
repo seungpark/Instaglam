@@ -45,14 +45,10 @@
     render: function() {
       return(
         <div className="userpage">
-          <div className="userpage-profile-container">
-            <UserPageProfile pageuser={this.state.user}/>
-          </div>
-          <div className="userpage-index">
-            <UserPageIndex photos={this.state.photos}/>
-          </div>
+          <UserPageProfile pageuser={this.state.user}/>
+          <UserPageIndex photos={this.state.photos}/>
         </div>
-      )
+      );
     }
 
   });
