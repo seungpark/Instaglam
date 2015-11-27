@@ -13,10 +13,15 @@
       return { photos: PhotoStore.all() };
     },
 
-    componentDidMount: function(){
+    componentWillReceiveProps: function(newProps) {
+      this.setState({ photos: PhotoStore.all() });
+    },
+
+    componentWillMount: function(){
       debugger
       PhotoStore.addChangeListener(this._photosChanged);
-      if (CurrentUserStore.currentUser()) {
+      if (CurrentUserStore.currentUser() &&
+          CurrentUserStore.currentUser().following_users) {
         var followedUserIds = CurrentUserStore.currentUser().following_users
                   .map(function (following_user) {
                     return following_user.id;
