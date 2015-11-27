@@ -25,6 +25,7 @@ h1, h2, p, strong, em, a, div, img, ul {
   text-align: inherit;
   color: inherit;
   background: transparent;
+  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 a {

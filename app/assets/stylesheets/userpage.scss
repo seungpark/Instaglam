@@ -1,38 +1,67 @@
 .userpage-profile {
   padding-bottom: 30px;
-  display: flex;
+  display: block;
   position: relative;
-  left: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 
   .userpage-avatar {
-    display: block;
+    display: flex;
     position: relative;
-    margin: 0px 30px 0px 40px;
+    margin: 0px 400px 0px 40px;
     img {
       height: 150px;
       width: 150px;
       border-radius: 50%;
     }
   }
-  .userpage-username {
-    display: block;
-    position: static;
-  }
-  .userpage-edit-button {
-    display: inline-block;
-    position: static;
-  }
-  .userpage-name {
-    display: inline;
-    position: static;
-  }
-  .userpage-bio {
-    display: inline;
-    position: static;
-  }
-  .userpage-photo-count{
-    display: inline;
-    position: static;
+
+  .userpage-user-info {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    .username-and-edit {
+      width: 400px;
+      height: auto;
+      margin-left: 200px;
+
+      .userpage-username {
+        display: inline-block;
+        font-size: 34px;
+        font-weight: 300;
+      }
+
+      a {
+        margin-left: 20px;
+        padding: 5px;
+        display: inline-table;
+        align-self: center;
+        font-size: 100%;
+        color: #818488;
+        border: 1px solid #818488;
+        border-radius: 3px;
+      }
+    }
+
+    .name-and-bio {
+      display: block;
+      position: relative;
+    }
+
+    .userpage-name {
+      display: inline;
+      position: static;
+    }
+    .userpage-bio {
+      display: inline;
+      position: static;
+    }
+    .userpage-photo-count{
+      display: inline;
+      position: static;
+    }
   }
 
 }
@@ -58,4 +87,5 @@
 
 .userpage {
   padding-top: 115px;
+  background-color: #fafafa;
 }

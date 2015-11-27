@@ -17,24 +17,26 @@
             <div className="userpage-avatar">
               <img src={this.props.pageuser.avatar_url}/>
             </div>
-            <div className="username-and-edit">
-              <h1 className="userpage-username">
-                {this.props.pageuser.username}
-              </h1>
-              <ReactRouter.Link to={"/editprofile"}>{"Edit Profile"}
-              </ReactRouter.Link>
+            <div className="userpage-user-info">
+              <div className="username-and-edit">
+                <h1 className="userpage-username">
+                  {this.props.pageuser.username}
+                </h1>
+                <ReactRouter.Link to={"/editprofile"}>{"EDIT PROFILE"}
+                </ReactRouter.Link>
+              </div>
+              <div className="name-and-bio">
+                <h2 className="userpage-name">
+                  {this.props.pageuser.name}
+                </h2>
+                <span className="userpage-bio">
+                  {this.props.pageuser.bio}
+                </span>
+              </div>
+              <ul className="userpage-stats">
+                <li>{this.props.pageuser.photos.length + posts}</li>
+              </ul>
             </div>
-            <div className="name-and-bio">
-              <h2 className="userpage-name">
-                {this.props.pageuser.name}
-              </h2>
-              <span className="userpage-bio">
-                {this.props.pageuser.bio}
-              </span>
-            </div>
-            <ul className="userpage-stats">
-              <li>{this.props.pageuser.photos.length + posts}</li>
-            </ul>
           </div>
         );
 
@@ -44,22 +46,24 @@
             <div className="userpage-avatar">
               <img src={this.props.pageuser.avatar_url}/>
             </div>
-            <div className="username-and-edit">
-              <h1 className="userpage-username">
-                {this.props.pageuser.username}
-              </h1>
+            <div className="userpage-user-info">
+              <div className="username-and-edit">
+                <h1 className="userpage-username">
+                  {this.props.pageuser.username}
+                </h1>
+              </div>
+              <div className="name-and-bio">
+                <h2 className="userpage-name">
+                  {this.props.pageuser.name}
+                </h2>
+                <span className="userpage-bio">
+                  {this.props.pageuser.bio}
+                </span>
+              </div>
+              <ul className="userpage-stats">
+                <li>{this.props.pageuser.photos.length + posts}</li>
+              </ul>
             </div>
-            <div className="name-and-bio">
-              <h2 className="userpage-name">
-                {this.props.pageuser.name}
-              </h2>
-              <span className="userpage-bio">
-                {this.props.pageuser.bio}
-              </span>
-            </div>
-            <ul className="userpage-stats">
-              <li>{this.props.pageuser.photos.length + posts}</li>
-            </ul>
           </div>
         );
       } else {
