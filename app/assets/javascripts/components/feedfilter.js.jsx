@@ -14,8 +14,15 @@
     },
 
     componentDidMount: function(){
+      debugger
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchFeedPhotos();
+      if (CurrentUserStore.currentUser()) {
+        var followedUserIds = CurrentUserStore.currentUser().following_users
+                  .map(function (following_user) {
+                    return following_user.id;
+                  });
+        ApiUtil.fetchPhotosForFeed(followedUserIds);
+      }
     },
 
     componentWillUnmount: function(){
@@ -23,7 +30,6 @@
     },
 
     render: function(){
-      debugger
       return(
       <div>
         <NewsFeed photos={this.state.photos} history={this.history} />

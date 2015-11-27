@@ -1,11 +1,14 @@
 ApiUtil = {
-  fetchPhotos: function(){
+  fetchPhotosForFeed: function(followingUserIds){
+    debugger
     $.ajax({
-      url: "api/photos",
+      url: "api/photos/",
       type: 'GET',
       dataType: 'json',
+      data: {user_id: followingUserIds},
       success: function (data) {
-        ApiActions.receiveAll(data);
+        debugger
+        ApiActions.receiveFeedPhotos(data);
       }
     });
   },

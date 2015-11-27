@@ -1,5 +1,5 @@
 ApiActions = {
-  receiveAll: function(photos){
+  receiveFeedPhotos: function(photos){
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTOS_RECEIVED,
       photos: photos
@@ -9,7 +9,7 @@ ApiActions = {
   receiveUserPhotos: function(photos){
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTOS_RECEIVED,
-      photos: photos.reverse()
+      photos: photos
     });
   },
 
