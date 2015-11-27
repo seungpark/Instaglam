@@ -54,7 +54,12 @@
               source={this.props.source}
               belongstouser={this.props.belongstouser}
             />
-          <div className="photo-caption">{this.props.photo.caption}</div>
+          <div className="photo-caption">
+            <ReactRouter.Link to={"/" + this.props.photo.user.username}>
+              {this.props.photo.user.username}
+            </ReactRouter.Link>
+            {"    " + this.props.photo.caption}
+          </div>
           <div className="photo-comments">
             <PhotoComment
               photo={this.props.photo}
