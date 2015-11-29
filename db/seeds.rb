@@ -9,10 +9,10 @@
 
 users = User.create([
   {username: "seung", password: "hello123", bio: "travel the world", name: "Seung Park"},
-  {username: "guest", password: "hello123"},
-  {username: "guest2", password: "hello123"},
-  {username: "guest3", password: "hello123"},
-  {username: "guest4", password: "hello123"}
+  {username: "guest", password: "hello123", bio: "this is my bio", name: "John Doe"},
+  {username: "guest2", password: "hello123", bio: "i am a sample profile", name: "Adam Smith"},
+  {username: "guest3", password: "hello123", bio: "sample test bio", name: "Jane"},
+  {username: "guest4", password: "hello123", bio: "what is life", name: "Peter"}
 ])
 
 
@@ -25,12 +25,12 @@ photos = Photo.create([
 ])
 
 tags = Tag.create([
-  {name: "tag1"},
-  {name: "tag2"},
-  {name: "tag3"},
-  {name: "tag4"},
-  {name: "tag5"},
-  {name: "tag6"}
+  {name: "yolo"},
+  {name: "tbt"},
+  {name: "nature"},
+  {name: "nofilter"},
+  {name: "sunset"},
+  {name: "hbd"}
 ])
 
 
@@ -71,6 +71,31 @@ likes = Like.create([
   {photo_id:2 , user_id:3},
   {photo_id:2 , user_id:4},
   {photo_id:2 , user_id:5},
+])
+
+follows = Follow.create([
+  {user_id:1 ,follower_id:1 },
+  {user_id:1 ,follower_id:2 },
+  {user_id:1 ,follower_id:3 },
+  {user_id:1 ,follower_id:4 },
+  {user_id:1 ,follower_id:5 },
+  {user_id:2 ,follower_id:1 },
+  {user_id:2 ,follower_id:2 },
+  {user_id:2 ,follower_id:3 },
+  {user_id:2 ,follower_id:4 },
+  {user_id:2 ,follower_id:5 },
+  {user_id:3 ,follower_id:1 },
+  {user_id:3 ,follower_id:2 },
+  {user_id:3, follower_id:3 },
+  {user_id:4 ,follower_id:1 },
+  {user_id:4 ,follower_id:2 },
+  {user_id:4 ,follower_id:4 },
+  {user_id:4 ,follower_id:5 },
+  {user_id:5 ,follower_id:1 },
+  {user_id:5 ,follower_id:2 },
+  {user_id:5 ,follower_id:3 },
+  {user_id:5 ,follower_id:4 },
+  {user_id:5 ,follower_id:5 }
 ])
 
 

@@ -1,6 +1,6 @@
 json.extract!(
   photo,
-  :id, :title, :caption, :user_id, :created_at
+  :id, :title, :caption, :user_id, :created_at, :tags
 )
 
 json.user do
