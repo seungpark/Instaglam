@@ -86,6 +86,29 @@ ApiUtil = {
     });
   },
 
+  deleteFollow: function(id) {
+    $.ajax({
+      url: '/api/follows/' + id,
+      type: 'DELETE',
+      dataType:'json',
+      success: function() {
+        SessionsApiUtil.fetchCurrentUser();
+      }
+    });
+  },
+
+  createFollow: function(userId, followerId) {
+    $.ajax({
+      url: '/api/follows/',
+      type: 'POST',
+      dataType: 'json',
+      data: {user_id: userId, follower_id: followerId},
+      success: function() {
+        SessionsApiUtil.fetchCurrentUser();
+      }
+    });
+  },
+
   // fetchLikes: function(photoid){
   //   $.ajax({
   //     url: '/api/likes',
