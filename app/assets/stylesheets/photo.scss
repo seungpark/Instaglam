@@ -98,16 +98,23 @@
     }
   }
 
-  .comments-container {
+  .index-photo-tag-container {
+    h3 {
+      margin: 0 10px 0 0;
+      display: inline-flex;
+    }
+    .index-photo-tags {
+      display: inline-flex;
 
-    // position: relative;
-    // left: 40px;
-    // width: 570px;
+      a {
+        margin: 0 8px 0 0;
+      }
+    }
   }
 
   .photo-comments {
     ul > li {
-      display: block;
+      display: block
     }
 
     .comment-content{

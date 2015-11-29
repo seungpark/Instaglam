@@ -29,6 +29,7 @@
     },
 
     render: function() {
+      debugger
       return (
         <div className="photo-item" key={this.props.photo.id}>
           <div className="photo-header">
@@ -60,6 +61,12 @@
             </ReactRouter.Link>
             {"    " + this.props.photo.caption}
           </div>
+          <PhotoTags
+            photo={this.props.photo}
+            source={this.props.source}
+            followedUserIds={this.props.followedUserIds}
+            tags={this.props.tags}
+          />
           <div className="photo-comments">
             <PhotoComment
               photo={this.props.photo}
