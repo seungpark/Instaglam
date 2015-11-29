@@ -52,20 +52,17 @@ $(function(){
 
   // var routes = ();
   // cant put <Route /> in here and feed it to React.render?
+  var routes = (
+    <Route path="/" component={App}>
+      <IndexRoute component={FeedFilter} />
+      <Route path="/signup" component={UserForm}/>
+      <Route path="signin" component={SessionForm}/>
+      <Route path="/newphoto" component={PhotoForm}/>
+      <Route path="/editprofile" component={ProfileEdit}/>
+      <Route path="/:username" component={UserPage}/>
+    </Route>
+  );
 
-  React.render(
-    <Router>
-      <Router>
-        <Route path="/signup" component={UserForm}/>
-      </Router>
-      <Route path="/" component={App}>
-        <IndexRoute component={FeedFilter} />
-        <Route path="signin" component={SessionForm}/>
-        <Route path="/newphoto" component={PhotoForm}/>
-        <Route path="/editprofile" component={ProfileEdit}/>
-        <Route path="/:username" component={UserPage}/>
-      </Route>
-    </Router>,
-    root
-  )
-});
+  React.render(<Router>{routes}</Router>, root);
+
+})();
