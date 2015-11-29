@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
       bio: user_params[:bio]
     )
     @user.save
+    @user.follow.new(user_id: @user.id, follower_id: @user.id)
     render :show
   end
 

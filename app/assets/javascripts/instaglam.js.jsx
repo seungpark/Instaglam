@@ -23,7 +23,11 @@ $(function(){
     },
 
     _ensureSignedIn: function() {
-      if (!CurrentUserStore.isSignedIn()) {
+      if (
+        !CurrentUserStore.isSignedIn() &&
+        this.props.location.pathname !== "/signin" &&
+        this.props.location.pathname !== "/signup"
+      ) {
         this.history.pushState(null, "/signin");
       }
 
@@ -32,6 +36,14 @@ $(function(){
 
 
     render: function(){
+      if (this.props.location.pathname === "/signup") {
+        return (
+          <div>
+            <Header/>
+            <UserForm/>
+          </div>
+        );
+      }
       if (!CurrentUserStore.isSignedIn()) {
         return (
           <div>
@@ -65,4 +77,4 @@ $(function(){
 
   React.render(<Router>{routes}</Router>, root);
 
-})
+});
