@@ -65,4 +65,4 @@ $(function(){
 
   React.render(<Router>{routes}</Router>, root);
 
-})();
+})

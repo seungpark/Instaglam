@@ -30,7 +30,7 @@
       };
 
       if (this.props.source === "newsfeed") {
-        ApiUtil.createPhotoCommentFromNewsfeed(data);
+        ApiUtil.createPhotoCommentFromNewsfeed(data, this.props.followedUserIds);
       } else if (this.props.source === "userpage") {
         ApiUtil.createPhotoCommentFromUserpage(data);
       }

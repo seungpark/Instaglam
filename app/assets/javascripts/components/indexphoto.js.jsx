@@ -52,7 +52,7 @@
               likes={this.props.photo.likes}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
-              belongstouser={this.props.belongstouser}
+              followedUserIds={this.props.followedUserIds}
             />
           <div className="photo-caption">
             <ReactRouter.Link to={"/" + this.props.photo.user.username}>
@@ -68,6 +68,7 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               belongstouser={this.props.belongstouser}
+              followedUserIds={this.props.followedUserIds}
            /> </div>
            <div className="submit-comment">
             <CommentForm
@@ -75,6 +76,7 @@
               key={this.props.photo.id}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
+              followedUserIds={this.props.followedUserIds}
           /> </div>
         </div>
       );

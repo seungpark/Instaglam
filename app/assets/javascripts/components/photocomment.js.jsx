@@ -34,6 +34,7 @@
                 author={comment.user}
                 source={this.props.source}
                 photoauthor={this.props.photo.user.username}
+                followedUserIds={this.props.followedUserIds}
               />
               </li>
             );

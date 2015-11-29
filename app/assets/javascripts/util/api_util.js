@@ -121,14 +121,14 @@ ApiUtil = {
   //   });
   // },
 
-  createLikeFromNewsfeed: function(data, callback){
+  createLikeFromNewsfeed: function(data, followedUserIds, callback){
     $.ajax({
       url:'/api/likes',
       type: 'POST',
       dataType: 'json',
       data: data,
       success: function(like) {
-        ApiUtil.fetchPhotos();
+        ApiUtil.fetchPhotosForFeed(followedUserIds);
         callback && callback();
         // LikeActions.receiveLike(like);
       }
@@ -149,13 +149,14 @@ ApiUtil = {
     });
   },
 
-  deleteLikeFromNewsfeed: function(likeid, callback){
+  deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
+    debugger
     $.ajax({
       url:'/api/likes/' + likeid,
       type: 'DELETE',
       dataType: 'json',
       success: function(like) {
-        ApiUtil.fetchPhotos();
+        ApiUtil.fetchPhotosForFeed(followedUserIds);
         callback && callback();
         // LikeActions.receiveLike(like);
       }
@@ -199,7 +200,7 @@ ApiUtil = {
   //   });
   // },
 
-  createPhotoCommentFromNewsfeed: function(commentdata){
+  createPhotoCommentFromNewsfeed: function(commentdata, followedUserIds){
     $.ajax({
       url: 'api/comments',
       type: 'POST',
@@ -207,7 +208,7 @@ ApiUtil = {
       data: commentdata,
       success: function(data) {
         // CommentActions.createPhotoComment(data);
-        ApiUtil.fetchPhotos();
+        ApiUtil.fetchPhotosForFeed(followedUserIds);
       }
     });
   },
@@ -226,14 +227,14 @@ ApiUtil = {
     });
   },
 
-  deletePhotoCommentFromNewsfeed: function(commentid){
+  deletePhotoCommentFromNewsfeed: function(commentid, followedUserIds){
     $.ajax({
       url: 'api/comments/' + commentid,
       type: 'DELETE',
       dataType: 'json',
       data: {id: commentid},
       success: function(data) {
-        ApiUtil.fetchPhotos();
+        ApiUtil.fetchPhotosForFeed(followedUserIds);
       }
     });
   },

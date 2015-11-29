@@ -10,7 +10,7 @@
 
 
     getInitialState: function(){
-      return { photos: PhotoStore.all() };
+      return { photos: PhotoStore.all(), followedUserIds: null};
     },
 
     componentWillReceiveProps: function(newProps) {
@@ -26,6 +26,7 @@
                   .map(function (following_user) {
                     return following_user.id;
                   });
+        this.setState({followedUserIds: followedUserIds });
         ApiUtil.fetchPhotosForFeed(followedUserIds);
       }
     },
@@ -35,9 +36,10 @@
     },
 
     render: function(){
+      debugger
       return(
       <div>
-        <NewsFeed photos={this.state.photos} history={this.history} />
+        <NewsFeed photos={this.state.photos} history={this.history} followedUserIds={this.state.followedUserIds}/>
       </div>
       );
     }

@@ -6,7 +6,7 @@
       e.preventDefault();
       var commentid = this.props.comment.id;
       if (this.props.source === "newsfeed") {
-        ApiUtil.deletePhotoCommentFromNewsfeed(commentid);
+        ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
       } else if (this.props.source === "userpage") {
         ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.photoauthor);
       }

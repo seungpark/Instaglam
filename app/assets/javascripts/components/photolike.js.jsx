@@ -20,6 +20,10 @@
       }
     },
 
+    componentWillReceiveProps: function(newProps) {
+      debugger
+    },
+
     _addLike: function(e) {
       e.preventDefault();
       var data = {
@@ -30,7 +34,7 @@
         this.setState({ liked: true, likeCount: this.state.likeCount + 1 });
       }.bind(this);
       if (this.props.source === "newsfeed") {
-        ApiUtil.createLikeFromNewsfeed(data, callback);
+        ApiUtil.createLikeFromNewsfeed(data, this.props.followedUserIds, callback);
       } else if (this.props.source === "userpage") {
         ApiUtil.createLikeFromUserpage(data, this.props.photo.user.username, callback);
       }
@@ -39,6 +43,7 @@
 
     _deleteLike: function(e) {
       e.preventDefault();
+      debugger
       // var data = {
       //   photo_id: this.props.photo.id,
       //   user_id: this.props.user.id
@@ -49,13 +54,14 @@
         }
       });
 
-      if (like) {var likeid = like.id;}
+      var likeid;
+      if (like) {likeid = like.id;}
 
       var callback = function () {
         this.setState({ liked: false, likeCount: this.state.likeCount - 1 });
       }.bind(this);
       if (this.props.source === "newsfeed") {
-        ApiUtil.deleteLikeFromNewsfeed(likeid, callback);
+        ApiUtil.deleteLikeFromNewsfeed(likeid, this.props.followedUserIds, callback);
       } else if (this.props.source === "userpage") {
         ApiUtil.deleteLikeFromUserpage(likeid, this.props.photo.user.username, callback);
       }

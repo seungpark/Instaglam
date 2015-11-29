@@ -41,6 +41,7 @@
                 likes={photo.likes}
                 user={CurrentUserStore.currentUser()}
                 source={"newsfeed"}
+                followedUserIds={this.props.followedUserIds}
                 />;
             }.bind(this) )}
 

@@ -37,12 +37,12 @@
       PhotoStore.addChangeListener(this._photosChanged);
       var username = newProps.params.username;
       ApiUtil.fetchUserPhotos(username);
-      ApiUtil.fetchUserInfo(username, this._getNewUser);
+      ApiUtil.fetchUserInfo(username, this._setUserInfo);
     },
 
-    _getNewUser: function(user) {
-      this.setState({ user: user });
-    },
+    // _getNewUser: function(user) {
+    //   this.setState({ user: user });
+    // },
 
 //need to feed prop to UserPageProfile
 //currentUser={CurrentUserStore.currentUser}
