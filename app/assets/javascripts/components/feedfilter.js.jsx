@@ -18,7 +18,6 @@
     },
 
     componentWillMount: function(){
-      debugger
       PhotoStore.addChangeListener(this._photosChanged);
       if (CurrentUserStore.currentUser() &&
           CurrentUserStore.currentUser().following_users) {
@@ -36,7 +35,6 @@
     },
 
     render: function(){
-      debugger
       return(
       <div>
         <NewsFeed photos={this.state.photos} history={this.history} followedUserIds={this.state.followedUserIds}/>

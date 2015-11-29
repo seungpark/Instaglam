@@ -13,7 +13,7 @@
               photo={photo}
               key={photo.id}
               source={"userpage"}
-              belongstouser={this.props.photos[0].username}
+              tags={photo.tags}
               />;
           }.bind(this))}
         </ul>

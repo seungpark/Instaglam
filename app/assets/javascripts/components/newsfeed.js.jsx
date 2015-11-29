@@ -42,6 +42,7 @@
                 user={CurrentUserStore.currentUser()}
                 source={"newsfeed"}
                 followedUserIds={this.props.followedUserIds}
+                tags={photo.tags}
                 />;
             }.bind(this) )}
 

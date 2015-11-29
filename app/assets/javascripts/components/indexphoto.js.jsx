@@ -67,7 +67,6 @@
               comments={this.props.photo.comments}
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
-              belongstouser={this.props.belongstouser}
               followedUserIds={this.props.followedUserIds}
            /> </div>
            <div className="submit-comment">
