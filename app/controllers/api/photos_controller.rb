@@ -17,7 +17,20 @@ class Api::PhotosController < ApplicationController
     # render 'index' goes to views/api/photos/index.json.jbuilder
 
   def create
-    @photo = Photo.create!(photo_params)
+    @photo = Photo.new(photo_params)
+    @photo.save!
+
+    tags = params[:photo][:tags].split(",")
+    tags.each do |tag|
+      exists = Tag.find_by_name(tag)
+      if !!exists
+        new_tag = exists
+      else
+        new_tag = Tag.new(name: tag)
+        new_tag.save!
+      end
+      @photo.taggings.new(tag_id: new_tag.id, photo_id: @photo.id).save!
+    end
     render 'show'
   end
 

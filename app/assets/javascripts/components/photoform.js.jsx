@@ -4,7 +4,7 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { title: "", caption: "", imageUrl: "", imageFile: null };
+      return { title: "", caption: "", imageUrl: "", imageFile: null, tags: ""};
     },
 
     render: function() {
@@ -17,6 +17,9 @@
             </label>
             <label>Caption
               <input type="text" onChange={this.changeCaption} value={this.state.caption} />
+            </label>
+            <label>Tags
+              <input type="text" onChange={this.changeTags} />
             </label>
 
             <input type="file" onChange={this.changeFile} />
@@ -38,6 +41,11 @@
       this.setState({ caption: e.currentTarget.value });
     },
 
+    changeTags: function(e){
+      e.preventDefault();
+      this.setState({ tags: e.currentTarget.value });
+    },
+
     changeFile: function(e) {
       var reader = new FileReader();
       var file = e.currentTarget.files[0];
@@ -45,7 +53,7 @@
 
       reader.onloadend = function() {
         that.setState({ imageUrl: reader.result, imageFile: file });
-      }
+      };
 
       if (file) {
         reader.readAsDataURL(file);
@@ -59,20 +67,23 @@
 
       var title = this.state.title;
       var caption = this.state.caption;
-      var userid = CurrentUserStore.currentUser().id
+      var userid = CurrentUserStore.currentUser().id;
       var file = this.state.imageFile;
+      var tags = this.state.tags.split(/[ ,#]+/);
 
       var formData = new FormData();
       formData.append("photo[title]", title);
       formData.append("photo[caption]", caption);
       formData.append("photo[user_id]", userid);
       formData.append("photo[image]", file);
+      formData.append("photo[tags]", tags);
+      debugger
 
       ApiUtil.createPhoto(formData, this.resetForm);
     },
 
     resetForm: function() {
-      this.setState({ title: "", imageUrl: "", imageFile: null });
+      this.setState({ title: "", imageUrl: "", imageFile: null, tags: "" });
     }
   });
 })(this);
