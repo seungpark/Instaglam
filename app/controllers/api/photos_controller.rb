@@ -7,6 +7,11 @@ class Api::PhotosController < ApplicationController
       @photos = Photo.where(user_id: userid).order(created_at: :desc)
       # @photos = Photo.select{|photo| photo.user_id == userid}
       # select {|photo| photo.user_id == userid}
+    elsif params.has_key?("tags")
+      photoids = []
+      taggings = Tagging.where(tag_id: params[:tags].to_i)
+      taggings.each {|tagging| photoids << tagging.photo_id}
+      @photos = Photo.where(id: photoids);
     else
       @photos = Photo.where(user_id: params[:user_id]).order(created_at: :desc)
     end

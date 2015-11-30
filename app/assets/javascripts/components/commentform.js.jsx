@@ -28,7 +28,6 @@
         body: this.state.body,
         user: this.props.photo.user.username
       };
-      debugger
       if (this.props.source === "newsfeed") {
         ApiUtil.createPhotoCommentFromNewsfeed(data, this.props.followedUserIds);
       } else if (this.props.source === "userpage") {

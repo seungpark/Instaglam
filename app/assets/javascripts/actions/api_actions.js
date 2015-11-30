@@ -18,6 +18,13 @@ ApiActions = {
       actionType: PhotoConstants.PHOTO_DETAILS_RECEIVED,
       photo: photo
     });
+  },
+
+  receieveTagPhotos: function(photos){
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.PHOTOS_RECEIVED,
+      photos: photos
+    });
   }
 
   // receivePhotoLikes: function(likes){

@@ -11,6 +11,19 @@ ApiUtil = {
     });
   },
 
+  fetchPhotosForTag: function(tagid) {
+    $.ajax({
+      url: "api/photos/",
+      type: 'GET',
+      dataType: 'json',
+      data: {tags: tagid},
+      success: function(data) {
+        debugger
+        ApiActions.receieveTagPhotos(data);
+      }
+    });
+  },
+
   fetchUserPhotos: function(username){
     $.ajax({
       url: "api/photos/",
@@ -59,7 +72,7 @@ ApiUtil = {
       success: function(user){
         callback && callback();
       }
-    })
+    });
   },
 
   updateUserInfo: function(id, nameAndBio) {

@@ -14,7 +14,7 @@
     },
 
     currentUser: function () {
-      return $.extend({}, _currentUser);
+      return _currentUser;
     },
 
     isSignedIn: function () {

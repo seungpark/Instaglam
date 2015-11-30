@@ -3,7 +3,6 @@
   root.Comment = React.createClass({
 
     _handleDelete: function(e) {
-      debugger
       e.preventDefault();
       var commentid = this.props.comment.id;
       if (this.props.source === "newsfeed") {
