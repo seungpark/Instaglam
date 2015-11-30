@@ -45,7 +45,6 @@
     },
 
     render: function() {
-      debugger
       var posts, followers, following;
       if (this.state.pageuser && this.state.pageuser.photos.length === 1) {
         posts = " post";

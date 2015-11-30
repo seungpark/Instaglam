@@ -20,9 +20,9 @@
       }
     },
 
-    componentWillReceiveProps: function(newProps) {
-      debugger
-    },
+    // componentWillReceiveProps: function(newProps) {
+    //   debugger
+    // },
 
     _addLike: function(e) {
       e.preventDefault();
@@ -43,7 +43,6 @@
 
     _deleteLike: function(e) {
       e.preventDefault();
-      debugger
       // var data = {
       //   photo_id: this.props.photo.id,
       //   user_id: this.props.user.id

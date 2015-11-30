@@ -29,7 +29,6 @@
     },
 
     render: function() {
-      debugger
       return (
         <div className="photo-item" key={this.props.photo.id}>
           <div className="photo-header">

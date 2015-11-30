@@ -77,7 +77,6 @@
       formData.append("photo[user_id]", userid);
       formData.append("photo[image]", file);
       formData.append("photo[tags]", tags);
-      debugger
 
       ApiUtil.createPhoto(formData, this.resetForm);
     },

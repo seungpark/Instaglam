@@ -150,7 +150,6 @@ ApiUtil = {
   },
 
   deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
-    debugger
     $.ajax({
       url:'/api/likes/' + likeid,
       type: 'DELETE',
