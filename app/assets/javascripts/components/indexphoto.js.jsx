@@ -57,6 +57,7 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               followedUserIds={this.props.followedUserIds}
+              tagid={this.props.tagid}
             />
           <div className="photo-caption">
             <ReactRouter.Link to={"/" + this.props.photo.user.username}>
@@ -78,6 +79,7 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               followedUserIds={this.props.followedUserIds}
+              tagid={this.props.tagid}
            /> </div>
            <div className="submit-comment">
             <CommentForm
@@ -86,6 +88,7 @@
               user={CurrentUserStore.currentUser()}
               source={this.props.source}
               followedUserIds={this.props.followedUserIds}
+              tagid={this.props.tagid}
           /> </div>
         </div>
       );

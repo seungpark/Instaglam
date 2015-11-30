@@ -25,8 +25,8 @@ $(function(){
     _ensureSignedIn: function() {
       if (
         !CurrentUserStore.isSignedIn() &&
-        this.props.location.pathname !== "/signin" &&
-        this.props.location.pathname !== "/signup"
+        (this.props.location.pathname !== "/signin" ||
+        this.props.location.pathname !== "/signup")
       ) {
         this.history.pushState(null, "/signin");
       }

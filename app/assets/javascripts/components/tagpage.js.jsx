@@ -34,9 +34,10 @@
                 comments={photo.comments}
                 likes={photo.likes}
                 user={CurrentUserStore.currentUser()}
-                source={"newsfeed"}
+                source={"tagpage"}
                 followedUserIds={this.props.followedUserIds}
                 tags={photo.tags}
+                tagid={parseInt(this.props.location.pathname.slice(6))}
                 />;
             }.bind(this) )}
 

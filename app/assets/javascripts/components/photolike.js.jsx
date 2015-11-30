@@ -40,6 +40,8 @@
         ApiUtil.createLikeFromUserpage(data, this.props.photo.user.username, callback);
       } else if (this.props.source === "photopage") {
         ApiUtil.createLikeFromPhotoPage(data, this.props.photo.id, callback);
+      } else if (this.props.source === "tagpage") {
+        ApiUtil.createLikeFromTagPage(data, this.props.tagid, callback);
       }
     },
 
@@ -68,6 +70,8 @@
         ApiUtil.deleteLikeFromUserpage(likeid, this.props.photo.user.username, callback);
       } else if (this.props.source === "photopage") {
         ApiUtil.deleteLikeFromPhotoPage(likeid, this.props.photo.id, callback);
+      } else if (this.props.source === "tagpage") {
+        ApiUtil.deleteLikeFromTagPage(likeid, this.props.tagid, callback);
       }
 
     },

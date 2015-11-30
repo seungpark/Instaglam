@@ -3,7 +3,6 @@
   root.PhotoTags = React.createClass({
 
     render: function() {
-      debugger
       return (
         <div className="index-photo-tag-container">
           <h3 className="index-photo-tag-header">Tags</h3>

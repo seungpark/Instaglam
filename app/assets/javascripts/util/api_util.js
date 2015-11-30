@@ -18,7 +18,6 @@ ApiUtil = {
       dataType: 'json',
       data: {tags: tagid},
       success: function(data) {
-        debugger
         ApiActions.receieveTagPhotos(data);
       }
     });
@@ -175,6 +174,20 @@ ApiUtil = {
     });
   },
 
+  createLikeFromTagPage: function(data, tagid, callback){
+    $.ajax({
+      url:'/api/likes',
+      type: 'POST',
+      dataType:'json',
+      data: data,
+      success: function(like) {
+        debugger
+        ApiUtil.fetchPhotosForTag(tagid);
+        callback && callback();
+      }
+    });
+  },
+
   deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
     $.ajax({
       url:'/api/likes/' + likeid,
@@ -202,6 +215,17 @@ ApiUtil = {
   },
 
   deleteLikeFromPhotoPage: function(likeid, photoid, callback){
+    $.ajax({
+      url:'/api/likes/' + likeid,
+      type: 'DELETE',
+      dataType:'json',
+      success: function(like) {
+        callback && callback();
+      }
+    });
+  },
+
+  deleteLikeFromTagPage: function(likeid, tagid, callback){
     $.ajax({
       url:'/api/likes/' + likeid,
       type: 'DELETE',
