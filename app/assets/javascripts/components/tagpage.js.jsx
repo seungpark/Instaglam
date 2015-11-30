@@ -22,6 +22,11 @@
       PhotoStore.removeChangeListener(this._photosChanged);
     },
 
+    componentWillReceiveProps: function(newProps) {
+      this.setState({tagid: parseInt(newProps.location.pathname.slice(6)) });
+      ApiUtil.fetchPhotosForTag(parseInt(newProps.location.pathname.slice(6)));
+    },
+
     render: function() {
       return(
         <div className="newsfeed">
