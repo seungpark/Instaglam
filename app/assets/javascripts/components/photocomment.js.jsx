@@ -36,6 +36,7 @@
                 source={this.props.source}
                 photoauthor={this.props.photo.user.username}
                 followedUserIds={this.props.followedUserIds}
+                tagid={this.props.tagid}
               />
               </li>
             );

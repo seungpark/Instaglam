@@ -33,7 +33,9 @@
       } else if (this.props.source === "userpage") {
         ApiUtil.createPhotoCommentFromUserpage(data);
       } else if (this.props.source === "photopage") {
-        ApiUtil.createPhotoCommentFromPhotoPage(data, this.props.photo.id)
+        ApiUtil.createPhotoCommentFromPhotoPage(data, this.props.photo.id);
+      } else if (this.props.source === "tagpage") {
+        ApiUtil.createPhotoCommentFromTagPage(data, this.props.tagid);
       }
       this._clearForm();
     },

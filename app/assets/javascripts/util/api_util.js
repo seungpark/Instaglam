@@ -12,6 +12,7 @@ ApiUtil = {
   },
 
   fetchPhotosForTag: function(tagid) {
+    debugger
     $.ajax({
       url: "api/photos/",
       type: 'GET',
@@ -19,6 +20,7 @@ ApiUtil = {
       data: {tags: tagid},
       success: function(data) {
         ApiActions.receieveTagPhotos(data);
+        debugger
       }
     });
   },
@@ -300,6 +302,19 @@ ApiUtil = {
     });
   },
 
+  createPhotoCommentFromTagPage: function(data, tagid){
+    $.ajax({
+      url: 'api/comments',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function(data) {
+        // CommentActions.createPhotoComment(data);
+        ApiUtil.fetchPhotosForTag(tagid);
+      }
+    });
+  },
+
   deletePhotoCommentFromNewsfeed: function(commentid, followedUserIds){
     $.ajax({
       url: 'api/comments/' + commentid,
@@ -332,6 +347,19 @@ ApiUtil = {
       data: {id: commentid},
       success: function(data) {
         ApiUtil.getPhotoDetails(photoid);
+      }
+    });
+  },
+
+  deletePhotoCommentFromTagPage: function(commentid, tagid){
+    debugger
+    $.ajax({
+      url: 'api/comments/' + commentid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {id: commentid},
+      success: function(data) {
+        ApiUtil.fetchPhotosForTag(tagid);
       }
     });
   },
