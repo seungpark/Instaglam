@@ -71,6 +71,7 @@ $(function(){
       <Route path="signin" component={SessionForm}/>
       <Route path="/newphoto" component={PhotoForm}/>
       <Route path="/editprofile" component={ProfileEdit}/>
+      <Route path="/photos/:photoid" component={PhotoPage}/>
       <Route path="/:username" component={UserPage}/>
     </Route>
   );

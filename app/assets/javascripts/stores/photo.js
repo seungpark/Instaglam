@@ -11,8 +11,16 @@
       return _photos.slice(0);
     },
 
+    details: function(){
+      return _photos.slice(0)[0];
+    },
+
     resetPhotos: function(photos){
       _photos = photos;
+    },
+
+    setPhotoDetails: function(photo){
+      _photos = [photo];
     },
 
     addChangeListener: function(callback){
@@ -31,6 +39,10 @@
           break;
         case PhotoConstants.PHOTO_RECEIVED:
           _addPhoto(payload.photo);
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.PHOTO_DETAILS_RECEIVED:
+          PhotoStore.setPhotoDetails(payload.photo);
           PhotoStore.emit(CHANGE_EVENT);
           break;
       }

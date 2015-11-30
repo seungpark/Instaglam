@@ -1,0 +1,160 @@
+.photo-page{
+  padding-top: 115px;
+  display: block;
+  max-width: 600px;
+  margin: auto;
+  a {
+    color: #125688;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0d3c5f;
+  }
+
+  div:nth-child(n+3){
+    display: block;
+    position: static;
+    padding: 0px 15px 5px 15px;
+  }
+
+  .photo-header{
+    display: flex;
+    padding: 0px 10px 0px 10px;
+
+  div {
+    display: table;
+    position: relative;
+    list-style: none;
+    // position: relative;
+    // padding-bottom: 5px;
+    // left: 15px;
+  }
+
+  div:nth-child(n+2){
+    top: 10px;
+  }
+
+  .photo-user-avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .photo-user-link {
+  }
+
+  .photo-title {
+    margin: 0px auto;
+  }
+
+  .photo-age{
+    color: #a5a7aa;
+  }
+}
+
+.photograph-container{
+  max-height: 600px;
+  max-width: 600px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eeefef;
+  border-top: 1px solid #eeefef;
+  cursor: pointer;
+
+  .photograph {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+  .photo-caption{
+    a {
+      display: inline;
+    }
+  }
+
+  .photo-like {
+    display: inline-block;
+
+    .heart-image {
+      display: inline-block;
+    }
+    .heart-image:hover {
+      cursor: pointer;
+    }
+    .like-count {
+      display: inline-block;
+      position: relative;
+      bottom: 10px;
+    }
+  }
+
+  .index-photo-tag-container {
+    h3 {
+      margin: 0 10px 0 0;
+      display: inline-flex;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .index-photo-tags {
+      display: inline-flex;
+
+      a {
+        margin: 0 8px 0 0;
+      }
+    }
+  }
+
+  .photo-comments {
+    ul > li {
+      display: block
+    }
+
+    .comment-content{
+      display: inline-flex;
+
+      .comment-author{
+        position: relative;
+        bottom: 1px;
+        padding-right: 3px;
+      }
+
+      button {
+        background: transparent;
+        border: none;
+        font-size: 17;
+        color: #a5a7aa;
+        outline: none;
+      }
+      button:hover {
+        color: black;
+      }
+    }
+  }
+
+  .submit-comment {
+    margin: 20px;
+  }
+
+  .submit-comment-box {
+    border-top: 1px solid #edeeee;
+
+
+    input {
+      font-size: 15px;
+      line-height: 18px;
+      width: 100%;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+    }
+
+    button {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size:0;
+    }
+  }
+}

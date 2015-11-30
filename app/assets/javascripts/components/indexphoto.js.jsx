@@ -40,11 +40,15 @@
                 {this.props.photo.user.username}
               </ReactRouter.Link>
             </div>
-            <div className="photo-title">{this.props.photo.title}</div>
+            <div className="photo-title">
+              <a href={"/#/photos/" + this.props.photo.id}> {this.props.photo.title} </a>
+            </div>
             <div className="photo-age">{this.state.age}</div>
           </div>
           <div className="photograph-container">
-            <img className="photograph" src={this.props.photo.image_url}/>
+            <a href={"/#/photos/" + this.props.photo.id}>
+              <img className="photograph" src={this.props.photo.image_url}/>
+            </a>
           </div>
           <PhotoLike
               photo={this.props.photo}

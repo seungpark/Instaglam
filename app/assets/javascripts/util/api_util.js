@@ -149,6 +149,19 @@ ApiUtil = {
     });
   },
 
+  createLikeFromPhotoPage: function(data, photoid, callback){
+    $.ajax({
+      url:'/api/likes',
+      type: 'POST',
+      dataType:'json',
+      data: data,
+      success: function(like) {
+        ApiUtil.getPhotoDetails(photoid, null);
+        callback && callback();
+      }
+    });
+  },
+
   deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
     $.ajax({
       url:'/api/likes/' + likeid,
@@ -171,6 +184,17 @@ ApiUtil = {
         ApiUtil.fetchUserPhotos(username);
         callback && callback();
         // LikeActions.receiveLike(like);
+      }
+    });
+  },
+
+  deleteLikeFromPhotoPage: function(likeid, photoid, callback){
+    $.ajax({
+      url:'/api/likes/' + likeid,
+      type: 'DELETE',
+      dataType:'json',
+      success: function(like) {
+        callback && callback();
       }
     });
   },
@@ -246,6 +270,18 @@ ApiUtil = {
       data: {id: commentid},
       success: function(data) {
         ApiUtil.fetchUserPhotos(username);
+      }
+    });
+  },
+
+  getPhotoDetails: function(photoid, callback){
+    $.ajax({
+      url: 'api/photos/' + photoid,
+      type: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        callback && callback(data);
+        ApiActions.receivePhotoDetails(data);
       }
     });
   }

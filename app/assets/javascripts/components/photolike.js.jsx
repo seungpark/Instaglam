@@ -33,10 +33,13 @@
       var callback = function () {
         this.setState({ liked: true, likeCount: this.state.likeCount + 1 });
       }.bind(this);
+
       if (this.props.source === "newsfeed") {
         ApiUtil.createLikeFromNewsfeed(data, this.props.followedUserIds, callback);
       } else if (this.props.source === "userpage") {
         ApiUtil.createLikeFromUserpage(data, this.props.photo.user.username, callback);
+      } else if (this.props.source === "photopage") {
+        ApiUtil.createLikeFromPhotoPage(data, this.props.photo.id, callback);
       }
     },
 
@@ -63,6 +66,8 @@
         ApiUtil.deleteLikeFromNewsfeed(likeid, this.props.followedUserIds, callback);
       } else if (this.props.source === "userpage") {
         ApiUtil.deleteLikeFromUserpage(likeid, this.props.photo.user.username, callback);
+      } else if (this.props.source === "photopage") {
+        ApiUtil.deleteLikeFromPhotoPage(likeid, this.props.photo.id, callback);
       }
 
     },
