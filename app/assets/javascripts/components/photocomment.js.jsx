@@ -29,6 +29,7 @@
             return (
               <li key={comment.id}>
               <Comment
+                photo={this.props.photo}
                 comment={comment}
                 body={comment.body}
                 author={comment.user}

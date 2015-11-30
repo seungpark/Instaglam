@@ -3,12 +3,15 @@
   root.Comment = React.createClass({
 
     _handleDelete: function(e) {
+      debugger
       e.preventDefault();
       var commentid = this.props.comment.id;
       if (this.props.source === "newsfeed") {
         ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
       } else if (this.props.source === "userpage") {
         ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.photoauthor);
+      } else if (this.props.source === "photopage") {
+        ApiUtil.deletePhotoCommentFromPhotoPage(commentid, this.props.photo.id);
       }
 
     },

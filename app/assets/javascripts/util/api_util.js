@@ -250,6 +250,19 @@ ApiUtil = {
     });
   },
 
+  createPhotoCommentFromPhotoPage: function(data, photoId){
+    $.ajax({
+      url: 'api/comments',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function(data) {
+        // CommentActions.createPhotoComment(data);
+        ApiUtil.getPhotoDetails(photoId, null);
+      }
+    });
+  },
+
   deletePhotoCommentFromNewsfeed: function(commentid, followedUserIds){
     $.ajax({
       url: 'api/comments/' + commentid,
@@ -270,6 +283,18 @@ ApiUtil = {
       data: {id: commentid},
       success: function(data) {
         ApiUtil.fetchUserPhotos(username);
+      }
+    });
+  },
+
+  deletePhotoCommentFromPhotoPage: function(commentid, photoid){
+    $.ajax({
+      url: 'api/comments/' + commentid,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {id: commentid},
+      success: function(data) {
+        ApiUtil.getPhotoDetails(photoid);
       }
     });
   },
