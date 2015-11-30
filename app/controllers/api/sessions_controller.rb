@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
       render json: {errors: ["Wrong Username / Password!"]}, status: 401
     else
       sign_in(@user)
-      render json: @user
+      render :show
       # passes @user info as json BACK to AJAX REQUEST FROM SESSIONS API UTIL
       #as 'credentials'
     end
