@@ -19,13 +19,30 @@
     },
 
     componentWillUnmount: function() {
-
+      PhotoStore.removeChangeListener(this._photosChanged);
     },
 
     render: function() {
       return(
-        <div/>
-      )
+        <div className="newsfeed">
+          <ul className="newsfeed-ul">
+            {this.state.photos.map(function (photo) {
+              return <IndexPhoto
+                key={photo.id}
+                photo={photo}
+                author={photo.user}
+                comments={photo.comments}
+                likes={photo.likes}
+                user={CurrentUserStore.currentUser()}
+                source={"newsfeed"}
+                followedUserIds={this.props.followedUserIds}
+                tags={photo.tags}
+                />;
+            }.bind(this) )}
+
+          </ul>
+        </div>
+      );
 
     }
 
