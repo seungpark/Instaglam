@@ -37,6 +37,10 @@ a {
   color: #125688;
 }
 
+a:hover {
+  color: #0d3c5f;
+}
+
 ul {
   list-style: none;
 }
