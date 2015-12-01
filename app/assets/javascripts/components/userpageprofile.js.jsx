@@ -67,7 +67,7 @@
 
       if (this.state.pageuser && this.state.pageuser.id === CurrentUserStore.currentUser().id) {
         return (
-          <div className="userpage-profile">
+          <div className="userpage-profile group">
             <div className="userpage-avatar">
               <img src={this.state.pageuser.avatar_url}/>
             </div>
@@ -98,7 +98,7 @@
 
       } else if (this.state.pageuser) {
         return (
-          <div className="userpage-profile">
+          <div className="userpage-profile group">
             <div className="userpage-avatar">
               <img src={this.state.pageuser.avatar_url}/>
             </div>
