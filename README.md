@@ -1,6 +1,6 @@
 # Instaglam
 
-[Instaglam link][instaglam] **NB:** This should be a link to your production site
+[Instaglam link][instaglam.herokuapp.com] **NB:** This should be a link to your production site
 
 [instaglam]: http://www.instagram.com
 
