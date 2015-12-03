@@ -76,8 +76,6 @@ and self user's profile page.
 ### Phase 6: Styling Cleanup (2 days)
 I will use CSS to clean up the layouts of the pages.
 
-[Details][phase-six]
-
 
 ### Bonus Features (TBD)
 - [ ] Prettify transitions
