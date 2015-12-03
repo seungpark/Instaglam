@@ -86,31 +86,3 @@ I will use CSS to clean up the layouts of the pages.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
-Flux
-
-Views (React Components)
-
-NotesIndex
-NotesIndexItem
-NoteForm
-
-
-Stores
-Note
-
-Actions
-ApiActions.receiveAllNotes
-ApiActions.receiveSingleNote
-ApiActions.deleteNote
-
-ApiUtil
-ApiUtil.fetchAllNotes
-ApiUtil.fetchSingleNote
-ApiUtil.createNote
-ApiUtil.editNote
-ApiUtil.destroyNote
-
-Gems/Libraries
-Flux Dispatcher
-Twitter Bootstrap
