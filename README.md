@@ -13,12 +13,12 @@ Instaglam allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create, view, and delete photos
-- [ ] Users can follow other users to fill their news feed
-- [ ] Users can comment and like photos
-- [ ] Tag photos with multiple tags and search photos by tag
+- [X] Create an account
+- [X] Log in / Log out
+- [X] Create, view, and delete photos
+- [X] Users can follow other users to fill their news feed
+- [X] Users can comment and like photos
+- [X] Tag photos with multiple tags and search photos by tag
 
 ## Design Docs
 * [DB schema][schema]
