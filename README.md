@@ -1,7 +1,8 @@
 # Instaglam
 
 [Instaglam link][heroku]
-[heroku] : http://instaglam.herokuapp.com 
+
+[heroku] : http://instaglam.herokuapp.com
 
 [instaglam]: http://www.instagram.com
 
