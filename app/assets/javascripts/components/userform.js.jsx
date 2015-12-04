@@ -14,33 +14,29 @@
 
     render: function() {
       return(
+        <div className="new-user-page">
+          <Header/>
+          <div className="new-user-content">
+          <div className="user-form">
+            <form className="new-user" onSubmit={this.submit} ref="form">
 
-        <div className="user-form">
-          <form className="new-user" onSubmit={this.submit} ref="form">
+              <h1>Sign Up!</h1>
 
-            <h1>Sign Up!</h1>
 
-            <label className="new-user-username">
-              
-              <input type="text" name="username" placeholder="Username*" ref="username"/>
-            </label>
+                <input type="text" name="username" placeholder="Username*" ref="username"/>
 
-            <label>
 
-              <input type="password" name="password" placeholder="Password**" ref="password"/>
-            </label>
+                <input type="password" name="password" placeholder="Password**" ref="password"/>
 
-            <label>
 
-              <input type="text" name="name" placeholder="Name" ref="name"/>
-            </label>
+                <input type="text" name="name" placeholder="Name" ref="name"/>
 
-            <label>
 
-              <input type="text" name="bio" placeholder="Bio" ref="bio"/>
-            </label>
-            <button className="submit-new-user">Sign Up!</button>
-          </form>
+                <input type="text" name="bio" placeholder="Bio" ref="bio"/>
+              <button className="submit-new-user">Sign Up!</button>
+            </form>
+          </div>
+          </div>
         </div>
       );
     }

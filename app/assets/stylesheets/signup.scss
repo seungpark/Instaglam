@@ -1,13 +1,13 @@
+
+.new-user-page > .header-shell {
+  padding: 10px 0;
+
+  .header-user-nav {
+    margin-top: 10px;
+  }
+}
 .user-form {
   background-color: #fafafa;
-
-  .header-shell {
-    padding: 10px 0;
-
-    .header-user-nav {
-      margin-top: 10px;
-    }
-  }
 
 
   background: image-url("signin-background.jpg");
@@ -45,6 +45,8 @@
 
     input {
       width: 200px;
+      display: block;
+      margin: 10px auto;
       border-radius: 5px;
       padding: 0 0 0 5px;
     }

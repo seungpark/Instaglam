@@ -39,7 +39,6 @@ $(function(){
       if (this.props.location.pathname === "/signup") {
         return (
           <div>
-            <Header/>
             <UserForm/>
           </div>
         );
