@@ -26,27 +26,31 @@
       return (
         <div className="signin-page">
           <Header/>
-          <form className="signin-form" onSubmit={this.submit} ref="form">
+          <div className="signin-landing">
+            <div className="signin-form">
+              <form className="signin-form" onSubmit={this.submit} ref="form">
 
-            <h1>Sign In!</h1>
+                <h1>Sign In!</h1>
 
-            <label className="signin-username">
-              Username
-              <input type="text" name="username" placeholder="Username" ref="username"/>
-            </label>
+                <label className="signin-username">
 
-            <label className="signin-password">
-              Password
-              <input type="password" name="password" placeholder="Password" ref="password"/>
-            </label>
+                  <input type="text" name="username" placeholder="Username" ref="username"/>
+                </label>
 
-            <button className="signin-button">Sign In!</button>
-            <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
+                <label className="signin-password">
+                  
+                  <input type="password" name="password" placeholder="Password" ref="password"/>
+                </label>
 
-          </form>
-          <ReactRouter.Link to="/signup">Sign Up! </ReactRouter.Link>
+                <button className="signin-button">Sign In!</button>
+                <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
+
+              </form>
+              <ReactRouter.Link className="signup" to="/signup">Sign Up! </ReactRouter.Link>
+              </div>
+          </div>
         </div>
-      )
+      );
     }
 
   });
