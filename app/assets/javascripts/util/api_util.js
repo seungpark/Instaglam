@@ -12,7 +12,6 @@ ApiUtil = {
   },
 
   fetchPhotosForTag: function(tagid) {
-    debugger
     $.ajax({
       url: "api/photos/",
       type: 'GET',
@@ -20,7 +19,6 @@ ApiUtil = {
       data: {tags: tagid},
       success: function(data) {
         ApiActions.receieveTagPhotos(data);
-        debugger
       }
     });
   },
@@ -72,7 +70,6 @@ ApiUtil = {
       dataType: 'json',
       data: {userinfo: userinfo},
       success: function(user){
-        debugger
         callback && callback();
         SessionsApiUtil.signin({
           username: user.username,
@@ -189,7 +186,6 @@ ApiUtil = {
       dataType:'json',
       data: data,
       success: function(like) {
-        debugger
         ApiUtil.fetchPhotosForTag(tagid);
         callback && callback();
       }
@@ -358,7 +354,7 @@ ApiUtil = {
   },
 
   deletePhotoCommentFromTagPage: function(commentid, tagid){
-    debugger
+    
     $.ajax({
       url: 'api/comments/' + commentid,
       type: 'DELETE',
