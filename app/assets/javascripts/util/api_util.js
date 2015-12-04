@@ -65,13 +65,19 @@ ApiUtil = {
   },
 
   createUser: function(userinfo, callback) {
+    pw = userinfo.password;
     $.ajax({
       url:'/api/users/',
       type: 'POST',
       dataType: 'json',
       data: {userinfo: userinfo},
       success: function(user){
+        debugger
         callback && callback();
+        SessionsApiUtil.signin({
+          username: user.username,
+          password: pw
+        });
       }
     });
   },

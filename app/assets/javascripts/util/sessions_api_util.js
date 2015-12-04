@@ -1,6 +1,7 @@
 var SessionsApiUtil = {
 
   signin: function(credentials, success) {
+    debugger
     $.ajax({
       url: '/api/session',
       type: 'POST',
