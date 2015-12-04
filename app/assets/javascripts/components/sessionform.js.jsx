@@ -38,7 +38,7 @@
                 </label>
 
                 <label className="signin-password">
-                  
+
                   <input type="password" name="password" placeholder="Password" ref="password"/>
                 </label>
 
