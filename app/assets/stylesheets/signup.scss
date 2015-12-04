@@ -1,3 +1,80 @@
-.new-user {
-  padding-top: 115px;
+.user-form {
+  background-color: #fafafa;
+
+  .header-shell {
+    padding: 10px 0;
+
+    .header-user-nav {
+      margin-top: 10px;
+    }
+  }
+
+
+  background: image-url("signin-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 55px;
+  height: 100vh;
+
+  .new-user {
+    position: relative;
+    max-width: 600px;
+    min-height: 200px;
+    margin: 150px auto;
+    background: transparentize(white, .2);
+    border: 1px solid #676767;
+    border-radius: 5px;
+
+    h1 {
+      margin: 10px auto;
+      text-align: center;
+      font-weight: 800px;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      text-align: center;
+      margin: 5px;
+    }
+
+    a {
+      display: initial;
+      margin: 10px 260px;
+    }
+
+    input {
+      width: 200px;
+      border-radius: 5px;
+      padding: 0 0 0 5px;
+    }
+
+
+
+    button{
+      background-color: #125688;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      margin-left: 240px;
+    }
+
+
+    button:hover {
+      background-color: #6666ff;
+    }
+
+  }
+
+
+  .signin-username {
+    display:block;
+  }
+
+  .signin-password {
+    display: block;
+  }
+
+
 }

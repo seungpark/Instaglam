@@ -14,29 +14,34 @@
 
     render: function() {
       return(
-        <form className="new-user" onSubmit={this.submit} ref="form">
 
-          <label className="new-user-username">
-            Username
-            <input type="text" name="username" placeholder="Username" ref="username"/>
-          </label>
+        <div className="user-form">
+          <form className="new-user" onSubmit={this.submit} ref="form">
 
-          <label>
-            Password
-            <input type="password" name="password" placeholder="Password" ref="password"/>
-          </label>
+            <h1>Sign Up!</h1>
 
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Name" ref="name"/>
-          </label>
+            <label className="new-user-username">
+              
+              <input type="text" name="username" placeholder="Username*" ref="username"/>
+            </label>
 
-          <label>
-            Bio
-            <input type="text" name="bio" placeholder="Bio" ref="bio"/>
-          </label>
-          <button className="submit-new-user">Sign Up!</button>
-        </form>
+            <label>
+
+              <input type="password" name="password" placeholder="Password**" ref="password"/>
+            </label>
+
+            <label>
+
+              <input type="text" name="name" placeholder="Name" ref="name"/>
+            </label>
+
+            <label>
+
+              <input type="text" name="bio" placeholder="Bio" ref="bio"/>
+            </label>
+            <button className="submit-new-user">Sign Up!</button>
+          </form>
+        </div>
       );
     }
 
