@@ -4,31 +4,56 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { title: "", caption: "", imageUrl: "", imageFile: null, tags: ""};
+      return { title: "", caption: "", imageUrl: "", imageFile: null, tags: "", uploading: false, uploaded: false};
     },
 
     render: function() {
-      return (
-        <div className="photo-form group">
-          <h2>New Photo</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>Title
-              <input type="text" onChange={this.changeTitle} value={this.state.title} />
-            </label>
-            <label>Caption
-              <input type="text" onChange={this.changeCaption} value={this.state.caption} />
-            </label>
-            <label>Tags
-              <input type="text" onChange={this.changeTags} />
-            </label>
+      var image;
+      if (this.state.uploaded) {
+        image = assets.uploaded_image;
+        return (
+          <div className="photo-form group">
+            <h2>New Photo</h2>
+            <img src={image}/>
+            <h4>Photo Uploaded!</h4>
+            <ReactRouter.Link to={"/" + CurrentUserStore.currentUser().username}>
+              Check Your Page!
+            </ReactRouter.Link>
+          </div>
+        );
 
-            <input type="file" onChange={this.changeFile} />
+      } else if (this.state.uploading) {
+        image = assets.uploading_image;
+        return (
+          <div className="photo-form group">
+            <h2>New Photo</h2>
+            <h3>Please wait...</h3>
+            <img src={image}/>
+          </div>
+        );
 
-            <button>Submit</button>
-          </form>
-          <img className="preview-image" src={this.state.imageUrl} />
-        </div>
-      );
+      } else {
+        return (
+          <div className="photo-form group">
+            <h2>New Photo</h2>
+            <form onSubmit={this.handleSubmit}>
+              <label>Title
+                <input type="text" onChange={this.changeTitle} value={this.state.title} />
+              </label>
+              <label>Caption
+                <input type="text" onChange={this.changeCaption} value={this.state.caption} />
+              </label>
+              <label>Tags
+                <input type="text" onChange={this.changeTags} />
+              </label>
+                <input type="file" onChange={this.changeFile} />
+              <button>Submit</button>
+            </form>
+            <img className="preview-image" src={this.state.imageUrl} />
+          </div>
+        );
+      }
+
     },
 
     changeTitle: function(e) {
@@ -64,6 +89,7 @@
 
     handleSubmit: function(e) {
       e.preventDefault();
+      this.setState({uploading: true});
 
       var title = this.state.title;
       var caption = this.state.caption;
@@ -82,7 +108,7 @@
     },
 
     resetForm: function() {
-      this.setState({ title: "", imageUrl: "", imageFile: null, tags: "" });
+      this.setState({ title: "", caption: "", imageUrl: "", imageFile: null, tags: "", uploading: false, uploaded: true });
     }
   });
 })(this);
