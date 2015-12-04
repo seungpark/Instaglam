@@ -20,9 +20,13 @@
     color: #0d3c5f;
   }
 
-  div:nth-child(n+3){
+  div:nth-child(n+4){
     display: block;
     position: static;
+    padding: 0px 15px 5px 15px;
+  }
+
+  div.photo-like {
     padding: 0px 15px 5px 15px;
   }
 

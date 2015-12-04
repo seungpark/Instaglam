@@ -56,63 +56,65 @@
 
         return (
           <div className="photo-page">
-          <div className="photo-header">
-            <div className="photo-user-avatar">
-              <img src={this.state.photo.author_avatar_url}/>
+            <div className="photo-item">
+              <div className="photo-header">
+                <div className="photo-user-avatar">
+                  <img src={this.state.photo.author_avatar_url}/>
+                </div>
+                <div className="photo-user-link">
+                  <ReactRouter.Link to={"/" + this.state.photo.user.username}>
+                    {this.state.photo.user.username}
+                  </ReactRouter.Link>
+                </div>
+                <div className="photo-title">
+                  <a href={"/#/photos/" + this.state.photo.id}> {this.state.photo.title} </a>
+                </div>
+                <div className="photo-age">{age}</div>
+              </div>
+              {editButton}
+              <div className="photograph-container">
+                <a href={"/#/photos/" + this.state.photo.id}>
+                  <img className="photograph" src={this.state.photo.image_url}/>
+                </a>
+              </div>
+              <PhotoLike
+                  photo={this.state.photo}
+                  key={this.state.photo.id}
+                  likes={this.state.photo.likes}
+                  user={CurrentUserStore.currentUser()}
+                  source={this.state.source}
+                  followedUserIds={this.state.followedUserIds}
+                />
+              <div className="photo-caption">
+                <ReactRouter.Link to={"/" + this.state.photo.user.username}>
+                  {this.state.photo.user.username}
+                </ReactRouter.Link>
+                {"    " + this.state.photo.caption}
+              </div>
+              <PhotoTags
+                photo={this.state.photo}
+                source={this.state.source}
+                followedUserIds={this.state.followedUserIds}
+                tags={this.state.photo.tags}
+              />
+              <div className="photo-comments">
+                <PhotoComment
+                  photo={this.state.photo}
+                  key={this.state.photo.id}
+                  comments={this.state.photo.comments}
+                  user={CurrentUserStore.currentUser()}
+                  source={this.state.source}
+                  followedUserIds={this.state.followedUserIds}
+               /> </div>
+               <div className="submit-comment">
+                <CommentForm
+                  photo={this.state.photo}
+                  key={this.state.photo.id}
+                  user={CurrentUserStore.currentUser()}
+                  source={this.state.source}
+                  followedUserIds={this.state.followedUserIds}
+              /> </div>
             </div>
-            <div className="photo-user-link">
-              <ReactRouter.Link to={"/" + this.state.photo.user.username}>
-                {this.state.photo.user.username}
-              </ReactRouter.Link>
-            </div>
-            <div className="photo-title">
-              <a href={"/#/photos/" + this.state.photo.id}> {this.state.photo.title} </a>
-            </div>
-            <div className="photo-age">{age}</div>
-          </div>
-          {editButton}
-          <div className="photograph-container">
-            <a href={"/#/photos/" + this.state.photo.id}>
-              <img className="photograph" src={this.state.photo.image_url}/>
-            </a>
-          </div>
-          <PhotoLike
-              photo={this.state.photo}
-              key={this.state.photo.id}
-              likes={this.state.photo.likes}
-              user={CurrentUserStore.currentUser()}
-              source={this.state.source}
-              followedUserIds={this.state.followedUserIds}
-            />
-          <div className="photo-caption">
-            <ReactRouter.Link to={"/" + this.state.photo.user.username}>
-              {this.state.photo.user.username}
-            </ReactRouter.Link>
-            {"    " + this.state.photo.caption}
-          </div>
-          <PhotoTags
-            photo={this.state.photo}
-            source={this.state.source}
-            followedUserIds={this.state.followedUserIds}
-            tags={this.state.photo.tags}
-          />
-          <div className="photo-comments">
-            <PhotoComment
-              photo={this.state.photo}
-              key={this.state.photo.id}
-              comments={this.state.photo.comments}
-              user={CurrentUserStore.currentUser()}
-              source={this.state.source}
-              followedUserIds={this.state.followedUserIds}
-           /> </div>
-           <div className="submit-comment">
-            <CommentForm
-              photo={this.state.photo}
-              key={this.state.photo.id}
-              user={CurrentUserStore.currentUser()}
-              source={this.state.source}
-              followedUserIds={this.state.followedUserIds}
-          /> </div>
           </div>
         );
       } else {

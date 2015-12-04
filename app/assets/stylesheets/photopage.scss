@@ -1,8 +1,7 @@
 .photo-page{
   padding-top: 115px;
   display: block;
-  max-width: 600px;
-  margin: auto;
+  background-color: #fafafa;
   a {
     color: #125688;
     text-decoration: none;
@@ -12,9 +11,17 @@
     color: #0d3c5f;
   }
 
-  div:nth-child(n+3){
+  div.edit-button {
+    padding-left: 15px;
+  }
+
+  div:nth-child(n+4){
     display: block;
     position: static;
+    padding: 0px 15px 5px 15px;
+  }
+
+  div.photo-like {
     padding: 0px 15px 5px 15px;
   }
 
