@@ -53,9 +53,9 @@
       }
 
       if (this.state.pageuser && this.state.pageuser.followers.length === 1) {
-        followers = "follower";
+        followers = " follower";
       } else {
-        followers = "followers";
+        followers = " followers";
       }
 
       if (this.state.following) {
