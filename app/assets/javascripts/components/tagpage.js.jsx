@@ -3,7 +3,6 @@
   root.TagPage = React.createClass({
 
     getInitialState: function() {
-      window.scrollTo(0,0);
       return({
         photos: PhotoStore.all(),
         tagid: parseInt(this.props.location.pathname.slice(6))
@@ -15,6 +14,7 @@
     },
 
     componentWillMount: function() {
+      window.scrollTo(0,0);
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchPhotosForTag(this.state.tagid);
     },
