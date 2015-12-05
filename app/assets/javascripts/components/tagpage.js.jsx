@@ -3,6 +3,7 @@
   root.TagPage = React.createClass({
 
     getInitialState: function() {
+      window.scrollTo(0,0);
       return({
         photos: PhotoStore.all(),
         tagid: parseInt(this.props.location.pathname.slice(6))
