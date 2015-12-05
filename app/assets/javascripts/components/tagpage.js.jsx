@@ -10,7 +10,6 @@
     },
 
     _photosChanged: function() {
-      window.scrollTo(0,0);
       this.setState({ photos: PhotoStore.all() });
     },
 
@@ -26,6 +25,7 @@
     componentWillReceiveProps: function(newProps) {
       this.setState({tagid: parseInt(newProps.location.pathname.slice(6)) });
       ApiUtil.fetchPhotosForTag(parseInt(newProps.location.pathname.slice(6)));
+      window.scrollTo(0,0);
     },
 
     render: function() {
