@@ -8,17 +8,20 @@
     },
 
     render: function() {
+      debugger
       var image;
       if (this.state.uploaded) {
         image = assets.uploaded_image;
         return (
           <div className="photo-form group">
             <h2>New Photo</h2>
-            <img src={image}/>
-            <h4>Photo Uploaded!</h4>
-            <ReactRouter.Link to={"/" + CurrentUserStore.currentUser().username}>
-              Check Your Page!
-            </ReactRouter.Link>
+            <img className="state" src={image}/>
+            <h3>Photo Uploaded!</h3>
+            <div className="link-to-userpage">
+              <ReactRouter.Link to={"/" + CurrentUserStore.currentUser().username}>
+                Check Your Page!
+              </ReactRouter.Link>
+            </div>
           </div>
         );
 
@@ -27,8 +30,8 @@
         return (
           <div className="photo-form group">
             <h2>New Photo</h2>
-            <h3>Please wait...</h3>
-            <img src={image}/>
+            <h4>Please wait...</h4>
+            <img className="state" src={image}/>
           </div>
         );
 
@@ -36,17 +39,12 @@
         return (
           <div className="photo-form group">
             <h2>New Photo</h2>
-            <form onSubmit={this.handleSubmit}>
-              <label>Title
-                <input type="text" onChange={this.changeTitle} value={this.state.title} />
-              </label>
-              <label>Caption
-                <input type="text" onChange={this.changeCaption} value={this.state.caption} />
-              </label>
-              <label>Tags
-                <input type="text" onChange={this.changeTags} />
-              </label>
-                <input type="file" onChange={this.changeFile} />
+            <form className="add-photo-form" onSubmit={this.handleSubmit}>
+
+                <input type="text" onChange={this.changeTitle} placeholder="Title" value={this.state.title} />
+                <input type="text" onChange={this.changeCaption} placeholder="Caption" value={this.state.caption} />
+                <input type="text" onChange={this.changeTags} placeholder="Tags" />
+                <input type="file" className="file" onChange={this.changeFile}/>
               <button>Submit</button>
             </form>
             <img className="preview-image" src={this.state.imageUrl} />

@@ -1,3 +1,65 @@
 .photo-form {
-  padding-top: 115px;
+  margin: auto;
+  max-width: 650px;
+  border: 1px solid #676767;
+  border-radius: 5px;
+  top: 100px;
+  position: relative;
+  padding: 0px 10px;
+
+  h2 {
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .state {
+    height: 100px;
+    display:block;
+    margin: auto;
+  }
+
+  h3, h4, .link-to-userpage {
+    text-align:center;
+  }
+
+  .link-to-userpage{
+    padding-bottom: 10px;
+  }
+
+  a {
+    display: initial;
+  }
+
+  .add-photo-form {
+    float: left;
+
+
+    input {
+      width: 280px;
+      display: block;
+      border-radius: 5px;
+      padding: 0 0 0 5px;
+      margin: 0px 0px 10px 5px;
+      font-size: 18px;
+
+    }
+
+    .file {
+      padding: 0px;
+    }
+
+    button {
+      margin: 10px auto;
+    }
+
+
+
+  }
+  .preview-image {
+    float: right;
+    margin: 0px 5px 5px 0px;
+  }
 }
