@@ -8,7 +8,6 @@
     },
 
     render: function() {
-      debugger
       var image;
       if (this.state.uploaded) {
         image = assets.uploaded_image;

@@ -4,7 +4,6 @@
 
     _handleDelete: function(e) {
       e.preventDefault();
-      debugger
       var commentid = this.props.comment.id;
       if (this.props.source === "newsfeed") {
         ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
