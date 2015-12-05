@@ -10,6 +10,7 @@
     },
 
     _photosChanged: function() {
+      window.scrollTo(0,0);
       this.setState({ photos: PhotoStore.all() });
     },
 

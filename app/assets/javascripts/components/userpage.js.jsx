@@ -18,6 +18,7 @@
 
     _setUserInfo: function(userinfo){
       this.setState({ user: userinfo });
+      window.scrollTo(0,0);
     },
 
     componentWillMount: function() {
