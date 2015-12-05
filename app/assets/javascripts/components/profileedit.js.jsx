@@ -55,29 +55,32 @@
 
     render: function () {
       return (
-        <div>
-        <div className="profile-edit-container">
-          <form className="profile-edit-form" onSubmit={this._handleBioSubmit}>
-            <label>
-              {CurrentUserStore.currentUser().username}
-            </label>
-            <label>
-              Name
-              <input type="text" name="name" value={this.state.name} onChange={this._changeName}></input>
-            </label>
-            <label>
-              Bio
-              <input type="text" name="bio" value={this.state.bio} onChange={this._changeBio}></input>
-            </label>
-            <button>Update Profile</button>
-          </form>
-        </div>
-        <div className="avatar-edit-container">
-          <form className="avatar-edit-form" onSubmit={this._handleAvatarSubmit}>
-            <img className="avatar-edit-image" src={this.state.avatarUrl}/>
-            <input type="file" onChange={this._changeFile} />
-            <button>Change Avatar</button>
-          </form>
+        <div className="edit-page">
+        <div className="profile-edit group">
+          <h1>Edit Profile</h1>
+          <div className="profile-edit-container">
+            <form className="profile-edit-form" onSubmit={this._handleBioSubmit}>
+              <label className="username">
+                {CurrentUserStore.currentUser().username}
+              </label>
+              <label>
+                Name
+                <input type="text" name="name" value={this.state.name} onChange={this._changeName}></input>
+              </label>
+              <label>
+                Bio
+                <input type="text" name="bio" value={this.state.bio} onChange={this._changeBio}></input>
+              </label>
+              <button>Update Profile</button>
+            </form>
+          </div>
+          <div className="avatar-edit-container">
+            <form className="avatar-edit-form" onSubmit={this._handleAvatarSubmit}>
+              <img className="avatar-edit-image" src={this.state.avatarUrl}/>
+              <input type="file" onChange={this._changeFile} />
+              <button>Change Avatar</button>
+            </form>
+          </div>
         </div>
         </div>
       );
