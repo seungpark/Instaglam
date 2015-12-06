@@ -106,15 +106,18 @@
 
   .index-photo-tag-container {
     h3 {
-      margin: 0 10px 0 0;
-      display: inline-flex;
+      margin: 0;
       font-weight: 600;
       font-size: 15px;
+      float: left;
     }
     .index-photo-tags {
-      display: inline-flex;
+      display: block;;
+      max-width: 90%;
+      margin-left: 50px;
 
       a {
+        display: inline-block;
         margin: 0 8px 0 0;
       }
     }
