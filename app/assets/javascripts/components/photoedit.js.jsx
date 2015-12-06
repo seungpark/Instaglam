@@ -79,6 +79,10 @@
       ApiUtil.deletePhoto(this.state.photoid, this._completeDelete);
     },
 
+    _ignore: function(e) {
+      e.preventDefault();
+    },
+
     render: function() {
       if (this.state.photo) {
 
@@ -132,6 +136,10 @@
         return (
           <div className="photo-page">
             <div className="photo-item">
+              <div className="delete-button-div">
+                <button className="delete-button" onClick={this._startDelete}>DELETE</button>
+                {deleting}
+              </div>
               <form className="edit-photo-form" onSubmit={this._submitChanges}>
               <div className="photo-header">
                 <div className="photo-user-avatar">
@@ -143,13 +151,9 @@
                   </ReactRouter.Link>
                 </div>
                 <div className="photo-title-edit">
-                  <input name = "title" className="photo-title-input" onChange={this._changeTitle} value={this.state.title} />
+                  <input name = "title" className="photo-title-input" onChange={this._changeTitle} value={this.state.title} onSubmit={this._ignore} />
                 </div>
                 <div className="photo-age">{age}</div>
-              </div>
-              <div className="delete-button-div">
-                <button className="delete-button" onClick={this._startDelete}>DELETE</button>
-                {deleting}
               </div>
               <div className="photograph-container">
                 <a href={"/#/photos/" + this.state.photo.id}>

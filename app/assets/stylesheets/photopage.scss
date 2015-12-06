@@ -12,6 +12,7 @@
   }
 
   .delete-button-div{
+    margin: 0px 0px 10px 10px;
     .confirm-delete{
       display: inline-block;
       margin-left: 30px;
@@ -150,15 +151,17 @@
 
   .index-photo-tag-container {
     h3 {
-      margin: 0 10px 0 0;
-      display: inline-flex;
+      margin: 0px 10px 10px 0px;
       font-weight: 600;
       font-size: 15px;
+      float: left;
     }
     .index-photo-tags {
-      display: inline-flex;
+      display: block;;
+      max-width: 90%;
 
       a {
+        display: inline-block;
         margin: 0 8px 0 0;
       }
     }
