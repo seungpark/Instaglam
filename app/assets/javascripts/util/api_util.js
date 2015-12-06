@@ -64,7 +64,6 @@ ApiUtil = {
   },
 
   deletePhoto: function(photoid, callback) {
-    debugger
     $.ajax({
       url: '/api/photos/' + photoid,
       type: 'DELETE',
