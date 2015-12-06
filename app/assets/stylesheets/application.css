@@ -45,7 +45,16 @@ ul {
   list-style: none;
 }
 
+button{
+  background-color: #125688;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
 button:hover {
+  background-color: #6666ff;
   cursor: pointer;
 }
 

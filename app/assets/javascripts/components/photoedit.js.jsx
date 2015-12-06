@@ -20,6 +20,7 @@
     },
 
     _updatePhoto: function() {
+      debugger
       if (PhotoStore.details()) {
         this.setState({
           photo: PhotoStore.details(),
@@ -60,8 +61,7 @@
       this.setState({editing: true});
       e.preventDefault();
       var form = $(e.currentTarget).serializeJSON();
-      form.tags = form.tags.split(", ");
-
+      form.tags = form.tags.split(/[ ,#]+/);
       ApiUtil.editPhoto(this.state.photoid, form, this._resetForm);
 
     },
@@ -106,16 +106,18 @@
           );
         }
 
-        var editIcon = "";
+        var editIcon = "", editResponse;
         if (this.state.editing){
           editIcon = assets.uploading_image;
+          editResponse = "Please wait...";
         } else if (this.state.edited) {
           editIcon = assets.uploaded_image;
+          editReponse = "Photo Edited!";
         }
 
         var deleting = "";
         if (this.state.deleting){
-          deleting = <div><button className="delete-button" onClick={this._deletePhoto } > CONFIRM DELETE </button></div>;
+          deleting = <div className="confirm-delete"><button className="delete-button" onClick={this._deletePhoto } > CONFIRM DELETE </button></div>;
         }
 
         var commentsList = this.state.photo.comments.map( function(comment){
@@ -144,8 +146,11 @@
 
         return (
           <div className="photo-page">
+            <div className="loading">
+              <h3 className="loading-response"> {editResponse} </h3>
+              <img className="loading" src={editIcon}/>
+            </div>
             <div className="photo-item">
-            <img className="loading" src={editIcon}/>
               <form className="edit-photo-form" onSubmit={this._submitChanges}>
               <div className="photo-header">
                 <div className="photo-user-avatar">
@@ -156,13 +161,13 @@
                     {this.state.photo.user.username}
                   </ReactRouter.Link>
                 </div>
-                <div className="photo-title">
-                  <input name = "title" className="photo-title" onChange={this._changeTitle} value={this.state.title} />
+                <div className="photo-title-edit">
+                  <input name = "title" className="photo-title-input" onChange={this._changeTitle} value={this.state.title} />
                 </div>
                 <div className="photo-age">{age}</div>
               </div>
-              <div className="delete-button">
-                <button onClick={this._startDelete}>DELETE</button>
+              <div className="delete-button-div">
+                <button className="delete-button" onClick={this._startDelete}>DELETE</button>
                 {deleting}
               </div>
               <div className="photograph-container">

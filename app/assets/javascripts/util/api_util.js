@@ -57,7 +57,7 @@ ApiUtil = {
       dataType: 'json',
       data: formData,
       success: function(photo) {
-        PhotoActions.receivePhoto(photo);
+        ApiActions.receivePhotoDetails(photo);
         callback && callback();
       }
     });

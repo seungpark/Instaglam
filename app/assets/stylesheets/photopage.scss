@@ -2,6 +2,57 @@
   padding-top: 115px;
   display: block;
   background-color: #fafafa;
+
+  .loading {
+    float: left;
+
+    img {
+      max-height: 100px;
+    }
+  }
+
+  .delete-button-div{
+    .confirm-delete{
+      display: inline-block;
+      margin-left: 30px;
+    }
+
+    .delete-button{
+      background-color: #660000;
+    }
+
+    .delete-button:hover{
+      background-color: #cc0000;
+    }
+  }
+
+  .photo-title-edit {
+    margin: 0px auto;
+    .photo-title-input {
+      width: 100%;
+      color: #0d3c5f;
+      font-weight: 600;
+    }
+  }
+
+  .tag-edit{
+    h3 {
+      margin: 0 10px 0 0;
+      display: inline-flex;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+
+  input {
+    font-size: 15px;
+    line-height: 18px;
+    width: 100%;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    outline: none;
+  }
+
   a {
     color: #125688;
     text-decoration: none;
