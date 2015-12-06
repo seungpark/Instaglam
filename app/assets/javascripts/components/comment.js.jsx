@@ -18,7 +18,7 @@
     },
 
     render: function() {
-      if (this.props.comment.user.id === CurrentUserStore.currentUser().id) {
+      if (this.props.user === "edit-button" || this.props.comment.user.id === CurrentUserStore.currentUser().id) {
         return (
           <ul className="comment-content">
             <li className="comment-author">

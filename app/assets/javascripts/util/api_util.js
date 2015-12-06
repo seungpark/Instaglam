@@ -50,6 +50,30 @@ ApiUtil = {
     });
   },
 
+  editPhoto: function(photoid, formData, callback) {
+    $.ajax({
+      url: '/api/photos/' + photoid,
+      type: 'PATCH',
+      dataType: 'json',
+      data: formData,
+      success: function(photo) {
+        PhotoActions.receivePhoto(photo);
+        callback && callback();
+      }
+    });
+  },
+
+  deletePhoto: function(photoid, callback) {
+    debugger
+    $.ajax({
+      url: '/api/photos/' + photoid,
+      type: 'DELETE',
+      success: function(photo) {
+        callback && callback();
+      }
+    });
+  },
+
   fetchUserInfo: function(username, callback) {
     $.ajax({
       url: '/api/users/',
@@ -354,7 +378,7 @@ ApiUtil = {
   },
 
   deletePhotoCommentFromTagPage: function(commentid, tagid){
-    
+
     $.ajax({
       url: 'api/comments/' + commentid,
       type: 'DELETE',

@@ -2,16 +2,15 @@
 
   root.PhotoPage = React.createClass({
 
+    mixins: [ReactRouter.History],
+
+
     getInitialState: function() {
       return({
         photoId: parseInt(this.props.location.pathname.slice(8)),
         photo: null,
         source: "photopage"
       });
-    },
-
-    _getPhotoAge: function() {
-
     },
 
     _updatePhoto: function() {
@@ -21,6 +20,10 @@
     componentWillMount: function() {
       PhotoStore.addChangeListener(this._updatePhoto);
       ApiUtil.getPhotoDetails(this.state.photoId, this._updatePhoto);
+    },
+
+    componentWillUnmount: function () {
+      PhotoStore.removeChangeListener(this._updatePhoto);
     },
 
     render: function () {

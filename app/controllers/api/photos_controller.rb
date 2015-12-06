@@ -43,6 +43,32 @@ class Api::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     render 'show'
   end
+
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.title = params[:title]
+    @photo.caption = params[:caption]
+    @photo.tags.delete_all
+    params[:tags].each do |tag|
+      exists = Tag.find_by_name(tag)
+      if !!exists
+        new_tag = exists
+      else
+        new_tag = Tag.new(name: tag)
+        new_tag.save!
+      end
+      @photo.taggings.new(tag_id: new_tag.id, photo_id: @photo.id).save!
+    end
+
+    @photo.save
+    render 'show'
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.delete
+    render 'show'
+  end
     # render 'show' goes to views/api/photos/show.json.jbuilder
 
   private
