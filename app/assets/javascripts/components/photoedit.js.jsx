@@ -12,15 +12,12 @@
         caption: "",
         tags: "",
         source: "photopage",
-        editing: false,
-        edited: false,
         deleting: false,
         deleted: false
       });
     },
 
     _updatePhoto: function() {
-      debugger
       if (PhotoStore.details()) {
         this.setState({
           photo: PhotoStore.details(),
@@ -58,19 +55,14 @@
     },
 
     _submitChanges: function(e) {
-      this.setState({editing: true});
       e.preventDefault();
       var form = $(e.currentTarget).serializeJSON();
       form.tags = form.tags.split(/[ ,#]+/);
-      ApiUtil.editPhoto(this.state.photoid, form, this._resetForm);
+      ApiUtil.editPhoto(this.state.photoid, form, function () {
+        this.history.pushState(null, "/photos/" + this.state.photoid);
+      }.bind(this));
+      window.scrollTo(0,0);
 
-    },
-
-    _resetForm: function () {
-      this.setState({
-        editing: false,
-        edited: true,
-      });
     },
 
     _startDelete: function (e) {
@@ -106,14 +98,7 @@
           );
         }
 
-        var editIcon = "", editResponse;
-        if (this.state.editing){
-          editIcon = assets.uploading_image;
-          editResponse = "Please wait...";
-        } else if (this.state.edited) {
-          editIcon = assets.uploaded_image;
-          editReponse = "Photo Edited!";
-        }
+
 
         var deleting = "";
         if (this.state.deleting){
@@ -146,10 +131,6 @@
 
         return (
           <div className="photo-page">
-            <div className="loading">
-              <h3 className="loading-response"> {editResponse} </h3>
-              <img className="loading" src={editIcon}/>
-            </div>
             <div className="photo-item">
               <form className="edit-photo-form" onSubmit={this._submitChanges}>
               <div className="photo-header">
