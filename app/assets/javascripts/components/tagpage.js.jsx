@@ -5,12 +5,20 @@
     getInitialState: function() {
       return({
         photos: PhotoStore.all(),
-        tagid: parseInt(this.props.location.pathname.slice(6))
+        tagid: parseInt(this.props.location.pathname.slice(6)),
+        tagname: ""
       });
     },
 
     _photosChanged: function() {
-      this.setState({ photos: PhotoStore.all() });
+      this.setState({
+        photos: PhotoStore.all(),
+        tagname: PhotoStore.all()[0].tags.find(function(tag) {
+          if (tag.id === this.state.tagid) {
+            return tag;
+          }
+        }.bind(this)).name
+      });
     },
 
     componentWillMount: function() {
@@ -31,8 +39,11 @@
 
     render: function() {
       return(
-        <div className="newsfeed">
-          <ul className="newsfeed-ul">
+        <div className="tagpage">
+          <ul className="tagpage-ul">
+            <li className="tagpage-header">
+              <h1 className="tagpage-header">{"#" + this.state.tagname}</h1>
+            </li>
             {this.state.photos.map(function (photo) {
               return <IndexPhoto
                 key={photo.id}
