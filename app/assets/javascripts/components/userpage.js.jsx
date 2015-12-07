@@ -24,12 +24,16 @@
     _changeToGrid: function() {
       if (this.state.view === "list") {
         this.setState({ view: "grid" });
+        document.getElementsByClassName("active-icon")[0].setAttribute("class", "list-icon");
+        document.getElementsByClassName("grid-icon")[0].setAttribute("class", "active-icon");
       }
     },
 
     _changeToList: function() {
       if (this.state.view === "grid") {
         this.setState({ view: "list" });
+        document.getElementsByClassName("active-icon")[0].setAttribute("class", "grid-icon");
+        document.getElementsByClassName("list-icon")[0].setAttribute("class", "active-icon");
       }
     },
 
@@ -66,8 +70,8 @@
           <div className="userpage">
             <UserPageProfile pageuser={this.state.user}/>
             <div className="viewing-options">
-              <input type="image" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
-              <input type="image" src={assets.listview_icon} onClick={this._changeToList}></input>
+              <input type="image" className="active-icon" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
+              <input type="image" className="list-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
             </div>
             <UserPageIndex photos={this.state.photos}/>
           </div>
@@ -77,8 +81,8 @@
           <div className="userpage">
             <UserPageProfile pageuser={this.state.user}/>
             <div className="viewing-options">
-              <input type="image" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
-              <input type="image" src={assets.listview_icon} onClick={this._changeToList}></input>
+              <input type="image" className="active-icon" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
+              <input type="image" className="list-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
             </div>
             <UserPageGrid photos={this.state.photos}/>
           </div>
