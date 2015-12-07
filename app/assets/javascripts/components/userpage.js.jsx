@@ -5,7 +5,7 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { photos: [], user: null };
+      return { photos: [], user: null, view: "grid"};
     },
 
     _photosChanged: function() {
@@ -19,6 +19,14 @@
     _setUserInfo: function(userinfo){
       this.setState({ user: userinfo });
       window.scrollTo(0,0);
+    },
+
+    _changeToGrid: function() {
+      this.setState({ view: "grid" });
+    },
+
+    _changeToList: function() {
+      this.setState({ view: "list" });
     },
 
     componentWillMount: function() {
@@ -49,12 +57,29 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
-      return(
-        <div className="userpage">
-          <UserPageProfile pageuser={this.state.user}/>
-          <UserPageIndex photos={this.state.photos}/>
-        </div>
-      );
+      if (this.state.view === "list") {
+        return(
+          <div className="userpage">
+            <UserPageProfile pageuser={this.state.user}/>
+            <div className="viewing-options">
+              <input type="image" src={assets.listview_icon} onClick={this._changeToGrid}></input>
+              <input type="image" src={assets.gridview_icon} onClick={this._changeToList}></input>
+            </div>
+            <UserPageIndex photos={this.state.photos}/>
+          </div>
+        );
+      } else if (this.state.view === "grid") {
+        return (
+          <div className="userpage">
+            <UserPageProfile pageuser={this.state.user}/>
+            <div className="viewing-options">
+              <input type="image" src={assets.listview_icon} onClick={this._changeToGrid}></input>
+              <input type="image" src={assets.gridview_icon} onClick={this._changeToList}></input>
+            </div>
+            <UserPageGrid photos={this.state.photos}/>
+          </div>
+        );
+      }
     }
 
   });
