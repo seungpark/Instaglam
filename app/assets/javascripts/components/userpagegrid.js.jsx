@@ -11,9 +11,9 @@
           {this.props.photos.map(function (photo) {
 
             return (
-              <div className="square-photo">
+              <div className="square-photo-container">
                 <a href={"/#/photos/" + photo.id}>
-                <img src={photo.image_url} />
+                <img className="square-photo" src={photo.image_url} />
                 </a>
               </div>
             );

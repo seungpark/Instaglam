@@ -5,7 +5,7 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { photos: [], user: null, view: "list"};
+      return { photos: [], user: null, view: "grid"};
     },
 
     _photosChanged: function() {
