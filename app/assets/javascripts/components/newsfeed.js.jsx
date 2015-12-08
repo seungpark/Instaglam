@@ -15,10 +15,9 @@
     //   this.setState({ photos: PhotoStore.all() });
     // },
     //
-    // componentDidMount: function() {
-    //   PhotoStore.addChangeListener(this._photosChanged);
-    //   ApiUtil.fetchPhotos();
-    // },
+    componentDidMount: function() {
+      window.scrollTo(0,0);
+    },
     //
     // componentWillUnmount: function(){
     //   PhotoStore.removeChangeListener(this._photosChanged);
