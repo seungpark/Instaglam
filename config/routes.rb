@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :create, :show, :destroy]
     resources :users, only: [:index, :create, :show, :update]
     resource :session, only: [:create, :destroy, :show]
+    resources :search, only: :index
   end
 
   root "static_pages#root"

@@ -33,6 +33,7 @@ gem 'aws-sdk', '~> 1.6'
 gem 'figaro'
 
 gem 'pg_search'
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

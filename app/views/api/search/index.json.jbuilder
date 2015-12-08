@@ -6,8 +6,8 @@ json.results do
       json.partial! "api/users/user", user: result
       json._type "User"
     else
-      json.partial! "api/posts/post", post: result
-      json._type "Post"
+      json.partial! "api/tags/tag", tag: result
+      json._type "Tag"
     end
   end
 end

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:username, :name]
+
   attr_reader :password
 
   after_initialize :ensure_session_token
@@ -41,6 +44,7 @@ class User < ActiveRecord::Base
     through: :followings,
     source: :user
   )
+
 
 
   def self.find_by_credentials(username, password)

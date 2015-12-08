@@ -6,19 +6,10 @@
     componentDidMount: function () {
       SearchResultsStore.addChangeHandler(this._onChange);
 
-      var queryParams = this.props.location.query;
-      ApiUtil.search(queryParams.query || "", queryParams.page || 1);
     },
 
     componentWillUnmount: function () {
       SearchResultsStore.removeChangeHandler(this._onChange);
-    },
-
-    componentWillReceiveProps: function (newProps) {
-      ApiUtil.search(
-        newProps.location.query.query,
-        newProps.location.query.page
-      );
     },
 
     _onChange: function () {
@@ -28,43 +19,44 @@
     _onInput: function (e) {
       e.preventDefault();
       var query = $(e.currentTarget).val();
-      this.history.pushState(null, "/search", {
-        query: query,
-        page: 1
-      });
+      if (query.length > 2){
+        ApiUtil.search(
+          query
+        );
+      }
+      else{
+        SearchResultActions.receiveResults({results: []});
+      }
+    },
+
+    resetForm: function(){
+      var search = React.findDOMNode(this.refs.search);
+      search.value= "";
+      SearchResultActions.receiveResults({results: []});
     },
 
     render: function() {
+      debugger
+      var that = this;
       var results = SearchResultsStore.results().map(function (result) {
         if (result._type === "User") {
-          return <UserIndexItem user={ result } />;
-        } else {
-          return <PostIndexItem post={ result } />;
+          return <UserIndexItem callback={that.resetForm} key={result.id} user={ result } />;
+        } else if (result._type === "Tag") {
+          return <TagIndexItem callback={that.resetForm} key={result.id} tag={ result } />;
         }
       });
 
-      var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
-      var query = this.props.location.query.query;
       return (
-        <div>
-          <input type="text"
-            value={ query }
-            onChange={ this._onInput }
-            placeholder="search..."
-          />
-
-          <p>
-            Displaying { SearchResultsStore.results().length }
-            of { SearchResultsStore.totalCount() }
-          </p>
-
-          <a href={ "#/search?query=" + query + "&page=" + nextPage }>
-            Next
-          </a>
-
-          <ul className="search-results">
-            { results }
-          </ul>
+        <div className="search-container">
+          <div className="search-bar">
+            <input ref="search" type="text"
+              onChange={ this._onInput }
+              placeholder="search..."
+            />
+            <ul className="search-results">
+              { results }
+            </ul>
+          </div>
         </div>
       );
     },

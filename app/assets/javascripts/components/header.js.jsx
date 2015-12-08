@@ -12,6 +12,7 @@
                 <span className="home-logo">Instaglam</span>
               </ReactRouter.Link>
             </div>
+              <Search/>
               <HeaderUser/>
           </ul>
         </div>
