@@ -13,10 +13,12 @@
     },
 
     _onChange: function () {
+      debugger
       this.setState({results: SearchResultsStore.results()});
     },
 
     _onInput: function (e) {
+      debugger
       e.preventDefault();
       var query = $(e.currentTarget).val();
       if (query.length > 2){
@@ -48,8 +50,10 @@
       return (
         <div className="search-container">
           <div className="search-bar">
-            <input ref="search" type="text"
+            <input ref="search" type="text" className="search-input"
+
               onChange={ this._onInput }
+              onBlur={ this._onInput }
               placeholder="search..."
             />
             <ul className="search-results">

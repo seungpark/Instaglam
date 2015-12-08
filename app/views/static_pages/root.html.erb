@@ -11,4 +11,11 @@
     listview_icon: "<%=asset_path("listview-icon.png")%>",
     gridview_icon: "<%=asset_path("gridview-icon.png")%>"
   }
+
+
+  $(document).click( function(){
+      $('.search-input').val("");
+      SearchResultsStore._reset();
+  });
+
 </script>

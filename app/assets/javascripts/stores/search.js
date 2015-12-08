@@ -14,6 +14,11 @@
       this.removeListener(CHANGE_EVENT, callback);
     },
 
+    _reset: function() {
+      _search_results = {results: []};
+      SearchResultsStore.emit(CHANGE_EVENT);
+    },
+
     results: function () {
       return _search_results.results;
     },
