@@ -70,6 +70,7 @@ $(function(){
       <Route path="signin" component={SessionForm}/>
       <Route path="/newphoto" component={PhotoForm}/>
       <Route path="/editprofile" component={ProfileEdit}/>
+      <Route path="search" component={Search} />
       <Route path="/photos/:photoid" component={PhotoPage}/>
       <Route path="/photos/:photoid/edit" component={PhotoEdit}/>
       <Route path="/tags/:tagid" component={TagPage}/>
