@@ -28,6 +28,10 @@ h1, h2, p, strong, em, a, div, img, ul {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
+html {
+  background-color: #fafafa;
+}
+
 a {
   display: block;
   font-size: 15px;
