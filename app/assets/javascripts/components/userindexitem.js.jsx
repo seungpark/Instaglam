@@ -6,6 +6,7 @@
           <a onClick={this.props.callback} href={ "#/" + this.props.user.username }>
             { this.props.user.username }
           </a>
+          - {this.props.user.name}
         </li>
       );
     }

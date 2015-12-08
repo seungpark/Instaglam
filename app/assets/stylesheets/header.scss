@@ -24,6 +24,51 @@
     font-weight: 600;
   }
 
+  .search-bar {
+    display: inline-block;
+    margin: 10px 70px;
+    position: fixed;
+    min-width: 200px;
+
+    input {
+      text-indent: 5px;
+      width: 100%;
+      border: 1px solid #a6a6a6;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    ul {
+      left: 5px;
+      position: relative;
+      font-size: 14px;
+      background: white;
+      margin: auto;
+    }
+
+    li:nth-child(n+2){
+      border-top: 1px solid #a6a6a6;
+      border-left: 1px solid #a6a6a6;
+      border-right: 1px solid #a6a6a6;
+
+    }
+
+    li:first-child{
+      border-left: 1px solid #a6a6a6;
+      border-right: 1px solid #a6a6a6;
+    }
+
+    li:last-child{
+      border-bottom: 1px solid #a6a6a6;
+    }
+
+    a{
+      margin: 10px 5px;
+      display: inline-block;
+    }
+
+  }
+
   .header-user {
     padding-right: 15px;
 
