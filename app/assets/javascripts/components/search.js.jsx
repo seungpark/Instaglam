@@ -13,12 +13,10 @@
     },
 
     _onChange: function () {
-      debugger
       this.setState({results: SearchResultsStore.results()});
     },
 
     _onInput: function (e) {
-      debugger
       e.preventDefault();
       var query = $(e.currentTarget).val();
       if (query.length > 2){
