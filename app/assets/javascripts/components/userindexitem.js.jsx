@@ -3,10 +3,11 @@
     render: function() {
       return (
         <li>
-          <a onClick={this.props.callback} href={ "#/" + this.props.user.username }>
-            { this.props.user.username }
-          </a>
-          - {this.props.user.name}
+        <a className="search-userpage" onClick={this.props.callback} href={ "#/" + this.props.user.username }>
+          <img className="search-avatar"src={this.props.user.avatar_url} />
+          { this.props.user.username }
+          {"- " + this.props.user.name}
+        </a>
         </li>
       );
     }
