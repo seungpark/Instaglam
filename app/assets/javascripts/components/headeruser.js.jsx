@@ -10,7 +10,7 @@
     },
 
     componentDidMount: function () {
-      CurrentUserStore.addChangeHandler(this._onChange)
+      CurrentUserStore.addChangeHandler(this._onChange);
     },
 
     _onChange: function () {
@@ -40,7 +40,7 @@
         return (
           <div className="header-user">
             <ul className="header-user-nav">
-              <li><a href="#/signin">Sign In!</a></li>
+              <li><a className="signin-link" href="#/signin">Sign In!</a></li>
             </ul>
           </div>
         );
@@ -48,5 +48,5 @@
 
     },
 
-  })
+  });
 })(this);

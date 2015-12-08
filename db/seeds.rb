@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-users = User.create([
+users = User.create!([
   {username: "seung", password: "hello123", bio: "travel the world", name: "Seung Park"},
   {username: "anthonydavis", password: "hello123", bio: "how you like my brow", name: "Anthony Davis"},
   {username: "jamesharden", password: "hello123", bio: "FEAR the BEARD", name: "James Harden"},
@@ -20,11 +20,12 @@ users = User.create([
   {username: "obama", password: "hello123", bio: "For the People", name: "Barack Obama"},
   {username: "smiley", password: "hello123", bio: "I'm happy", name: "Smiley Face"},
   {username: "curry", password: "hello123", bio: "Chef Curry", name: "Steph Curry"},
+  {username: "guest", password: "hello123", bio: "I am a guest", name: "John Doe"},
 
 ])
 
 
-photos = Photo.create([
+photos = Photo.create!([
   {title: "photo1", caption: "caption1", user_id: 1},
   {title: "photo2", caption: "caption2", user_id: 2},
   {title: "photo3", caption: "caption3", user_id: 3},
@@ -32,7 +33,7 @@ photos = Photo.create([
   {title: "photo5", caption: "caption5", user_id: 5}
 ])
 
-tags = Tag.create([
+tags = Tag.create!([
   {name: "yolo"},
   {name: "tbt"},
   {name: "nature"},
@@ -42,7 +43,7 @@ tags = Tag.create([
 ])
 
 
-taggings = Tagging.create([
+taggings = Tagging.create!([
   {photo_id:1, tag_id:1},
   {photo_id:1, tag_id:2},
   {photo_id:1, tag_id:3},
@@ -54,7 +55,7 @@ taggings = Tagging.create([
   {photo_id:3, tag_id:2},
 ])
 
-comments = Comment.create([
+comments = Comment.create!([
   {photo_id:1 , user_id:1 , body: "test1"},
   {photo_id:1 , user_id:2 , body: "test2"},
   {photo_id:1 , user_id:3 , body: "test3"},
@@ -70,7 +71,7 @@ comments = Comment.create([
   {photo_id:3 , user_id:1 , body: "last comment"}
   ])
 
-likes = Like.create([
+likes = Like.create!([
   {photo_id:1 , user_id:1},
   {photo_id:1 , user_id:2},
   {photo_id:1 , user_id:3},
@@ -81,7 +82,7 @@ likes = Like.create([
   {photo_id:2 , user_id:5},
 ])
 
-follows = Follow.create([
+follows = Follow.create!([
   {user_id:1 ,follower_id:2 },
   {user_id:1 ,follower_id:3 },
   {user_id:1 ,follower_id:4 },

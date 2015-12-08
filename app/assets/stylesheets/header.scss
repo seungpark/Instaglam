@@ -11,6 +11,7 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    min-height: 58px;
   }
 
   .header-logo {
@@ -102,6 +103,10 @@
     }
 
     li {
+    }
+
+    .signin-link {
+      margin-top: 20px;
     }
   }
 }
