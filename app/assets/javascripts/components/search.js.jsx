@@ -36,7 +36,6 @@
     },
 
     render: function() {
-      debugger
       var that = this;
       var results = SearchResultsStore.results().map(function (result) {
         if (result._type === "User") {
