@@ -19,7 +19,7 @@ ApiUtil = {
       data: {user_id: followingUserIds, page:pagenum},
       success: function(data){
         ApiActions.receiveNextFeedPhotos(data);
-        if (data.length <= 6){
+        if (data.length < 6){
           end && end();
         }
         success && success();
@@ -27,13 +27,16 @@ ApiUtil = {
     });
   },
 
-  fetchPhotosForTag: function(tagid, pagenum) {
+  fetchPhotosForTag: function(tagid, pagenum, end) {
     $.ajax({
       url: "api/photos/",
       type: 'GET',
       dataType: 'json',
       data: {tags: tagid, page: pagenum},
       success: function(data) {
+        if (data.length < 6) {
+          end && end();
+        }
         ApiActions.receieveTagPhotos(data);
       }
     });
@@ -47,7 +50,7 @@ ApiUtil = {
       data: {tags: tagid, page:pagenum},
       success: function(data){
         ApiActions.receiveNextFeedPhotos(data);
-        if (data.length <= 6){
+        if (data.length < 6){
           end && end();
         }
         success && success();
@@ -85,7 +88,7 @@ ApiUtil = {
       data: {username: username, page:pagenum},
       success: function(data){
         ApiActions.receiveNextUserPhotos(data);
-        if (data.length <= 6){
+        if (data.length < 6){
           end && end();
         }
         success && success();

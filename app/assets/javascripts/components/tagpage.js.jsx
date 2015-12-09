@@ -49,7 +49,13 @@
     componentWillMount: function() {
       window.scrollTo(0,0);
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchPhotosForTag(this.state.tagid, 1);
+      ApiUtil.fetchPhotosForTag(
+        this.state.tagid,
+        1,
+        function () {
+          this.setState({end: true});
+        }.bind(this)
+      );
       ApiUtil.fetchTagName(
         this.state.tagid,
         function(name) {
@@ -63,8 +69,26 @@
     },
 
     componentWillReceiveProps: function(newProps) {
-      this.setState({tagid: parseInt(newProps.location.pathname.slice(6)) });
-      ApiUtil.fetchPhotosForTag(parseInt(newProps.location.pathname.slice(6), 1));
+      var newId = parseInt(newProps.location.pathname.slice(6));
+      ApiUtil.fetchPhotosForTag(
+        newId,
+        1,
+        function () {
+          this.setState({end: true});
+        }.bind(this)
+      );
+      ApiUtil.fetchTagName(
+        newId,
+        function(name) {
+          this.setState({tagname: name});
+        }.bind(this)
+      );
+      this.setState({
+        tagid: newId,
+        page: 1,
+        load: false,
+        end: false
+      });
       window.scrollTo(0,0);
     },
 
