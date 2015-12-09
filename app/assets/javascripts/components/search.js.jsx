@@ -51,7 +51,6 @@
             <input ref="search" type="text" className="search-input"
 
               onChange={ this._onInput }
-              onBlur={ this._onInput }
               placeholder="search..."
             />
             <ul className="search-results">
