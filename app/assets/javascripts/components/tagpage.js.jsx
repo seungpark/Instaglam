@@ -7,8 +7,22 @@
         photos: PhotoStore.all(),
         tagid: parseInt(this.props.location.pathname.slice(6)),
         tagname: "",
-        view: "grid"
+        view: "grid",
+        page: 1,
+        load: false,
+        end: false
       });
+    },
+
+    _morePhotos: function() {
+      var newPageNum = this.state.page + 1;
+
+      ApiUtil.fetchNextPhotosForTagPage(
+        this.state.tagid,
+        newPageNum,
+        function () {this.setState({load: true});}.bind(this),
+        function () {this.setState({end: true});}.bind(this)
+      );
     },
 
     _photosChanged: function() {
@@ -35,7 +49,7 @@
     componentWillMount: function() {
       window.scrollTo(0,0);
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchPhotosForTag(this.state.tagid);
+      ApiUtil.fetchPhotosForTag(this.state.tagid, 1);
       ApiUtil.fetchTagName(
         this.state.tagid,
         function(name) {
@@ -50,11 +64,20 @@
 
     componentWillReceiveProps: function(newProps) {
       this.setState({tagid: parseInt(newProps.location.pathname.slice(6)) });
-      ApiUtil.fetchPhotosForTag(parseInt(newProps.location.pathname.slice(6)));
+      ApiUtil.fetchPhotosForTag(parseInt(newProps.location.pathname.slice(6), 1));
       window.scrollTo(0,0);
     },
 
     render: function() {
+      var showMore;
+      if (!this.state.end) {
+        showMore = (
+            <div className="show-more">
+              <button onClick={this._morePhotos}> More Photos! </button>
+            </div>
+        );
+      }
+
       if (this.state.view === "grid") {
         return(
           <div className="tagpage">
@@ -79,6 +102,7 @@
 
               </ul>
             </div>
+            {showMore}
           </div>
         );
       }else if (this.state.view === "list") {
@@ -110,6 +134,7 @@
 
               </ul>
             </div>
+            {showMore}
           </div>
         );
       }

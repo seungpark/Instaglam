@@ -29,13 +29,7 @@
 
     render: function() {
       var showMore;
-      if (this.props.end) {
-        showMore = (
-            <div className="show-more">
-              No More Photos...
-            </div>
-        );
-      } else {
+      if (!this.props.end) {
         showMore = (
             <div className="show-more">
               <button onClick={this.props.morephotos}> More Photos! </button>

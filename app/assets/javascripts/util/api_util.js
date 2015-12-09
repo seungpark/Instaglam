@@ -27,14 +27,30 @@ ApiUtil = {
     });
   },
 
-  fetchPhotosForTag: function(tagid) {
+  fetchPhotosForTag: function(tagid, pagenum) {
     $.ajax({
       url: "api/photos/",
       type: 'GET',
       dataType: 'json',
-      data: {tags: tagid},
+      data: {tags: tagid, page: pagenum},
       success: function(data) {
         ApiActions.receieveTagPhotos(data);
+      }
+    });
+  },
+
+  fetchNextPhotosForTagPage: function(tagid, pagenum, success, end){
+    $.ajax({
+      url: "api/photos/",
+      type: 'GET',
+      dataType: 'json',
+      data: {tags: tagid, page:pagenum},
+      success: function(data){
+        ApiActions.receiveNextFeedPhotos(data);
+        if (data.length <= 6){
+          end && end();
+        }
+        success && success();
       }
     });
   },
