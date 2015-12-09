@@ -26,7 +26,7 @@ class Api::TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Tag.where(id: params[:id])[0]
+    @tag = Tag.find(params[:id])
     @tag.destroy!
     render json: {}
   end
