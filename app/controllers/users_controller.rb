@@ -9,7 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     current_user
     if @user.save
+    @user.followings.new(user_id: @user.id, follower_id: @user.id).save
+    @user.followings.new(user_id: 1, follower_id: @user.id).save if @user.id != 1
       sign_in(@user)
+      byebug
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages

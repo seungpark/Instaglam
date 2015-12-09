@@ -21,8 +21,8 @@ class Api::UsersController < ApplicationController
       bio: user_params[:bio]
     )
     @user.save
-    @user.follows.new(user_id: @user.id, follower_id: @user.id).save
-    @user.follows.new(user_id: 1, follower_id: @user.id) if @user.id != 1
+    @user.followings.new(user_id: @user.id, follower_id: @user.id).save
+    @user.followings.new(user_id: 1, follower_id: @user.id) if @user.id != 1
     render :show
   end
 
