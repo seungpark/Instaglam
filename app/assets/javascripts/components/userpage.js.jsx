@@ -18,6 +18,7 @@
 
     _setUserInfo: function(userinfo){
       this.setState({ user: userinfo });
+      this._changeToGrid();
       window.scrollTo(0,0);
     },
 
