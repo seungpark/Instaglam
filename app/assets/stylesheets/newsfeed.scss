@@ -8,7 +8,7 @@ a {
 }
 
 .newsfeed {
-  display: flex;
+  display: block;
   position: relative;
   vertical-align: baseline;
   align-items: center;
@@ -20,7 +20,7 @@ a {
 
 .newsfeed-ul {
   padding-top: 115px;
-  display:flex;
+  display:block;
   position: relative;
   margin: auto;
   vertical-align: baseline;

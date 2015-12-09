@@ -77,3 +77,11 @@ input:focus {
   clear: both;
   display: block;
 }
+
+
+.show-more {
+  display: block;
+  position: relative;
+  bottom: 10px;
+  text-align: center;
+}
