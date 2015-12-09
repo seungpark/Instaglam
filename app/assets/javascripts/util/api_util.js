@@ -19,7 +19,7 @@ ApiUtil = {
       data: {user_id: followingUserIds, page:pagenum},
       success: function(data){
         ApiActions.receiveNextFeedPhotos(data);
-        if (data.length === 0){
+        if (data.length <= 6){
           end && end();
         }
         success && success();

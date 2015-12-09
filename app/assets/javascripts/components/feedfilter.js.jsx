@@ -9,7 +9,7 @@
     },
 
     _handleScroll: function () {
-      if ((window.innerHeight + window.scrollY >= document.body.offsetHeight) &&
+      if ((window.outerHeight + window.scrollY + 20 >= document.body.offsetHeight) &&
           this.state.load && !this.state.end) {
 
         var newPageNum = this.state.page + 1;
@@ -49,7 +49,7 @@
 
     componentWillMount: function(){
       PhotoStore.addChangeListener(this._photosChanged);
-      window.addEventListener('scroll', this._handleScroll);
+      window.addEventListener(scrollY, this._handleScroll);
       if (CurrentUserStore.currentUser() &&
           CurrentUserStore.currentUser().following_users) {
         var followedUserIds = CurrentUserStore.currentUser().following_users
