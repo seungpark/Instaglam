@@ -82,32 +82,11 @@ likes = Like.create!([
   {photo_id:2 , user_id:5},
 ])
 
-follows = Follow.create!([
-  {user_id:1 ,follower_id:2 },
-  {user_id:1 ,follower_id:3 },
-  {user_id:1 ,follower_id:4 },
-  {user_id:1 ,follower_id:5 },
-  {user_id:2 ,follower_id:1 },
-  {user_id:2 ,follower_id:3 },
-  {user_id:2 ,follower_id:4 },
-  {user_id:2 ,follower_id:5 },
-  {user_id:3 ,follower_id:1 },
-  {user_id:3 ,follower_id:2 },
-  {user_id:4 ,follower_id:1 },
-  {user_id:4 ,follower_id:2 },
-  {user_id:4 ,follower_id:5 },
-  {user_id:5 ,follower_id:1 },
-  {user_id:5 ,follower_id:2 },
-  {user_id:5 ,follower_id:3 },
-  {user_id:5 ,follower_id:4 },
-])
-
-
-
-  # create_table "comments", force: :cascade do |t|
-  #   t.integer  "photo_id",   null: false
-  #   t.integer  "user_id",    null: false
-  #   t.string   "body",       null: false
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  # end
+(0..13).each do |userid|
+  (0..13).each do |followerid|
+    Follow.create!([
+      user_id: userid,
+      follower_id: followerid
+    ])
+  end
+end
