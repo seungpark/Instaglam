@@ -49,14 +49,30 @@ ApiUtil = {
     });
   },
 
-  fetchUserPhotos: function(username){
+  fetchUserPhotos: function(username, pagenum){
     $.ajax({
       url: "api/photos/",
       type: 'GET',
       dataType: 'json',
-      data: {username: username},
+      data: {username: username, page: pagenum},
       success: function(data) {
         ApiActions.receiveUserPhotos(data);
+      }
+    });
+  },
+
+  fetchNextPhotosForUserPage: function(username, pagenum, success, end) {
+    $.ajax({
+      url: "api/photos/",
+      type: 'GET',
+      dataType: 'json',
+      data: {username: username, page:pagenum},
+      success: function(data){
+        ApiActions.receiveNextUserPhotos(data);
+        if (data.length <= 6){
+          end && end();
+        }
+        success && success();
       }
     });
   },

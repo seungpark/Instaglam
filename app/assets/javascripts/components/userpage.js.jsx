@@ -5,7 +5,25 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { photos: [], user: null, view: "grid"};
+      return {
+        photos: [],
+        user: null,
+        view: "grid",
+        page: 1,
+        load: false,
+        end: false
+      };
+    },
+
+    _morePhotos: function() {
+      var newPageNum = this.state.page + 1;
+
+      ApiUtil.fetchNextPhotosForUserPage(
+        this.state.user.username,
+        newPageNum,
+        function () {this.setState({load: true});}.bind(this),
+        function () {this.setState({end: true});}.bind(this)
+      );
     },
 
     _photosChanged: function() {
@@ -40,7 +58,7 @@
 
     componentWillMount: function() {
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchUserPhotos(this.props.params.username);
+      ApiUtil.fetchUserPhotos(this.props.params.username, 1);
     },
 
     componentDidMount: function() {
@@ -66,6 +84,14 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
+      var showMore;
+      if (!this.state.end) {
+        showMore = (
+            <div className="show-more">
+              <button onClick={this._morePhotos}> More Photos! </button>
+            </div>
+        );
+      }
       if (this.state.view === "list") {
         return(
           <div className="userpage">
@@ -75,6 +101,7 @@
               <input type="image" className="list-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
             </div>
             <UserPageIndex photos={this.state.photos}/>
+            {showMore}
           </div>
         );
       } else if (this.state.view === "grid") {
@@ -86,6 +113,7 @@
               <input type="image" className="list-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
             </div>
             <UserPageGrid photos={this.state.photos}/>
+            {showMore}
           </div>
         );
       }

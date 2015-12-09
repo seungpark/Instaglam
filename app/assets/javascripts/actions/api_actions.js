@@ -20,6 +20,13 @@ ApiActions = {
     });
   },
 
+  receiveNextUserPhotos: function(photos){
+    AppDispatcher.dispatch({
+      actionType:PhotoConstants.MORE_PHOTOS,
+      photos: photos
+    });
+  },
+
   receivePhotoDetails: function(photo){
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTO_DETAILS_RECEIVED,
