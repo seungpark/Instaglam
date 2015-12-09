@@ -71,6 +71,7 @@
     },
 
     _completeDelete: function () {
+      this.history.pushState(null, "/" + CurrentUserStore.currentUser().username);
       this.setState({deleted: true});
     },
 
