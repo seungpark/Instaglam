@@ -7,6 +7,7 @@
 
 
     addChangeHandler: function (callback) {
+      this.setMaxListeners(0);
       this.on(CHANGE_EVENT, callback);
     },
 
