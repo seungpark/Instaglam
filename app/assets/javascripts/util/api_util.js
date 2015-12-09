@@ -39,6 +39,16 @@ ApiUtil = {
     });
   },
 
+  fetchTagName: function(tagid, success) {
+    $.ajax({
+      url: 'api/tags/' + tagid,
+      type: 'GET',
+      success: function(data) {
+        success && success(data.name);
+      }
+    });
+  },
+
   fetchUserPhotos: function(username){
     $.ajax({
       url: "api/photos/",

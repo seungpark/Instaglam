@@ -12,14 +12,7 @@
     },
 
     _photosChanged: function() {
-      this.setState({
-        photos: PhotoStore.all(),
-        tagname: PhotoStore.all()[0].tags.find(function(tag) {
-          if (tag.id === this.state.tagid) {
-            return tag;
-          }
-        }.bind(this)).name
-      });
+      this.setState({ photos: PhotoStore.all() });
     },
 
 
@@ -43,6 +36,12 @@
       window.scrollTo(0,0);
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchPhotosForTag(this.state.tagid);
+      ApiUtil.fetchTagName(
+        this.state.tagid,
+        function(name) {
+          this.setState({tagname: name});
+        }.bind(this)
+      );
     },
 
     componentWillUnmount: function() {
