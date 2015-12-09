@@ -6,6 +6,13 @@ ApiActions = {
     });
   },
 
+  receiveNextFeedPhotos: function(photos) {
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.MORE_PHOTOS,
+      photos: photos
+    });
+  },
+
   receiveUserPhotos: function(photos){
     AppDispatcher.dispatch({
       actionType: PhotoConstants.PHOTOS_RECEIVED,

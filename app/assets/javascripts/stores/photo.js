@@ -19,6 +19,10 @@
       _photos = photos;
     },
 
+    addPhotos: function(photos){
+      _photos = _photos.concat(photos);
+    },
+
     setPhotoDetails: function(photo){
       _photos = [photo];
     },
@@ -44,6 +48,10 @@
           break;
         case PhotoConstants.PHOTO_DETAILS_RECEIVED:
           PhotoStore.setPhotoDetails(payload.photo);
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.MORE_PHOTOS:
+          PhotoStore.addPhotos(payload.photos);
           PhotoStore.emit(CHANGE_EVENT);
           break;
       }

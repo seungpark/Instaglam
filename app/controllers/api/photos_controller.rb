@@ -13,7 +13,7 @@ class Api::PhotosController < ApplicationController
       taggings.each {|tagging| photoids << tagging.photo_id}
       @photos = Photo.where(id: photoids).order(created_at: :desc);
     else
-      @photos = Photo.where(user_id: params[:user_id]).order(created_at: :desc)
+      @photos = Photo.where(user_id: params[:user_id]).page(params[:page]).order(created_at: :desc)
     end
     # params.username ?  : @photos = Photo.all
 

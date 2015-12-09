@@ -1,12 +1,28 @@
 ApiUtil = {
-  fetchPhotosForFeed: function(followingUserIds){
+  fetchPhotosForFeed: function(followingUserIds, pagenum){
     $.ajax({
       url: "api/photos/",
       type: 'GET',
       dataType: 'json',
-      data: {user_id: followingUserIds},
+      data: {user_id: followingUserIds, page:pagenum},
       success: function (data) {
         ApiActions.receiveFeedPhotos(data);
+      }
+    });
+  },
+
+  fetchNextPhotosForFeed: function(followingUserIds, pagenum, success, end) {
+    $.ajax({
+      url: "api/photos/",
+      type: 'GET',
+      dataType: 'json',
+      data: {user_id: followingUserIds, page:pagenum},
+      success: function(data){
+        ApiActions.receiveNextFeedPhotos(data);
+        if (data.length === 0){
+          end && end();
+        }
+        success && success();
       }
     });
   },
