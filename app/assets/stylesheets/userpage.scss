@@ -47,13 +47,14 @@
         display: inline-table;
         align-self: center;
         font-size: 100%;
-        color: #818488;
+        color: white;
+        background-color: #125688;
         border: 1px solid #818488;
         border-radius: 3px;
       }
 
       button:hover{
-        color: #125688;
+        background-color: #6666ff;
         border: 1px solid #125688;
       }
     }
