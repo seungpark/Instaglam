@@ -58,7 +58,13 @@
 
     componentWillMount: function() {
       PhotoStore.addChangeListener(this._photosChanged);
-      ApiUtil.fetchUserPhotos(this.props.params.username, 1);
+      ApiUtil.fetchUserPhotos(
+        this.props.params.username,
+        1,
+        function () {
+          this.setState({end: true});
+        }.bind(this)
+      );
     },
 
     componentDidMount: function() {
@@ -70,10 +76,20 @@
     },
 
     componentWillReceiveProps: function(newProps) {
-      PhotoStore.addChangeListener(this._photosChanged);
       var username = newProps.params.username;
-      ApiUtil.fetchUserPhotos(username);
+      ApiUtil.fetchUserPhotos(
+        username,
+        1,
+        function () {
+          this.setState({end: true});
+        }.bind(this)
+      );
       ApiUtil.fetchUserInfo(username, this._setUserInfo);
+      this.setState({
+        page: 1,
+        load: false,
+        end: false
+      });
     },
 
     // _getNewUser: function(user) {

@@ -68,7 +68,7 @@ ApiUtil = {
     });
   },
 
-  fetchUserPhotos: function(username, pagenum){
+  fetchUserPhotos: function(username, pagenum, end){
     $.ajax({
       url: "api/photos/",
       type: 'GET',
@@ -76,6 +76,9 @@ ApiUtil = {
       data: {username: username, page: pagenum},
       success: function(data) {
         ApiActions.receiveUserPhotos(data);
+        if (data.length < 6){
+          end && end();
+        }
       }
     });
   },
