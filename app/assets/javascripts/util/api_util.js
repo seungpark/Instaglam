@@ -225,6 +225,32 @@ ApiUtil = {
   //   });
   // },
 
+  createLike: function(data, callback, photoid){
+    $.ajax({
+      url: '/api/likes',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function(data) {
+        callback && callback();
+        ApiActions.addLike(data, photoid);
+      }
+    });
+  },
+
+  deleteLike: function(likeid, callback, photoid){
+    $.ajax({
+      url: '/api/likes/' + likeid,
+      type: 'DELETE',
+      dataType: 'json',
+      success: function() {
+        callback && callback();
+        ApiActions.deleteLike(likeid, photoid);
+      }
+    });
+
+  },
+
   createLikeFromNewsfeed: function(data, followedUserIds, callback){
     $.ajax({
       url:'/api/likes',

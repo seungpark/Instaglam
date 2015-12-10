@@ -39,6 +39,22 @@ ApiActions = {
       actionType: PhotoConstants.PHOTOS_RECEIVED,
       photos: photos
     });
+  },
+
+  addLike: function(like, photoid){
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.CREATE_LIKE,
+      photoid: photoid,
+      like: like
+    });
+  },
+
+  deleteLike: function(like, photoid){
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.DELETE_LIKE,
+      photoid: photoid,
+      like: like
+    });
   }
 
   // receivePhotoLikes: function(likes){

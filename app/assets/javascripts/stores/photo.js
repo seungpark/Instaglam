@@ -54,6 +54,28 @@
           PhotoStore.addPhotos(payload.photos);
           PhotoStore.emit(CHANGE_EVENT);
           break;
+        case PhotoConstants.CREATE_LIKE:
+          PhotoStore.all().find(
+            function (photo) {
+              if (photo.id === payload.photoid){
+                photo.likes.push(payload.like);
+              }
+            }
+          );
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.DELETE_LIKE:
+          PhotoStore.all().find(
+            function (photo) {
+              if (photo.id === payload.photoid){
+                photo.likes = photo.likes.filter (function(like) {
+                  return like.id !== payload.like;
+                });
+              }
+            }
+          );
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
       }
     })
   });
