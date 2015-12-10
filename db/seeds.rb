@@ -25,62 +25,6 @@ users = User.create!([
 ])
 
 
-photos = Photo.create!([
-  {title: "photo1", caption: "caption1", user_id: 1},
-  {title: "photo2", caption: "caption2", user_id: 2},
-  {title: "photo3", caption: "caption3", user_id: 3},
-  {title: "photo4", caption: "caption4", user_id: 4},
-  {title: "photo5", caption: "caption5", user_id: 5}
-])
-
-tags = Tag.create!([
-  {name: "yolo"},
-  {name: "tbt"},
-  {name: "nature"},
-  {name: "nofilter"},
-  {name: "sunset"},
-  {name: "hbd"}
-])
-
-
-taggings = Tagging.create!([
-  {photo_id:1, tag_id:1},
-  {photo_id:1, tag_id:2},
-  {photo_id:1, tag_id:3},
-  {photo_id:2, tag_id:4},
-  {photo_id:2, tag_id:5},
-  {photo_id:3, tag_id:4},
-  {photo_id:3, tag_id:5},
-  {photo_id:3, tag_id:6},
-  {photo_id:3, tag_id:2},
-])
-
-comments = Comment.create!([
-  {photo_id:1 , user_id:1 , body: "test1"},
-  {photo_id:1 , user_id:2 , body: "test2"},
-  {photo_id:1 , user_id:3 , body: "test3"},
-  {photo_id:2 , user_id:1 , body: "test4"},
-  {photo_id:2 , user_id:1 , body: "test5"},
-  {photo_id:2 , user_id:2 , body: "helloworld"},
-  {photo_id:2 , user_id:3 , body: "byeworld"},
-  {photo_id:2 , user_id:4 , body: "helloagain"},
-  {photo_id:3 , user_id:1 , body: "byeagain"},
-  {photo_id:3 , user_id:1 , body: "commentbodytest1"},
-  {photo_id:3 , user_id:2 , body: "commentbodytest2"},
-  {photo_id:3 , user_id:3 , body: "heres a really long body test for the comment check for overflow of text"},
-  {photo_id:3 , user_id:1 , body: "last comment"}
-  ])
-
-likes = Like.create!([
-  {photo_id:1 , user_id:1},
-  {photo_id:1 , user_id:2},
-  {photo_id:1 , user_id:3},
-  {photo_id:1 , user_id:4},
-  {photo_id:2 , user_id:2},
-  {photo_id:2 , user_id:3},
-  {photo_id:2 , user_id:4},
-  {photo_id:2 , user_id:5},
-])
 
 (0..13).each do |userid|
   (0..13).each do |followerid|
