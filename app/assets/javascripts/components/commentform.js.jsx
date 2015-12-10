@@ -28,15 +28,18 @@
         body: this.state.body,
         user: this.props.photo.user.username
       };
-      if (this.props.source === "newsfeed") {
-        ApiUtil.createPhotoCommentFromNewsfeed(data, this.props.followedUserIds);
-      } else if (this.props.source === "userpage") {
-        ApiUtil.createPhotoCommentFromUserpage(data);
-      } else if (this.props.source === "photopage") {
-        ApiUtil.createPhotoCommentFromPhotoPage(data, this.props.photo.id);
-      } else if (this.props.source === "tagpage") {
-        ApiUtil.createPhotoCommentFromTagPage(data, this.props.tagid);
-      }
+
+      ApiUtil.addComment(data, this.props.photo.id);
+
+      // if (this.props.source === "newsfeed") {
+      //   ApiUtil.createPhotoCommentFromNewsfeed(data, this.props.followedUserIds);
+      // } else if (this.props.source === "userpage") {
+      //   ApiUtil.createPhotoCommentFromUserpage(data);
+      // } else if (this.props.source === "photopage") {
+      //   ApiUtil.createPhotoCommentFromPhotoPage(data, this.props.photo.id);
+      // } else if (this.props.source === "tagpage") {
+      //   ApiUtil.createPhotoCommentFromTagPage(data, this.props.tagid);
+      // }
       this._clearForm();
     },
 

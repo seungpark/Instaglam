@@ -69,7 +69,29 @@
             function (photo) {
               if (photo.id === payload.photoid){
                 photo.likes = photo.likes.filter (function(like) {
-                  return like.id !== payload.like;
+                  return like.id !== payload.likeid;
+                });
+              }
+            }
+          );
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.CREATE_COMMENT:
+          PhotoStore.all().find(
+            function (photo) {
+              if (photo.id === payload.photoid){
+                photo.comments.push(payload.comment);
+              }
+            }
+          );
+          PhotoStore.emit(CHANGE_EVENT);
+          break;
+        case PhotoConstants.DELETE_COMMENT:
+          PhotoStore.all().find(
+            function (photo) {
+              if (photo.id === payload.photoid){
+                photo.comments = photo.comments.filter (function(comment) {
+                  return comment.id !== payload.commentid;
                 });
               }
             }

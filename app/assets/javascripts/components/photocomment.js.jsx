@@ -8,6 +8,10 @@
       return { comments: this.props.comments };
     },
 
+    componentWillReceiveProps: function (newProps) {
+      this.setState({ comments: newProps.comments });
+    },
+
     // _commentsAdded: function() {
     //   this.setState({ comments: this.props.comments.push(CommentStore.newComment()) });
     // },

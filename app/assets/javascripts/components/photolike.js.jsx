@@ -35,7 +35,6 @@
           this.setState({ liked: true, likeid: include.id });
         }
       }
-      debugger
     },
 
     // componentWillReceiveProps: function(newProps) {

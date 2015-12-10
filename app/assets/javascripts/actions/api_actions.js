@@ -49,11 +49,27 @@ ApiActions = {
     });
   },
 
-  deleteLike: function(like, photoid){
+  deleteLike: function(likeid, photoid){
     AppDispatcher.dispatch({
       actionType: PhotoConstants.DELETE_LIKE,
       photoid: photoid,
-      like: like
+      likeid: likeid
+    });
+  },
+
+  addComment: function(comment, photoid){
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.CREATE_COMMENT,
+      photoid: photoid,
+      comment: comment
+    });
+  },
+
+  deleteComment: function(commentid, photoid) {
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.DELETE_COMMENT,
+      photoid: photoid,
+      commentid: commentid
     });
   }
 

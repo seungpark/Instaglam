@@ -377,6 +377,29 @@ ApiUtil = {
   //   });
   // },
 
+  addComment: function (commentdata, photoid) {
+    $.ajax({
+      url: '/api/comments',
+      type: 'POST',
+      dataType: 'json',
+      data: commentdata,
+      success: function(data) {
+        ApiActions.addComment(data, photoid);
+      }
+    });
+  },
+
+  deleteComment: function(commentid, photoid) {
+    $.ajax({
+      url: '/api/comments/' + commentid,
+      type: 'DELETE',
+      dataType: 'json',
+      success: function() {
+        ApiActions.deleteComment(commentid, photoid);
+      }
+    });
+  },
+
   createPhotoCommentFromNewsfeed: function(commentdata, followedUserIds){
     $.ajax({
       url: 'api/comments',

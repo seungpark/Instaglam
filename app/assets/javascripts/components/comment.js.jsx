@@ -4,16 +4,16 @@
 
     _handleDelete: function(e) {
       e.preventDefault();
-      var commentid = this.props.comment.id;
-      if (this.props.source === "newsfeed") {
-        ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
-      } else if (this.props.source === "userpage") {
-        ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.photoauthor);
-      } else if (this.props.source === "photopage") {
-        ApiUtil.deletePhotoCommentFromPhotoPage(commentid, this.props.photo.id);
-      } else if (this.props.source === "tagpage") {
-        ApiUtil.deletePhotoCommentFromTagPage(commentid, this.props.tagid);
-      }
+      ApiUtil.deleteComment(this.props.comment.id, this.props.photo.id);
+      // if (this.props.source === "newsfeed") {
+      //   ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
+      // } else if (this.props.source === "userpage") {
+      //   ApiUtil.deletePhotoCommentFromUserpage(commentid, this.props.photoauthor);
+      // } else if (this.props.source === "photopage") {
+      //   ApiUtil.deletePhotoCommentFromPhotoPage(commentid, this.props.photo.id);
+      // } else if (this.props.source === "tagpage") {
+      //   ApiUtil.deletePhotoCommentFromTagPage(commentid, this.props.tagid);
+      // }
 
     },
 
