@@ -250,108 +250,108 @@ ApiUtil = {
     });
 
   },
-
-  createLikeFromNewsfeed: function(data, followedUserIds, callback){
-    $.ajax({
-      url:'/api/likes',
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-      success: function(like) {
-        ApiUtil.fetchPhotosForFeed(followedUserIds);
-        callback && callback();
-        // LikeActions.receiveLike(like);
-      }
-    });
-  },
-
-  createLikeFromUserpage: function(data, username, callback){
-    $.ajax({
-      url:'/api/likes',
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-      success: function(like) {
-        ApiUtil.fetchUserPhotos(username);
-        callback && callback();
-        // LikeActions.receiveLike(like);
-      }
-    });
-  },
-
-  createLikeFromPhotoPage: function(data, photoid, callback){
-    $.ajax({
-      url:'/api/likes',
-      type: 'POST',
-      dataType:'json',
-      data: data,
-      success: function(like) {
-        ApiUtil.getPhotoDetails(photoid, null);
-        callback && callback();
-      }
-    });
-  },
-
-  createLikeFromTagPage: function(data, tagid, callback){
-    $.ajax({
-      url:'/api/likes',
-      type: 'POST',
-      dataType:'json',
-      data: data,
-      success: function(like) {
-        ApiUtil.fetchPhotosForTag(tagid);
-        callback && callback();
-      }
-    });
-  },
-
-  deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
-    $.ajax({
-      url:'/api/likes/' + likeid,
-      type: 'DELETE',
-      dataType: 'json',
-      success: function(like) {
-        ApiUtil.fetchPhotosForFeed(followedUserIds);
-        callback && callback();
-        // LikeActions.receiveLike(like);
-      }
-    });
-  },
-
-  deleteLikeFromUserpage: function(likeid, username, callback){
-    $.ajax({
-      url:'/api/likes/' + likeid,
-      type: 'DELETE',
-      dataType: 'json',
-      success: function(like) {
-        ApiUtil.fetchUserPhotos(username);
-        callback && callback();
-        // LikeActions.receiveLike(like);
-      }
-    });
-  },
-
-  deleteLikeFromPhotoPage: function(likeid, photoid, callback){
-    $.ajax({
-      url:'/api/likes/' + likeid,
-      type: 'DELETE',
-      dataType:'json',
-      success: function(like) {
-        callback && callback();
-      }
-    });
-  },
-
-  deleteLikeFromTagPage: function(likeid, tagid, callback){
-    $.ajax({
-      url:'/api/likes/' + likeid,
-      type: 'DELETE',
-      dataType:'json',
-      success: function(like) {
-        callback && callback();
-      }
-    });
-  },
+  //
+  // createLikeFromNewsfeed: function(data, followedUserIds, callback){
+  //   $.ajax({
+  //     url:'/api/likes',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: data,
+  //     success: function(like) {
+  //       ApiUtil.fetchPhotosForFeed(followedUserIds);
+  //       callback && callback();
+  //       // LikeActions.receiveLike(like);
+  //     }
+  //   });
+  // },
+  //
+  // createLikeFromUserpage: function(data, username, callback){
+  //   $.ajax({
+  //     url:'/api/likes',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: data,
+  //     success: function(like) {
+  //       ApiUtil.fetchUserPhotos(username);
+  //       callback && callback();
+  //       // LikeActions.receiveLike(like);
+  //     }
+  //   });
+  // },
+  //
+  // createLikeFromPhotoPage: function(data, photoid, callback){
+  //   $.ajax({
+  //     url:'/api/likes',
+  //     type: 'POST',
+  //     dataType:'json',
+  //     data: data,
+  //     success: function(like) {
+  //       ApiUtil.getPhotoDetails(photoid, null);
+  //       callback && callback();
+  //     }
+  //   });
+  // },
+  //
+  // createLikeFromTagPage: function(data, tagid, callback){
+  //   $.ajax({
+  //     url:'/api/likes',
+  //     type: 'POST',
+  //     dataType:'json',
+  //     data: data,
+  //     success: function(like) {
+  //       ApiUtil.fetchPhotosForTag(tagid);
+  //       callback && callback();
+  //     }
+  //   });
+  // },
+  //
+  // deleteLikeFromNewsfeed: function(likeid, followedUserIds, callback){
+  //   $.ajax({
+  //     url:'/api/likes/' + likeid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     success: function(like) {
+  //       ApiUtil.fetchPhotosForFeed(followedUserIds);
+  //       callback && callback();
+  //       // LikeActions.receiveLike(like);
+  //     }
+  //   });
+  // },
+  //
+  // deleteLikeFromUserpage: function(likeid, username, callback){
+  //   $.ajax({
+  //     url:'/api/likes/' + likeid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     success: function(like) {
+  //       ApiUtil.fetchUserPhotos(username);
+  //       callback && callback();
+  //       // LikeActions.receiveLike(like);
+  //     }
+  //   });
+  // },
+  //
+  // deleteLikeFromPhotoPage: function(likeid, photoid, callback){
+  //   $.ajax({
+  //     url:'/api/likes/' + likeid,
+  //     type: 'DELETE',
+  //     dataType:'json',
+  //     success: function(like) {
+  //       callback && callback();
+  //     }
+  //   });
+  // },
+  //
+  // deleteLikeFromTagPage: function(likeid, tagid, callback){
+  //   $.ajax({
+  //     url:'/api/likes/' + likeid,
+  //     type: 'DELETE',
+  //     dataType:'json',
+  //     success: function(like) {
+  //       callback && callback();
+  //     }
+  //   });
+  // },
   //
   // deleteLike: function(photoid, currentuserid){
   //   $.ajax({
