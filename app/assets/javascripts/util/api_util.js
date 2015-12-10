@@ -399,108 +399,108 @@ ApiUtil = {
       }
     });
   },
-
-  createPhotoCommentFromNewsfeed: function(commentdata, followedUserIds){
-    $.ajax({
-      url: 'api/comments',
-      type: 'POST',
-      dataType: 'json',
-      data: commentdata,
-      success: function(data) {
-        // CommentActions.createPhotoComment(data);
-        ApiUtil.fetchPhotosForFeed(followedUserIds);
-      }
-    });
-  },
-
-  createPhotoCommentFromUserpage: function(commentdata){
-    var username = commentdata.user;
-    $.ajax({
-      url: 'api/comments',
-      type: 'POST',
-      dataType: 'json',
-      data: commentdata,
-      success: function(data) {
-        // CommentActions.createPhotoComment(data);
-        ApiUtil.fetchUserPhotos(username);
-      }
-    });
-  },
-
-  createPhotoCommentFromPhotoPage: function(data, photoId){
-    $.ajax({
-      url: 'api/comments',
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-      success: function(data) {
-        // CommentActions.createPhotoComment(data);
-        ApiUtil.getPhotoDetails(photoId, null);
-      }
-    });
-  },
-
-  createPhotoCommentFromTagPage: function(data, tagid){
-    $.ajax({
-      url: 'api/comments',
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-      success: function(data) {
-        // CommentActions.createPhotoComment(data);
-        ApiUtil.fetchPhotosForTag(tagid);
-      }
-    });
-  },
-
-  deletePhotoCommentFromNewsfeed: function(commentid, followedUserIds){
-    $.ajax({
-      url: 'api/comments/' + commentid,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {id: commentid},
-      success: function(data) {
-        ApiUtil.fetchPhotosForFeed(followedUserIds);
-      }
-    });
-  },
-
-  deletePhotoCommentFromUserpage: function(commentid, username){
-    $.ajax({
-      url: 'api/comments/' + commentid,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {id: commentid},
-      success: function(data) {
-        ApiUtil.fetchUserPhotos(username);
-      }
-    });
-  },
-
-  deletePhotoCommentFromPhotoPage: function(commentid, photoid){
-    $.ajax({
-      url: 'api/comments/' + commentid,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {id: commentid},
-      success: function(data) {
-        ApiUtil.getPhotoDetails(photoid);
-      }
-    });
-  },
-
-  deletePhotoCommentFromTagPage: function(commentid, tagid){
-
-    $.ajax({
-      url: 'api/comments/' + commentid,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {id: commentid},
-      success: function(data) {
-        ApiUtil.fetchPhotosForTag(tagid);
-      }
-    });
-  },
+  //
+  // createPhotoCommentFromNewsfeed: function(commentdata, followedUserIds){
+  //   $.ajax({
+  //     url: 'api/comments',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: commentdata,
+  //     success: function(data) {
+  //       // CommentActions.createPhotoComment(data);
+  //       ApiUtil.fetchPhotosForFeed(followedUserIds);
+  //     }
+  //   });
+  // },
+  //
+  // createPhotoCommentFromUserpage: function(commentdata){
+  //   var username = commentdata.user;
+  //   $.ajax({
+  //     url: 'api/comments',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: commentdata,
+  //     success: function(data) {
+  //       // CommentActions.createPhotoComment(data);
+  //       ApiUtil.fetchUserPhotos(username);
+  //     }
+  //   });
+  // },
+  //
+  // createPhotoCommentFromPhotoPage: function(data, photoId){
+  //   $.ajax({
+  //     url: 'api/comments',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: data,
+  //     success: function(data) {
+  //       // CommentActions.createPhotoComment(data);
+  //       ApiUtil.getPhotoDetails(photoId, null);
+  //     }
+  //   });
+  // },
+  //
+  // createPhotoCommentFromTagPage: function(data, tagid){
+  //   $.ajax({
+  //     url: 'api/comments',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: data,
+  //     success: function(data) {
+  //       // CommentActions.createPhotoComment(data);
+  //       ApiUtil.fetchPhotosForTag(tagid);
+  //     }
+  //   });
+  // },
+  //
+  // deletePhotoCommentFromNewsfeed: function(commentid, followedUserIds){
+  //   $.ajax({
+  //     url: 'api/comments/' + commentid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     data: {id: commentid},
+  //     success: function(data) {
+  //       ApiUtil.fetchPhotosForFeed(followedUserIds);
+  //     }
+  //   });
+  // },
+  //
+  // deletePhotoCommentFromUserpage: function(commentid, username){
+  //   $.ajax({
+  //     url: 'api/comments/' + commentid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     data: {id: commentid},
+  //     success: function(data) {
+  //       ApiUtil.fetchUserPhotos(username);
+  //     }
+  //   });
+  // },
+  //
+  // deletePhotoCommentFromPhotoPage: function(commentid, photoid){
+  //   $.ajax({
+  //     url: 'api/comments/' + commentid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     data: {id: commentid},
+  //     success: function(data) {
+  //       ApiUtil.getPhotoDetails(photoid);
+  //     }
+  //   });
+  // },
+  //
+  // deletePhotoCommentFromTagPage: function(commentid, tagid){
+  //
+  //   $.ajax({
+  //     url: 'api/comments/' + commentid,
+  //     type: 'DELETE',
+  //     dataType: 'json',
+  //     data: {id: commentid},
+  //     success: function(data) {
+  //       ApiUtil.fetchPhotosForTag(tagid);
+  //     }
+  //   });
+  // },
 
   getPhotoDetails: function(photoid, callback){
     $.ajax({
