@@ -3,6 +3,10 @@
   display: block;
   background-color: #fafafa;
 
+  .photograph-container{
+    cursor: default;
+  }
+
   .loading {
     float: left;
 
@@ -117,8 +121,7 @@
 
 }
 
-.photopage {
-}
+
 
   .photo-caption{
     a {
