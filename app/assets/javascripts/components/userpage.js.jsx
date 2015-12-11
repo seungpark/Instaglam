@@ -21,9 +21,24 @@
       ApiUtil.fetchNextPhotosForUserPage(
         this.state.user.username,
         newPageNum,
-        function () {this.setState({load: true});}.bind(this),
+        function () {this.setState({load: true, page: newPageNum});}.bind(this),
         function () {this.setState({end: true});}.bind(this)
       );
+    },
+
+    _handleScroll: function () {
+      if ((window.innerHeight + window.scrollY  >= document.body.offsetHeight) &&
+          this.state.load && !this.state.end) {
+
+        var newPageNum = this.state.page + 1;
+        ApiUtil.fetchNextPhotosForUserPage(
+          this.state.user.username,
+          newPageNum,
+          function () {this.setState({page: newPageNum});}.bind(this),
+          function () {this.setState({end: true});}.bind(this)
+        );
+
+      }
     },
 
     _photosChanged: function() {
@@ -57,6 +72,7 @@
     },
 
     componentWillMount: function() {
+      window.addEventListener('scroll', this._handleScroll);
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchUserPhotos(
         this.props.params.username,
@@ -73,6 +89,7 @@
 
     componentWillUnmount: function(){
       PhotoStore.removeChangeListener(this._photosChanged);
+      window.removeEventListener('scroll', this._handleScroll);
     },
 
     componentWillReceiveProps: function(newProps) {

@@ -29,7 +29,7 @@
       ApiUtil.fetchNextPhotosForFeed(
         this.state.followedUserIds,
         newPageNum,
-        function () {this.setState({load: true});}.bind(this),
+        function () {this.setState({load: true, page: newPageNum});}.bind(this),
         function () {this.setState({end: true});}.bind(this)
       );
     },
@@ -49,7 +49,7 @@
 
     componentWillMount: function(){
       PhotoStore.addChangeListener(this._photosChanged);
-      window.addEventListener(scrollY, this._handleScroll);
+      window.addEventListener('scroll', this._handleScroll);
       if (CurrentUserStore.currentUser() &&
           CurrentUserStore.currentUser().following_users) {
         var followedUserIds = CurrentUserStore.currentUser().following_users
@@ -63,16 +63,17 @@
 
     componentWillUnmount: function(){
       PhotoStore.removeChangeListener(this._photosChanged);
+      window.removeEventListener('scroll', this._handleScroll);
     },
 
     render: function(){
       return(
-      <div>
+      <div className="feed-filter">
         <NewsFeed
           photos={this.state.photos}
           history={this.history}
           followedUserIds={this.state.followedUserIds}
-          scroll = {this._handleScroll}
+          scroll = {this._handleScroll()}
           morephotos = {this.fetchMorePhotos}
           page = {this.state.page}
           load = {this.state.load}

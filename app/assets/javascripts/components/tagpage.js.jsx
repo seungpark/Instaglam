@@ -20,9 +20,24 @@
       ApiUtil.fetchNextPhotosForTagPage(
         this.state.tagid,
         newPageNum,
-        function () {this.setState({load: true});}.bind(this),
+        function () {this.setState({load: true, page: newPageNum});}.bind(this),
         function () {this.setState({end: true});}.bind(this)
       );
+    },
+
+    _handleScroll: function () {
+      if ((window.innerHeight + window.scrollY  >= document.body.offsetHeight) &&
+          this.state.load && !this.state.end) {
+
+        var newPageNum = this.state.page + 1;
+        ApiUtil.fetchNextPhotosForTagPage(
+          this.state.tagid,
+          newPageNum,
+          function () {this.setState({page: newPageNum});}.bind(this),
+          function () {this.setState({end: true});}.bind(this)
+        );
+
+      }
     },
 
     _photosChanged: function() {
@@ -48,6 +63,7 @@
 
     componentWillMount: function() {
       window.scrollTo(0,0);
+      window.addEventListener('scroll', this._handleScroll);
       PhotoStore.addChangeListener(this._photosChanged);
       ApiUtil.fetchPhotosForTag(
         this.state.tagid,
@@ -66,6 +82,7 @@
 
     componentWillUnmount: function() {
       PhotoStore.removeChangeListener(this._photosChanged);
+      window.removeEventListener('scroll', this._handleScroll);
     },
 
     componentWillReceiveProps: function(newProps) {

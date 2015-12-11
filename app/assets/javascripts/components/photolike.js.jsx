@@ -94,13 +94,17 @@
 
 
     render: function() {
+      var likes = "Likes";
+      if (this.state.likeCount === 1) {
+        likes = "Like";
+      }
       if (this.state.liked) {
         return (
           <div className="photo-like">
             <div className="heart-image" onClick={this._deleteLike}>
               <img className="heart-liked" src={assets.filledHeart}/>
             </div>
-            <div className="like-count">{this.state.likeCount} Likes</div>
+            <div className="like-count">{this.state.likeCount} {likes}</div>
           </div>
         );
       } else
@@ -109,7 +113,7 @@
           <div className="heart-image" onClick={this._addLike}>
             <img className="heart-unliked" src={assets.emptyHeart}/>
           </div>
-          <div className="like-count">{this.state.likeCount} Likes</div>
+          <div className="like-count">{this.state.likeCount} {likes}</div>
         </div>
       );
     }
