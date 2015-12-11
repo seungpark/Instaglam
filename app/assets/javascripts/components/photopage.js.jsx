@@ -70,15 +70,13 @@
                   </ReactRouter.Link>
                 </div>
                 <div className="photo-title">
-                  <a href={"/#/photos/" + this.state.photo.id}> {this.state.photo.title} </a>
+                  {this.state.photo.title}
                 </div>
                 <div className="photo-age">{age}</div>
               </div>
               {editButton}
               <div className="photograph-container">
-                <a href={"/#/photos/" + this.state.photo.id}>
-                  <img className="photograph" src={this.state.photo.image_url}/>
-                </a>
+                <img className="photograph" src={this.state.photo.image_url}/>
               </div>
               <PhotoLike
                   photo={this.state.photo}

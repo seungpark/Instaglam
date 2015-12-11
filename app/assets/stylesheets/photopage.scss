@@ -105,26 +105,19 @@
 
   .photo-title {
     margin: 0px auto;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    color: #125688;
   }
 
   .photo-age{
     color: #a5a7aa;
   }
+
 }
 
-.photograph-container{
-  max-height: 600px;
-  max-width: 600px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-  cursor: pointer;
-
-  .photograph {
-    width: 100%;
-    height: 100%;
-  }
+.photopage {
 }
 
   .photo-caption{
