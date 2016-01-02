@@ -12,4 +12,4 @@ json.following_users do
 end
 
 
-json.avatar_url asset_path(user.avatar.url)
+json.avatar_url asset_path(user.avatar.url(:medium))
