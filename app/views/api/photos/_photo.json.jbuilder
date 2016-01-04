@@ -7,7 +7,7 @@ json.user do
   json.extract! photo.user, :id, :username, :avatar_file_name
 end
 
-json.author_avatar_url asset_path(photo.user.avatar.url(:medium))
+json.author_avatar_url asset_path(photo.user.avatar.url)
 
 
 json.image_url asset_path(photo.image.url)
