@@ -18,7 +18,8 @@
     searchinput = $('.search-input')
     usernavclass = $('.header-user-nav')[0].className
 
-    if (searchinput.val() && (event.target !== searchinput)) {
+    if (searchinput.val() && (event.target !== searchinput[0])) {
+      debugger
       searchinput.val("");
       SearchResultsStore._reset();
       return
