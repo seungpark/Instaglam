@@ -123,6 +123,10 @@
       background-color: white;
       margin-top: 60px;
       text-align: right;
+      -webkit-transform: translate3d(0, 0, -100%);
+      transform: translate3d(0, 0, -100%);
+      -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+      transition: transform 0.4s, opacity 0.4s;
     }
 
     a:hover {
@@ -155,7 +159,11 @@
 
 
     .hide {
-      display: none;
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, -100%);
+      transform: translate3d(0, 0, -100%);
+      -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+      transition: transform 0.4s, opacity 0.4s;
     }
   }
 
