@@ -22,7 +22,7 @@
     },
 
     _expand: function () {
-      $(".header-user-nav").toggleClass("hide");
+      $(".header-user-nav").toggleClass('hide');
     },
 
     render: function() {

@@ -101,7 +101,11 @@
       height: 20px;
       float: right;
       position: relative;
-      top: 20px;
+      top: 20px
+    }
+
+    .menu-button:hover{
+      cursor: pointer;
     }
 
     .button {
