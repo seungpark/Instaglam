@@ -121,6 +121,10 @@
       text-align: right;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     .header-user-nav::before{
       width: 0;
       height: 0;
@@ -129,8 +133,8 @@
       border-right: 14px solid transparent;
       border-bottom: 14px solid black;
       position: absolute;
-      margin-left: -24px;
-      top: 53px;
+      margin-left: -22px;
+      top: 52px;
     }
 
     .header-user-nav::after{
@@ -141,8 +145,8 @@
       border-right: 14px solid transparent;
       border-bottom: 14px solid white;
       position: absolute;
-      margin-left: -24px;
-      top: 53px;
+      margin-left: -22px;
+      top: 52px;
       }
 
 
