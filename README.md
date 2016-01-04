@@ -78,8 +78,8 @@ I will use CSS to clean up the layouts of the pages.
 
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions
-- [ ] Pagination / infinite scroll for User/Hashtag Pages
+- [X] Prettify transitions
+- [X] Pagination / infinite scroll for User/Hashtag Pages
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

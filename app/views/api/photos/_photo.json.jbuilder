@@ -10,7 +10,7 @@ end
 json.author_avatar_url asset_path(photo.user.avatar.url(:medium))
 
 
-json.image_url asset_path(photo.image.url()
+json.image_url asset_path(photo.image.url)
 json.comments do
   json.partial! "api/comments/comment", collection: photo.comments, as: :comment
 end
