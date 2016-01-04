@@ -15,8 +15,15 @@
 
 
   $(document).click( function(){
-      $('.search-input').val("");
-      SearchResultsStore._reset();
+    debugger
+      if (event.target.className !== "search-input") {
+        $('.search-input').val("");
+        SearchResultsStore._reset();
+      }
+      if (event.target.className !== "header-user-nav") {
+        $('.header-user-nav').addClass("hide");
+      }
+
   });
 
 </script>
