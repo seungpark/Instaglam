@@ -113,7 +113,7 @@
     }
 
     .header-user-nav {
-      padding: 5px 5px;
+      padding: 10px 10px;
       border: 1px solid #737373;
       border-radius: 5px;
       background-color: white;
@@ -145,13 +145,14 @@
       top: 53px;
       }
 
-    .signin-link {
-      margin-top: 20px;
-    }
 
     .hide {
       display: none;
     }
   }
 
+  .signin{
+    float: right;
+    margin-top: 20px;
+  }
 }

@@ -31,7 +31,7 @@
         return (
           <div className="header-user group" >
             <img className="menu-button" src={assets.menu_icon} onClick={ this._expand }/>
-            <div className="header-user-nav">
+            <div className="header-user-nav hide">
               <a href={"/#/" + currentUserUsername}>{currentUserUsername}</a>
               <a href="/#/newphoto">Add New Photo</a>
               <button onClick={ this.signout }>Sign Out!</button>
@@ -41,10 +41,8 @@
         );
       } else {
         return (
-          <div className="header-user">
-            <ul className="header-user-nav">
-              <li><a className="signin-link" href="#/signin">Sign In!</a></li>
-            </ul>
+          <div className="signin">
+            <a className="signin-link" href="#/signin">Sign In!</a>
           </div>
         );
       }
