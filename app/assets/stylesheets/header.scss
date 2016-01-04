@@ -4,7 +4,7 @@
   width: 100%;
   background-color: white;
   z-index: 5;
-  max-height: 80px;
+  height: 70px;
 
   .header-main{
     padding: 5px 0px;
@@ -92,21 +92,66 @@
   }
 
   .header-user {
-    padding-right: 15px;
+    z-index: 1;
+    float: right;
+
+
+    .menu-button {
+      width: 20px;
+      height: 20px;
+      float: right;
+      position: relative;
+      top: 20px;
+    }
+
+    .button {
+      margin-left: 100%;
+      width: 25px;
+      height: 25px;
+      border: 2px solid #edeeee;
+      border-radius: 5px;
+    }
 
     .header-user-nav {
-      margin: auto;
+      padding: 5px 5px;
+      border: 1px solid #737373;
+      border-radius: 5px;
+      background-color: white;
+      margin-top: 60px;
+      text-align: right;
     }
 
-    ul {
-      float:right;
+    .header-user-nav::before{
+      width: 0;
+      height: 0;
+      content: "";
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-bottom: 14px solid black;
+      position: absolute;
+      margin-left: -24px;
+      top: 53px;
     }
 
-    li {
-    }
+    .header-user-nav::after{
+      width: 0;
+      height: 0;
+      content: "";
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-bottom: 14px solid white;
+      position: absolute;
+      margin-left: -24px;
+      top: 53px;
+      }
 
     .signin-link {
       margin-top: 20px;
     }
+
+    .hide {
+      display: none;
+    }
   }
+
 }

@@ -21,18 +21,21 @@
       SessionsApiUtil.signout();
     },
 
+    _expand: function () {
+      $(".header-user-nav").toggleClass("hide");
+    },
+
     render: function() {
       if (CurrentUserStore.isSignedIn()) {
-        var currentUserHomePage = "/" + CurrentUserStore.currentUser().username;
+        var currentUserUsername = CurrentUserStore.currentUser().username;
         return (
-          <div className="header-user">
-          <ul className="header-user-nav">
-            <li><ReactRouter.Link to={currentUserHomePage}>{CurrentUserStore.currentUser().username}
-            </ReactRouter.Link></li>
-            <li><a href="/#/newphoto">Add New Photo</a></li>
-            <li><button onClick={ this.signout }>Sign Out!</button></li>
-          </ul>
-
+          <div className="header-user group" >
+            <img className="menu-button" src={assets.menu_icon} onClick={ this._expand }/>
+            <div className="header-user-nav">
+              <a href={"/#/" + currentUserUsername}>{currentUserUsername}</a>
+              <a href="/#/newphoto">Add New Photo</a>
+              <button onClick={ this.signout }>Sign Out!</button>
+            </div>
           </div>
 
         );
@@ -46,7 +49,7 @@
         );
       }
 
-    },
+    }
 
   });
 })(this);
