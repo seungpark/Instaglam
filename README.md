@@ -80,6 +80,9 @@ I will use CSS to clean up the layouts of the pages.
 ### Bonus Features (TBD)
 - [X] Prettify transitions
 - [X] Pagination / infinite scroll for User/Hashtag Pages
+- [ ] Location Tag Page
+- [ ] Interactive View on Google Maps API: Filter User Photos By Location
+- [ ] Explore Page: Feed Filtered by User's previous Interactions
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
