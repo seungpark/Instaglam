@@ -20,6 +20,35 @@ $(function(){
     componentWillMount: function() {
       CurrentUserStore.addChangeHandler(this._ensureSignedIn);
       SessionsApiUtil.fetchCurrentUser();
+      CurrentUserStore.addChangeHandler(this._clickListeners);
+    },
+
+    _clickListeners: function() {
+      if ( CurrentUserStore.currentUser().id ) {
+
+      $(document).click( function(){
+        searchinput = $('.search-input');
+        usernavclass = $('.header-user-nav')[0].className;
+
+        if (searchinput.val() && (event.target !== searchinput[0])) {
+          searchinput.val("");
+          SearchResultsStore._reset();
+          return;
+        }
+
+        if (
+          event.target.className !== usernavclass &&
+          event.target.className !== 'menu-button' &&
+          !usernavclass.includes("hide")
+        ) {
+          $('.header-user-nav').addClass("hide");
+          return;
+        }
+      });
+    } else {
+      $(document).unbind('click');
+    }
+
     },
 
     _ensureSignedIn: function() {
