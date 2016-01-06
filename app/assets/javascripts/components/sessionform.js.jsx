@@ -23,34 +23,42 @@
     },
 
     render: function() {
-      return (
-        <div className="signin-page">
-          <Header/>
-          <div className="signin-landing">
-            <div className="signin-form">
-              <form className="signin-form" onSubmit={this.submit} ref="form">
+      if ( $(document)[0].readyState === 'complete' ) {
+        return (
+          <div className="signin-page">
+            <Header/>
+            <div className="signin-landing">
+              <div className="signin-form">
+                <form className="signin-form" onSubmit={this.submit} ref="form">
 
-                <h1>Sign In!</h1>
+                  <h1>Sign In!</h1>
 
-                <label className="signin-username">
+                  <label className="signin-username">
 
-                  <input type="text" name="username" placeholder="Username" ref="username"/>
-                </label>
+                    <input type="text" name="username" placeholder="Username" ref="username"/>
+                  </label>
 
-                <label className="signin-password">
+                  <label className="signin-password">
 
-                  <input type="password" name="password" placeholder="Password" ref="password"/>
-                </label>
+                    <input type="password" name="password" placeholder="Password" ref="password"/>
+                  </label>
 
-                <button className="signin-button">Sign In!</button>
-                <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
+                  <button className="signin-button">Sign In!</button>
+                  <button className="signin-guest" onClick={this._fillGuestInfo}>Guest Account!</button>
 
-              </form>
-              <ReactRouter.Link className="signup" to="/signup">Sign Up! </ReactRouter.Link>
-              </div>
+                </form>
+                <ReactRouter.Link className="signup" to="/signup">Sign Up! </ReactRouter.Link>
+                </div>
+            </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div>
+          </div>
+        );
+      }
+
     }
 
   });
