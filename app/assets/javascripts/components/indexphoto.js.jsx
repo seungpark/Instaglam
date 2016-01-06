@@ -28,6 +28,10 @@
       }
     },
 
+    _imageload: function (e) {
+      $(".loading" + "#" + this.props.photo.id).addClass("hide");
+    },
+
     render: function() {
       return (
         <div className="photo-item" key={this.props.photo.id}>
@@ -47,7 +51,8 @@
           </div>
           <div className="photograph-container">
             <a href={"/#/photos/" + this.props.photo.id}>
-              <img className="photograph" src={this.props.photo.image_url}/>
+              <img className="loading" src={assets.uploading_image} id={this.props.photo.id}/>
+              <img className="photograph" src={this.props.photo.image_url} onLoad={this._imageload}/>
             </a>
           </div>
           <PhotoLike
