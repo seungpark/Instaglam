@@ -62,7 +62,6 @@
     },
 
     _imageload: function(e) {
-      debugger
       $(".loading#" + e.currentTarget.id).addClass("hide");
     },
 

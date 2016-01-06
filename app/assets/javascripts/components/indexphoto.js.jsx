@@ -29,7 +29,6 @@
     },
 
     _imageload: function (e) {
-      debugger
       $(".loading" + "#" + this.props.photo.id).addClass("hide");
     },
 
