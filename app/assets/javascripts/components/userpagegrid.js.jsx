@@ -4,12 +4,12 @@
 
     mixins: [ReactRouter.History],
 
-    _imageload: function(id) {
-      $(".loading#" + id).addClass("hide");
+    _imageload: function(e) {
+      e.preventDefault();
+      $(".loading#" + e.currentTarget.id).addClass("hide");
     },
 
     render: function() {
-      debugger
       return(
         <div className="userphotos-grid">
         <ul className="userphotos-grid-ul">
@@ -18,8 +18,8 @@
             return (
               <div className="square-photo-container">
                 <a href={"/#/photos/" + photo.id}>
-                <img className="loading" src={assets.uploading_image} id={photo.id}/>
-                <img className="square-photo" src={photo.image_url} onLoad={this._imageload(photo.id)}/>
+                <img className="loading" id={photo.id} src={assets.uploading_image} />
+                <img className="square-photo" src={photo.image_url} id={photo.id} onLoad={this._imageload}/>
                 </a>
               </div>
             );
