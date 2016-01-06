@@ -5,7 +5,6 @@
     mixins: [ReactRouter.History],
 
     _imageload: function(e) {
-      debugger
       $(".loading#" + e.currentTarget.id).addClass("hide");
     },
 

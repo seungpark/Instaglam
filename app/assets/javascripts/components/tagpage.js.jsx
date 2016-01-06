@@ -61,6 +61,11 @@
       }
     },
 
+    _imageload: function(e) {
+      debugger
+      $(".loading#" + e.currentTarget.id).addClass("hide");
+    },
+
     componentWillMount: function() {
       window.scrollTo(0,0);
       window.addEventListener('scroll', this._handleScroll);
@@ -134,8 +139,9 @@
                 {this.state.photos.map(function (photo) {
                   return (
                     <div className="square-photo-container">
+                      <div className="loading-square" id={photo.id} />
                       <a href={"/#/photos/" + photo.id}>
-                      <img className="square-photo" src={photo.image_url} />
+                      <img className="square-photo" src={photo.image_url} onLoad={this._imageload} id={photo.id}/>
                       </a>
                     </div>
                   );
