@@ -52,8 +52,7 @@
           </div>
           <div className="photograph-container">
             <a href={"/#/photos/" + this.props.photo.id}>
-              <div className="loading" id={this.props.photo.id}>
-              </div>
+              <div className="loading" id={this.props.photo.id}/>
               <img className="photograph" src={this.props.photo.image_url} onLoad={this._imageload}/>
             </a>
           </div>
