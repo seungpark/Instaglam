@@ -172,7 +172,8 @@ ApiUtil = {
       type: 'PATCH',
       dataType: 'json',
       data: nameAndBio,
-      success: function(userdata){
+      success: function(){
+        SessionsApiUtil.fetchCurrentUser();
       }
     });
   },
@@ -185,7 +186,8 @@ ApiUtil = {
       contentType: false,
       dataType: 'json',
       data: formData,
-      success: function(userdata){
+      success: function(){
+        SessionsApiUtil.fetchCurrentUser();
       }
     });
   },

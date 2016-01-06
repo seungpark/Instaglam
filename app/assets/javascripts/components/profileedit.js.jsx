@@ -17,6 +17,7 @@
       e.preventDefault();
       var nameAndBio = $(e.currentTarget).serializeJSON();
       ApiUtil.updateUserInfo(this.state.user.id, nameAndBio);
+      this.history.pushState(null, "/" + this.state.user.username);
     },
 
     _handleAvatarSubmit: function(e) {
@@ -26,6 +27,7 @@
       formData.append("user[avatar]", file);
 
       ApiUtil.updateUserAvatar(this.state.user.id, formData);
+      this.history.pushState(null, "/" + this.state.user.username);
     },
 
     _changeName: function(e) {
@@ -52,6 +54,16 @@
         reader.readAsDataURL(file);
       }
     },
+
+    // componentWillMount: function () {
+    //   this.setState({
+    //     user: CurrentUserStore.currentUser(),
+    //     avatarUrl: CurrentUserStore.currentUser().avatar_url,
+    //     avatarFile: null,
+    //     name: CurrentUserStore.currentUser().name,
+    //     bio: CurrentUserStore.currentUser().bio
+    //   });
+    // },
 
     render: function () {
       return (
