@@ -130,6 +130,16 @@
     height: 250px;
     overflow: hidden;
 
+    .loading {
+      z-index: 1;
+      width: 250px;
+      height: 250px;
+    }
+
+    .hide {
+      display: none;
+    }
+
   }
 
   img {
