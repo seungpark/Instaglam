@@ -62,7 +62,7 @@
     },
 
     _imageload: function(e) {
-      $(".loading#" + e.currentTarget.id).addClass("hide");
+      $(".loading-square#" + e.currentTarget.id).addClass("hide");
     },
 
     componentWillMount: function() {
