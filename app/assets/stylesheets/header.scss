@@ -169,16 +169,9 @@
       // transform: translate3d(0, 0, -100%);
       // -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
       // transition: transform 0.4s, opacity 0.4s;
-
-      a {
-        display: none;
-        -webkit-transition: display 0.5s;
-        transition: display 0.5s;
-      }
-
-      button{
-        display: none;
-      }
+    }
+    .hidden {
+      display: none;
     }
   }
 

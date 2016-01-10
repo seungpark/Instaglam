@@ -22,7 +22,16 @@
     },
 
     _expand: function () {
-      $(".header-user-nav").toggleClass('hide');
+      var nav = $(".header-user-nav");
+      if (nav.hasClass("hide")) {
+        nav.contents().removeClass("hidden");
+        nav.removeClass('hide');
+      } else {
+        nav.addClass('hide');
+        window.setTimeout(function() {
+          nav.contents().addClass('hidden');
+        }, 500);
+      }
     },
 
     render: function() {
@@ -32,9 +41,9 @@
           <div className="header-user group" >
             <img className="menu-button" src={assets.menu_icon} onClick={ this._expand }/>
             <div className="header-user-nav hide">
-              <a href={"/#/" + currentUserUsername}>{currentUserUsername}</a>
-              <a href="/#/newphoto">Add New Photo</a>
-              <button onClick={ this.signout }>Sign Out!</button>
+              <a className="hidden" href={"/#/" + currentUserUsername}>{currentUserUsername}</a>
+              <a className="hidden" href="/#/newphoto">Add New Photo</a>
+              <button className="hidden" onClick={ this.signout }>Sign Out!</button>
             </div>
           </div>
 
