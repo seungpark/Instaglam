@@ -14,33 +14,31 @@
     min-height: 200px;
     margin: 150px auto;
     background: transparentize(white, .2);
-    border: 1px solid #676767;
+    padding: 10px 0;
     border-radius: 5px;
+    text-align: center;
 
     h1 {
+      color: #125688;
       margin: 10px auto;
       text-align: center;
-      font-weight: 800px;
+      font-weight: bold;
       font-size: 24px;
     }
 
     label {
       display: block;
-      text-align: center;
-      margin: 5px;
-    }
-
-    a {
-      display: initial;
-      margin: 10px 260px;
+      margin: 10px;
     }
 
     input {
-      width: 200px;
       display: block;
       margin: 10px auto;
+      font-size: 18px;
+      text-indent: 5px;
+      border: 1px solid #a6a6a6;
+      width: 200px;
       border-radius: 5px;
-      padding: 0 0 0 5px;
     }
 
 
@@ -51,7 +49,6 @@
       border-radius: 5px;
       color: white;
       font-size: 16px;
-      margin-left: 240px;
     }
 
 
