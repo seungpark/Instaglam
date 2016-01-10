@@ -12,8 +12,6 @@
         caption: "",
         tags: "",
         source: "photopage",
-        deleting: false,
-        deleted: false
       });
     },
 
@@ -67,12 +65,11 @@
 
     _startDelete: function (e) {
       e.preventDefault();
-      this.setState({ deleting: true });
+      $(".delete-button.confirm").removeClass("hide");
     },
 
     _completeDelete: function () {
       this.history.pushState(null, "/" + CurrentUserStore.currentUser().username);
-      this.setState({deleted: true});
     },
 
     _deletePhoto: function(e) {
@@ -93,21 +90,6 @@
             <h1>You are not the owner of this photo</h1>
             </div>
           );
-        } else if (this.state.deleted) {
-          return (
-            <div className="photo-page">
-              <img className="loading" src={assets.uploaded_image}/>
-              PHOTO DELETED!
-              <a href={"/#/" + CurrentUserStore.currentUser().username}> Back to Your Site! </a>
-            </div>
-          );
-        }
-
-
-
-        var deleting = "";
-        if (this.state.deleting){
-          deleting = <div className="confirm-delete"><button className="delete-button" onClick={this._deletePhoto } > CONFIRM DELETE </button></div>;
         }
 
         var commentsList = this.state.photo.comments.map( function(comment){
@@ -139,7 +121,7 @@
             <div className="photo-item">
               <div className="delete-button-div">
                 <button className="delete-button" onClick={this._startDelete}>DELETE</button>
-                {deleting}
+                <button className="delete-button confirm hide" onClick={this._deletePhoto } > CONFIRM DELETE </button>
               </div>
               <form className="edit-photo-form" onSubmit={this._submitChanges}>
               <div className="photo-header">

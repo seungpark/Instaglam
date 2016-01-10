@@ -17,17 +17,22 @@
 
   .delete-button-div{
     margin: 0px 0px 10px 10px;
-    .confirm-delete{
-      display: inline-block;
-      margin-left: 30px;
-    }
 
     .delete-button{
       background-color: #660000;
+      margin-right: 20px;
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition: visibility 0s, opacity 0.4s linear;
+      transition: visibility 0s, opacity 0.4s linear;
     }
 
     .delete-button:hover{
       background-color: #cc0000;
+    }
+    .hide {
+      opacity: 0;
+      visibility: hidden;
     }
   }
 
