@@ -33,11 +33,13 @@
     _changeName: function(e) {
       e.preventDefault();
       this.setState({ name: e.currentTarget.value });
+      $(".update-profile").removeClass("hide");
     },
 
     _changeBio: function(e) {
       e.preventDefault();
       this.setState({ bio: e.currentTarget.value });
+      $(".update-profile").removeClass("hide");
     },
 
     _changeFile: function(e) {
@@ -45,6 +47,7 @@
       var reader = new FileReader();
       var file = e.currentTarget.files[0];
       var that = this;
+      $(".change-avatar").removeClass("hide");
 
       reader.onloadend = function() {
         that.setState({ avatarUrl: reader.result, avatarFile: file });
@@ -83,14 +86,14 @@
                 Bio
                 <input type="text" name="bio" value={this.state.bio} onChange={this._changeBio}></input>
               </label>
-              <button>Update Profile</button>
+              <button className="update-profile hide">Update Profile</button>
             </form>
           </div>
           <div className="avatar-edit-container">
             <form className="avatar-edit-form" onSubmit={this._handleAvatarSubmit}>
               <img className="avatar-edit-image" src={this.state.avatarUrl}/>
               <input type="file" onChange={this._changeFile} />
-              <button>Change Avatar</button>
+              <button className="change-avatar hide">Change Avatar</button>
             </form>
           </div>
         </div>

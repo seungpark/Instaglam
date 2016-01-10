@@ -12,6 +12,18 @@
   margin: auto;
   background-color: white;
 
+  button {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: visibility 0s, opacity 0.4s linear;
+    transition: visibility 0s, opacity 0.4s linear;
+  }
+
+  .hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   h1 {
     text-align: center;
     font-size: 20px;
