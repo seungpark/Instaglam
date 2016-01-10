@@ -118,7 +118,6 @@
 
     .header-user-nav {
       width: 130px;
-      height: 70px;
       padding: 10px 10px;
       border: 1px solid #737373;
       border-radius: 3px;
@@ -129,6 +128,10 @@
       transform: translate3d(-50%, 0, -100%);
       -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
       transition: transform 0.4s, opacity 0.4s;
+    }
+
+    a {
+      margin: 5px 0;
     }
 
     a:hover {
