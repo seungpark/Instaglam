@@ -98,7 +98,7 @@
 
     render: function() {
       var loadMore;
-      if (this.state.initial && this.state.comments.length > 3) {
+      if (this.state.initial && this.state.comments.length > this.state.showing) {
         loadMore = <a className="load-comments" onClick={this._loadMore}>show all {this.state.comments.length} comments</a>;
       } else if (this.state.showing !== "all") {
         loadMore = <a className="load-comments" onClick={this._loadMore}>show more comments</a>;
