@@ -6,11 +6,11 @@
 
 
     getInitialState: function() {
-      debugger
       return {
         liked: false,
         likeCount: this.props.likes.length,
-        likeid: ""
+        likeid: "",
+        showLikers: false
       };
     },
 
@@ -95,12 +95,14 @@
 
     _showLikers: function (e) {
       e.preventDefault();
+      this.setState({showLikers: true});
     },
 
 
     render: function() {
       var likes = "Likes";
       var likers;
+      debugger
       if (this.state.likeCount === 1) {
         likes = "Like";
 

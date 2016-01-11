@@ -4,5 +4,5 @@ json.extract!(
 )
 
 json.user do
-  json.extract! like.user, :username
+  json.extract! like.user, :username, :id
 end
