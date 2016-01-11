@@ -86,15 +86,6 @@
               followedUserIds={this.props.followedUserIds}
               tagid={this.props.tagid}
            /> </div>
-           <div className="submit-comment">
-            <CommentForm
-              photo={this.props.photo}
-              key={this.props.photo.id}
-              user={CurrentUserStore.currentUser()}
-              source={this.props.source}
-              followedUserIds={this.props.followedUserIds}
-              tagid={this.props.tagid}
-          /> </div>
         </div>
       );
 
