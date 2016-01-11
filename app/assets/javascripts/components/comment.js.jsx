@@ -24,9 +24,9 @@
         return (
           <ul className="comment-content">
             <li className="comment-author">
-              <ReactRouter.Link to={"/" + this.props.author.username}>
-                <span className="comment-user">{this.props.author.username}</span>
-              </ReactRouter.Link>
+              <a href={"#/" + this.props.author.username}>
+                {this.props.author.username}
+              </a>
             </li>
             <li className="comment-body">
               {this.props.comment.body}
