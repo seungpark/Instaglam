@@ -102,6 +102,8 @@
         loadMore = <a className="load-comments" onClick={this._loadMore}>show all {this.state.comments.length} comments</a>;
       } else if (this.state.showing !== "all") {
         loadMore = <a className="load-comments" onClick={this._loadMore}>show more comments</a>;
+      } else {
+        loadMore = <p className="load-comments">showing all {this.state.comments.length} comments</p>;
       }
       return (
         <div>
