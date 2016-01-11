@@ -9,13 +9,15 @@
         return {
           comments: this.props.comments,
           showComments: this.props.comments.slice( this.props.comments.length - 3, this.props.comments.length),
-          showing: 3
+          showing: 3,
+          initial: true
          };
       } else {
         return {
           comments: this.props.comments,
           showComments: this.props.comments,
-          showing: "all"
+          showing: "all",
+          initial: true
         };
       }
     },
@@ -69,12 +71,14 @@
           showComments: this.state.comments.slice(
             this.state.comments.length - this.state.showing - 3,
             this.state.comments.length),
-          showing: this.state.showing + 3
+          showing: this.state.showing + 3,
+          initial: false
         });
       } else {
         this.setState ({
           showComments: this.props.comments,
-          showing: "all"
+          showing: "all",
+          initial: false
         });
       }
     },
@@ -94,7 +98,7 @@
 
     render: function() {
       var loadMore;
-      if (this.state.showing === 3 && this.state.comments.length > 3) {
+      if (this.state.initial && this.state.comments.length > 3) {
         loadMore = <a className="load-comments" onClick={this._loadMore}>show all {this.state.comments.length} comments</a>;
       } else if (this.state.showing !== "all") {
         loadMore = <a className="load-comments" onClick={this._loadMore}>show more comments</a>;
