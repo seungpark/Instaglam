@@ -379,7 +379,7 @@ ApiUtil = {
   //   });
   // },
 
-  addComment: function (commentdata, photoid) {
+  addComment: function (commentdata, photoid, success) {
     $.ajax({
       url: '/api/comments',
       type: 'POST',
@@ -387,6 +387,7 @@ ApiUtil = {
       data: commentdata,
       success: function(data) {
         ApiActions.addComment(data, photoid);
+        success && success();
       }
     });
   },

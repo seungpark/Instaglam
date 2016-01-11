@@ -5,11 +5,55 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { comments: this.props.comments };
+      if (this.props.comments.length > 3) {
+        return {
+          comments: this.props.comments,
+          showComments: this.props.comments.slice( this.props.comments.length - 3, this.props.comments.length),
+          showing: 3
+         };
+      } else {
+        return {
+          comments: this.props.comments,
+          showComments: this.props.comments,
+          showing: "all"
+        };
+      }
     },
 
-    componentWillReceiveProps: function (newProps) {
-      this.setState({ comments: newProps.comments });
+    _showNewComment: function () {
+      //when creating/deleting comments/likes
+      if (this.state.showing !== "all") {
+        this.setState({
+          comments: this.props.comments,
+          showComments: this.props.comments.slice(
+            this.state.comments.length - this.state.showing - 1,
+            this.state.comments.length),
+          showing: this.state.showing + 1
+        });
+      } else {
+        this.setState({
+          comments: this.props.comments,
+          showComments: this.props.comments
+        });
+      }
+
+    },
+
+    _loadMore: function (e) {
+      e.preventDefault();
+      if (this.state.comments.length > this.state.showing + 3) {
+        this.setState({
+          showComments: this.state.comments.slice(
+            this.state.comments.length - this.state.showing - 3,
+            this.state.comments.length),
+          showing: this.state.showing + 3
+        });
+      } else {
+        this.setState ({
+          showComments: this.props.comments,
+          showing: "all"
+        });
+      }
     },
 
     // _commentsAdded: function() {
@@ -26,10 +70,15 @@
 
 
     render: function() {
+      var loadMore;
+      if (this.state.showing !== "all") {
+        loadMore = <a className="load-comments" onClick={this._loadMore}>load more comments</a>;
+      }
       return (
-
+        <div>
         <ul className="photo-comments-list">
-          {this.props.comments.map(function (comment) {
+          {loadMore}
+          {this.state.showComments.map(function (comment) {
             return (
               <li key={comment.id}>
               <Comment
@@ -47,6 +96,16 @@
             );
           }.bind(this))}
         </ul>
+        <div className="submit-comment">
+         <CommentForm
+           photo={this.props.photo}
+           key={this.props.photo.id}
+           user={CurrentUserStore.currentUser()}
+           source={this.props.source}
+           followedUserIds={this.props.followedUserIds}
+           callback={this._showNewComment}
+       /> </div>
+       </div>
       );
     }
 

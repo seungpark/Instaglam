@@ -29,7 +29,9 @@
         user: this.props.photo.user.username
       };
 
-      ApiUtil.addComment(data, this.props.photo.id);
+      ApiUtil.addComment(data, this.props.photo.id, this.props.callback);
+      // this.props.callback();
+
 
       // if (this.props.source === "newsfeed") {
       //   ApiUtil.createPhotoCommentFromNewsfeed(data, this.props.followedUserIds);

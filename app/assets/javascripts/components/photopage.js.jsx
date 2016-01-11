@@ -107,14 +107,6 @@
                   source={this.state.source}
                   followedUserIds={this.state.followedUserIds}
                /> </div>
-               <div className="submit-comment">
-                <CommentForm
-                  photo={this.state.photo}
-                  key={this.state.photo.id}
-                  user={CurrentUserStore.currentUser()}
-                  source={this.state.source}
-                  followedUserIds={this.state.followedUserIds}
-              /> </div>
             </div>
           </div>
         );
