@@ -6,6 +6,7 @@
 
 
     getInitialState: function() {
+      debugger
       return {
         liked: false,
         likeCount: this.props.likes.length,
@@ -92,19 +93,26 @@
 
     },
 
+    _showLikers: function (e) {
+      e.preventDefault();
+    },
+
 
     render: function() {
       var likes = "Likes";
+      var likers;
       if (this.state.likeCount === 1) {
         likes = "Like";
+
       }
+      if (this.state.likeCount > 0)
       if (this.state.liked) {
         return (
           <div className="photo-like">
             <div className="heart-image" onClick={this._deleteLike}>
               <img className="heart-liked" src={assets.filledHeart}/>
             </div>
-            <div className="like-count">{this.state.likeCount} {likes}</div>
+            <div className="like-count"><a onClick={this._showLikers}>{this.state.likeCount} {likes}</a></div>
           </div>
         );
       } else
