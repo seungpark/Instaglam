@@ -9,7 +9,7 @@
           <ul className="header-main">
             <div className="header-logo">
               <ReactRouter.Link to={"/"}>
-                <span className="home-logo">Instaglam</span>
+                <span className="home-logo" onClick={window.scrollTo(0,0)} >Instaglam</span>
               </ReactRouter.Link>
             </div>
               <Search/>
