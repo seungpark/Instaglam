@@ -143,15 +143,7 @@
                   <img className="photograph" src={this.state.photo.image_url}/>
                 </a>
               </div>
-              <PhotoLike
-                  photo={this.state.photo}
-                  key={this.state.photo.id}
-                  likes={this.state.photo.likes}
-                  user={CurrentUserStore.currentUser()}
-                  source={this.state.source}
-                  followedUserIds={this.state.followedUserIds}
-                />
-              <div className="photo-caption">
+              <div className="photo-caption-edit">
                 <ReactRouter.Link to={"/" + this.state.photo.user.username}>
                   {this.state.photo.user.username}
                 </ReactRouter.Link>
@@ -161,15 +153,6 @@
                 <h3>Tags</h3>
                 <input name="tags" className="photo-tags" onChange={this._changeTags} value={this.state.tags} />
               </div>
-              <div className="photo-comments">
-                <PhotoComment
-                  photo={this.state.photo}
-                  key={this.state.photo.id}
-                  comments={this.state.photo.comments}
-                  user="edit-button"
-                  source={this.state.source}
-                  followedUserIds={this.state.followedUserIds}
-                /> </div>
                 <div className="submit-edits">
                   <button className="submit-button">
                     Submit Changes

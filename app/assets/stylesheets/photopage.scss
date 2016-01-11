@@ -45,6 +45,13 @@
     }
   }
 
+  .photo-caption-edit {
+    display: block;
+    position: static;
+    padding: 0px 15px 5px 15px;
+
+  }
+
   .tag-edit{
     h3 {
       margin: 0 10px 0 0;
@@ -55,6 +62,7 @@
   }
 
   input {
+    text-indent: 5px;
     font-size: 15px;
     line-height: 18px;
     width: 100%;
