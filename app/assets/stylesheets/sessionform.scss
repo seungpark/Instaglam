@@ -3,16 +3,15 @@
 
 
   .signin-landing {
-    background: image-url("signin-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-top: 55px;
-    height: 100vh;
+    padding-top: 71px;
+    background: url("signin-background.jpg") no-repeat center center fixed;
+    background-size: 100% 100%;
+    height: calc(100vh - 71px);
 
     div.signin-form {
       position: relative;
       max-width: 600px;
-      min-height: 200px;
+      height: 220px;
       margin: 150px auto;
       background: transparentize(white, .2);
       border-radius: 5px;

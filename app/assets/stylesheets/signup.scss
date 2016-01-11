@@ -2,16 +2,15 @@
   background-color: #fafafa;
 
 
-  background: image-url("signin-background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-top: 55px;
-  height: 100vh;
+  background: image-url("signin-background.jpg") no-repeat center center fixed;
+  background-size: 100% 100%;
+  padding-top: 71px;
+  height: calc(100vh - 71px);
 
   .new-user {
     position: relative;
     max-width: 600px;
-    min-height: 200px;
+    height: 220px;
     margin: 150px auto;
     background: transparentize(white, .2);
     padding: 10px 0;
