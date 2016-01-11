@@ -29,7 +29,7 @@
             <li className="comment-body">
               {this.props.comment.body}
             </li>
-            <li><p><button onClick={ this._handleDelete }>X</button></p></li>
+            <li><button onClick={ this._handleDelete }>X</button></li>
           </ul>
         );
       } else {

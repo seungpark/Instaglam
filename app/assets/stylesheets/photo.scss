@@ -133,8 +133,16 @@
   }
 
   .photo-comments {
-    ul > li {
-      display: block
+    .load-comments {
+      display: inline-block;
+      color: #a5a7aa;
+      margin-bottom: 7px;
+      font-weight: normal;
+    }
+
+    .load-comments:hover {
+      color: #818488;
+      cursor: pointer;
     }
 
     .comment-content{
