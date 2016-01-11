@@ -392,13 +392,14 @@ ApiUtil = {
     });
   },
 
-  deleteComment: function(commentid, photoid) {
+  deleteComment: function(commentid, photoid, success) {
     $.ajax({
       url: '/api/comments/' + commentid,
       type: 'DELETE',
       dataType: 'json',
       success: function() {
         ApiActions.deleteComment(commentid, photoid);
+        success && success(commentid);
       }
     });
   },

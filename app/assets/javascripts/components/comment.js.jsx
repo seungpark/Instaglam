@@ -4,7 +4,7 @@
 
     _handleDelete: function(e) {
       e.preventDefault();
-      ApiUtil.deleteComment(this.props.comment.id, this.props.photo.id);
+      ApiUtil.deleteComment(this.props.comment.id, this.props.photo.id, this.props.callback);
       // if (this.props.source === "newsfeed") {
       //   ApiUtil.deletePhotoCommentFromNewsfeed(commentid, this.props.followedUserIds);
       // } else if (this.props.source === "userpage") {

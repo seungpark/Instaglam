@@ -26,8 +26,8 @@
         this.setState({
           comments: this.props.comments,
           showComments: this.props.comments.slice(
-            this.state.comments.length - this.state.showing - 1,
-            this.state.comments.length),
+            this.props.comments.length - this.state.showing - 1,
+            this.props.comments.length),
           showing: this.state.showing + 1
         });
       } else {
@@ -36,7 +36,30 @@
           showComments: this.props.comments
         });
       }
+    },
 
+    _removeComment: function (id) {
+      var newComments = this.state.comments.filter( function (comment) {
+        return comment.id !== id;
+      });
+      if (this.state.showing >= newComments.length) {
+        this.setState({
+          comments: newComments,
+          showComments: newComments.slice(
+            newComments.length - this.state.showing,
+            newComments.length
+          ),
+          showing: "all"
+        });
+      } else {
+        this.setState({
+          comments: newComments,
+          showComments: newComments.slice(
+            newComments.length - this.state.showing,
+            newComments.length
+          )
+        });
+      }
     },
 
     _loadMore: function (e) {
@@ -71,8 +94,10 @@
 
     render: function() {
       var loadMore;
-      if (this.state.showing !== "all") {
-        loadMore = <a className="load-comments" onClick={this._loadMore}>load more comments</a>;
+      if (this.state.showing === 3 && this.state.comments.length > 3) {
+        loadMore = <a className="load-comments" onClick={this._loadMore}>show all {this.state.comments.length} comments</a>;
+      } else if (this.state.showing !== "all") {
+        loadMore = <a className="load-comments" onClick={this._loadMore}>show more comments</a>;
       }
       return (
         <div>
@@ -91,6 +116,7 @@
                 followedUserIds={this.props.followedUserIds}
                 tagid={this.props.tagid}
                 user ={this.props.user}
+                callback={this._removeComment}
               />
               </li>
             );
