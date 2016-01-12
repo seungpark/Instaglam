@@ -103,6 +103,7 @@
 
     .heart-image {
       display: inline-block;
+      margin-right: 8px;
     }
     .heart-image:hover {
       cursor: pointer;
@@ -111,6 +112,16 @@
       display: inline-block;
       position: relative;
       bottom: 10px;
+    }
+
+    a.liker {
+      display: inline-table;
+      text-indent: 2px;
+      margin-right: 5px;
+    }
+
+    .like-count > a{
+      cursor: pointer;
     }
 
     div.background-trans{
@@ -125,15 +136,39 @@
     }
 
     div.likers-list {
-      width: 400px;
-      height: 700px;
+      width: 25%;
+      height: 500px;
       border: 1px solid #737373;
       border-radius: 2px;
       overflow-y: scroll;
       position: fixed;
       background: white;
-      top: 80px;
+      top: 120px;
+      left: 37.5%;
       z-index: 3;
+
+      h3 {
+        margin: 0px;
+        padding: 8px 0px;
+        text-align: center;
+        background: #125688;
+        font-size: 14px;
+        color: white;
+      }
+
+      li{
+        margin: 7px 7px;
+        a {
+          display: inline-block;
+          img {
+            position: relative;
+            top: 3px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+          }
+        }
+      }
     }
   }
 

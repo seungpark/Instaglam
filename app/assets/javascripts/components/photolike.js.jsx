@@ -32,7 +32,6 @@
     },
 
     componentWillReceiveProps: function(newProps) {
-      debugger
       if (newProps.likes.length > 0) {
         var include = newProps.likes.find (function (like) {
           if (like.user_id === CurrentUserStore.currentUser().id) {
@@ -116,20 +115,18 @@
 
 
     render: function() {
-      debugger
-      var likes = "Likes";
-      if (this.state.likeCount === 1) {
-        likes = "Like";
-      }
+      var likes;
       var likers;
       if (this.state.likeCount === 0) {
         likers = "0 likes";
       } else if (this.state.likeCount === 1) {
-        likers = <span><a href={"#/" + this.state.likers[0]} className="liker">{this.state.likers[0]}</a> likes this</span>;
+        likers = <a href={"#/" + this.state.likers[0]} className="liker">{this.state.likers[0]}</a>;
+        likes = "likes this";
       } else if (this.state.likeCount > 1 && this.state.likeCount < 4) {
         likers = this.state.likers.map ( function (liker) {
           return (<a href={"#/" + liker} className="liker">{liker}</a>);
         });
+        likes = "like this";
       } else {
         likers = <a onClick={this._showLikers}>{this.state.likeCount} Likes</a>;
       }
@@ -137,7 +134,7 @@
       var showLikers;
       var background;
       if (this.state.showLikers) {
-        showLikers = <Likers callback={this._hideLikers} likers={this.state.likers}/>;
+        showLikers = <Likers callback={this._hideLikers} likes={this.props.likes} />;
         background = <div className="background-trans"></div>;
       }
 
@@ -149,6 +146,7 @@
             </div>
             <div className="like-count">
               {likers}
+              {likes}
               {background}
               {showLikers}
             </div>
@@ -162,6 +160,8 @@
           </div>
           <div className="like-count">
             {likers}
+            {likes}
+            {background}
             {showLikers}
           </div>
         </div>
