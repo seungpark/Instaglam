@@ -23,9 +23,16 @@
       if (include) {
         this.setState({ liked: true, likeid: include.id });
       }
+
+      this.setState({
+        likers: this.props.likes.map( function (like) {
+          return like.user.username;
+        })
+       });
     },
 
     componentWillReceiveProps: function(newProps) {
+      debugger
       if (newProps.likes.length > 0) {
         var include = newProps.likes.find (function (like) {
           if (like.user_id === CurrentUserStore.currentUser().id) {
@@ -35,6 +42,11 @@
         if (include) {
           this.setState({ liked: true, likeid: include.id });
         }
+        this.setState({
+          likers: newProps.likes.map( function (like) {
+            return like.user.username;
+          })
+         });
       }
     },
 
@@ -98,23 +110,48 @@
       this.setState({showLikers: true});
     },
 
+    _hideLikers: function () {
+      this.setState({ showLikers: false });
+    },
+
 
     render: function() {
-      var likes = "Likes";
-      var likers;
       debugger
+      var likes = "Likes";
       if (this.state.likeCount === 1) {
         likes = "Like";
-
       }
-      if (this.state.likeCount > 0)
+      var likers;
+      if (this.state.likeCount === 0) {
+        likers = "0 likes";
+      } else if (this.state.likeCount === 1) {
+        likers = <span><a href={"#/" + this.state.likers[0]} className="liker">{this.state.likers[0]}</a> likes this</span>;
+      } else if (this.state.likeCount > 1 && this.state.likeCount < 4) {
+        likers = this.state.likers.map ( function (liker) {
+          return (<a href={"#/" + liker} className="liker">{liker}</a>);
+        });
+      } else {
+        likers = <a onClick={this._showLikers}>{this.state.likeCount} Likes</a>;
+      }
+
+      var showLikers;
+      var background;
+      if (this.state.showLikers) {
+        showLikers = <Likers callback={this._hideLikers} likers={this.state.likers}/>;
+        background = <div className="background-trans"></div>;
+      }
+
       if (this.state.liked) {
         return (
           <div className="photo-like">
             <div className="heart-image" onClick={this._deleteLike}>
               <img className="heart-liked" src={assets.filledHeart}/>
             </div>
-            <div className="like-count"><a onClick={this._showLikers}>{this.state.likeCount} {likes}</a></div>
+            <div className="like-count">
+              {likers}
+              {background}
+              {showLikers}
+            </div>
           </div>
         );
       } else
@@ -123,7 +160,10 @@
           <div className="heart-image" onClick={this._addLike}>
             <img className="heart-unliked" src={assets.emptyHeart}/>
           </div>
-          <div className="like-count">{this.state.likeCount} {likes}</div>
+          <div className="like-count">
+            {likers}
+            {showLikers}
+          </div>
         </div>
       );
     }
