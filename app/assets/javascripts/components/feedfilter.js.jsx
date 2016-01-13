@@ -5,7 +5,10 @@
     mixins: [ReactRouter.History],
 
     _photosChanged: function(){
-      this.setState({photos: PhotoStore.all() });
+      this.setState({
+        photos: PhotoStore.all(),
+        receivedphotos: true
+      });
     },
 
     _handleScroll: function () {
@@ -40,7 +43,9 @@
         followedUserIds: null,
         page: 1,
         load: false,
-        end: false};
+        end: false,
+        receivedphotos: false
+      };
     },
 
     componentWillReceiveProps: function(newProps) {
@@ -67,20 +72,24 @@
     },
 
     render: function(){
-      return(
-      <div className="feed-filter">
-        <NewsFeed
-          photos={this.state.photos}
-          history={this.history}
-          followedUserIds={this.state.followedUserIds}
-          scroll = {this._handleScroll()}
-          morephotos = {this.fetchMorePhotos}
-          page = {this.state.page}
-          load = {this.state.load}
-          end = {this.state.end}
-        />
-      </div>
-      );
+      if (this.state.receivedphotos) {
+        return(
+        <div className="feed-filter">
+          <NewsFeed
+            photos={this.state.photos}
+            history={this.history}
+            followedUserIds={this.state.followedUserIds}
+            scroll = {this._handleScroll()}
+            morephotos = {this.fetchMorePhotos}
+            page = {this.state.page}
+            load = {this.state.load}
+            end = {this.state.end}
+          />
+        </div>
+        );
+      } else {
+        return (<div></div>);
+      }
     }
   });
 })(this);
