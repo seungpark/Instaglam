@@ -11,7 +11,8 @@
         view: "grid",
         page: 1,
         load: false,
-        end: false
+        end: false,
+        photosreceived: false
       };
     },
 
@@ -42,16 +43,14 @@
     },
 
     _photosChanged: function() {
-      this.setState({ photos: PhotoStore.all() });
-    },
-
-    _fetchUserInfo: function(username){
-      ApiUtil.fetchUserInfo(username, this._setUserInfo);
+      this.setState({
+        photos: PhotoStore.all(),
+        photosreceived: true
+      });
     },
 
     _setUserInfo: function(userinfo){
       this.setState({ user: userinfo });
-      this._changeToGrid();
       window.scrollTo(0,0);
     },
 
@@ -74,6 +73,7 @@
     componentWillMount: function() {
       window.addEventListener('scroll', this._handleScroll);
       PhotoStore.addChangeListener(this._photosChanged);
+      ApiUtil.fetchUserInfo(this.props.params.username, this._setUserInfo);
       ApiUtil.fetchUserPhotos(
         this.props.params.username,
         1,
@@ -81,10 +81,6 @@
           this.setState({end: true});
         }.bind(this)
       );
-    },
-
-    componentDidMount: function() {
-      this._fetchUserInfo(this.props.params.username);
     },
 
     componentWillUnmount: function(){
@@ -124,6 +120,9 @@
               <button onClick={this._morePhotos}> More Photos! </button>
             </div>
         );
+      }
+      if (!this.state.photosreceived) {
+        return false;
       }
       if (this.state.view === "list") {
         return(
