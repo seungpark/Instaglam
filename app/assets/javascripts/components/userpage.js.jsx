@@ -89,7 +89,14 @@
     },
 
     componentWillReceiveProps: function(newProps) {
+      this.setState({ photosreceived: false, view: "grid"});
       var username = newProps.params.username;
+      ApiUtil.fetchUserInfo(username, this._setUserInfo);
+      this.setState({
+        page: 1,
+        load: false,
+        end: false
+      });
       ApiUtil.fetchUserPhotos(
         username,
         1,
@@ -97,12 +104,6 @@
           this.setState({end: true});
         }.bind(this)
       );
-      ApiUtil.fetchUserInfo(username, this._setUserInfo);
-      this.setState({
-        page: 1,
-        load: false,
-        end: false
-      });
     },
 
     // _getNewUser: function(user) {
@@ -113,6 +114,10 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
+      debugger
+      if (!this.state.photosreceived) {
+        return false;
+      }
       var showMore;
       if (!this.state.end) {
         showMore = (
@@ -120,9 +125,6 @@
               <button onClick={this._morePhotos}> More Photos! </button>
             </div>
         );
-      }
-      if (!this.state.photosreceived) {
-        return false;
       }
       if (this.state.view === "list") {
         return(

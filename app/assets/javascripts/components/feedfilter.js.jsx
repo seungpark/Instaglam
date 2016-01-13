@@ -72,23 +72,23 @@
     },
 
     render: function(){
-      if (this.state.receivedphotos) {
-        return(
-        <div className="feed-filter">
-          <NewsFeed
-            photos={this.state.photos}
-            history={this.history}
-            followedUserIds={this.state.followedUserIds}
-            scroll = {this._handleScroll()}
-            morephotos = {this.fetchMorePhotos}
-            page = {this.state.page}
-            load = {this.state.load}
-            end = {this.state.end}
-          />
-        </div>
-        );
-      } else {
+      if (!this.state.receivedphotos) {
         return (false);
+      } else {
+        return(
+          <div className="feed-filter">
+          <NewsFeed
+          photos={this.state.photos}
+          history={this.history}
+          followedUserIds={this.state.followedUserIds}
+          scroll = {this._handleScroll()}
+          morephotos = {this.fetchMorePhotos}
+          page = {this.state.page}
+          load = {this.state.load}
+          end = {this.state.end}
+          />
+          </div>
+        );
       }
     }
   });
