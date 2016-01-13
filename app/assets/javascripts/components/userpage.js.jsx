@@ -113,7 +113,6 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
-      debugger
       var showMore;
       if (!this.state.end) {
         showMore = (
@@ -123,12 +122,7 @@
         );
       }
       if (!this.state.photosreceived) {
-        return (
-          <div className="loading-page">
-            <div className="loading-page-background"/>
-            <img src={assets.loading.gif}/>
-          </div>
-        );
+        return false;
       }
       if (this.state.view === "list") {
         return(

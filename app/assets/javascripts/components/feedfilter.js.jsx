@@ -88,13 +88,7 @@
         </div>
         );
       } else {
-        return (
-          <div className="loading-page">
-            <div className="loading-page-background"/>
-            <img src={assets.loading.gif}/>
-            <p>Loading your NewsFeed...</p>
-          </div>
-        );
+        return (false);
       }
     }
   });
