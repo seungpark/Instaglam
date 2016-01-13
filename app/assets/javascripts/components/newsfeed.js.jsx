@@ -36,27 +36,43 @@
             </div>
         );
       }
-      return (
-        <div className="newsfeed">
-          <ul className="newsfeed-ul">
-            {this.props.photos.map(function (photo) {
-              return <IndexPhoto
-                key={photo.id}
-                photo={photo}
-                author={photo.user}
-                comments={photo.comments}
-                likes={photo.likes}
-                user={CurrentUserStore.currentUser()}
-                source={"newsfeed"}
-                followedUserIds={this.props.followedUserIds}
-                tags={photo.tags}
-                />;
-            }.bind(this) )}
+      if (this.props.photos.length === 0 ) {
+        return (
+          <div className="newsfeed">
+            <ul className="newsfeed-ul">
+            <div className="empty-feed">
+              <p>Welcome to your Newsfeed!</p>
+              <p>You are not following any users!</p>
+              <p>Here are some users you can follow!</p>
+              <p><a href="#/seung">seung</a></p>
+              <p><a href="#/guest">guest</a></p>
+              </div>
+            </ul>
+          </div>
+        );
+      } else {
+        return (
+          <div className="newsfeed">
+            <ul className="newsfeed-ul">
+              {this.props.photos.map(function (photo) {
+                return <IndexPhoto
+                  key={photo.id}
+                  photo={photo}
+                  author={photo.user}
+                  comments={photo.comments}
+                  likes={photo.likes}
+                  user={CurrentUserStore.currentUser()}
+                  source={"newsfeed"}
+                  followedUserIds={this.props.followedUserIds}
+                  tags={photo.tags}
+                  />;
+              }.bind(this) )}
 
-          </ul>
-          {showMore}
-        </div>
-      );
+            </ul>
+            {showMore}
+          </div>
+        );
+      }
 
     }
 
