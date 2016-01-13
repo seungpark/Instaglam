@@ -34,7 +34,10 @@ a {
     margin: auto;
     padding-top: 10px;
     margin-bottom: 60px;
-    width: 600px;
+    width: 400px;
 
+    a:hover{
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
   }
 }
