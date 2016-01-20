@@ -131,11 +131,13 @@
     }
 
     a {
+      display: inline-block;
       margin: 5px 0;
+      border-bottom: 1px solid transparent;
     }
 
     a:hover {
-      text-decoration: underline;
+      border-color: #0d3c5f;
     }
 
     .header-user-nav::before{
@@ -143,7 +145,7 @@
       height: 0;
       content: "";
       position: absolute;
-      margin-left: -22px;
+      margin-left: 22px;
       top: 52px;
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;

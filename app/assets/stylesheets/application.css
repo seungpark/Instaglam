@@ -39,6 +39,7 @@ a {
   line-height: 18px;
   overflow: hidden;
   color: #125688;
+  transition: color 0.4s, border 0.4s;
 }
 
 a:hover {
@@ -56,6 +57,7 @@ button{
   border-radius: 5px;
   color: white;
   font-size: 14px;
+  transition: background-color .4s;
 }
 
 button:hover {
