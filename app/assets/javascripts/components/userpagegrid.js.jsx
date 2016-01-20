@@ -11,7 +11,6 @@
     _hoverImage: function(e) {
       $('#' + e.currentTarget.id + '.hovering').removeClass('hide');
       $('#' + e.currentTarget.id + '.stats').removeClass('hide');
-      debugger
     },
 
     _unhoverImage: function(e) {
