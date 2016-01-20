@@ -50,6 +50,7 @@ ul {
 }
 
 button{
+  padding: 6px;
   background-color: #125688;
   border: none;
   border-radius: 5px;
