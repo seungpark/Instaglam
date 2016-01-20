@@ -114,7 +114,6 @@
 //currentUser={CurrentUserStore.currentUser}
 
     render: function() {
-      debugger
       if (!this.state.photosreceived) {
         return false;
       }
