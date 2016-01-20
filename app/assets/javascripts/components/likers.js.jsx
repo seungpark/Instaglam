@@ -24,9 +24,13 @@
         <div className="likers-list" id="likers-list" >
           <h3 className="likers-list heading"> Likes </h3>
           {this.props.likes.map (function (like) {
+            var avatar = like.user.avatar;
+            if (avatar === "missingavatar.png") {
+              avatar = assets.missing_avatar;
+            }
             return (
               <li><a href={"#/" + like.user.username} className="likers-list user">
-                <img src={like.user.avatar} className="likers-list avatar"/>
+                <img src={avatar} className="likers-list avatar"/>
                 {like.user.username}
               </a></li>
             );
