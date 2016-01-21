@@ -24,10 +24,12 @@
     border: 1px solid #737373;
     background-position-x: 2px;
     background-position-y: 2px;
+    a{
+      display: inline-block;
+    }
   }
 
   a {
-    display: inline-block;
     font-size: 15px;
     font-weight: 600;
     line-height: 18px;
