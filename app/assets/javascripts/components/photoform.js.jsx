@@ -4,27 +4,12 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { title: "", caption: "", imageUrl: "", imageFile: null, tags: "", uploading: false, uploaded: false};
+      return { title: "", caption: "", imageUrl: "", imageFile: null, tags: "", uploading: false};
     },
 
     render: function() {
       var image;
-      if (this.state.uploaded) {
-        image = assets.uploaded_image;
-        return (
-          <div className="photo-form group">
-            <h2>New Photo</h2>
-            <img className="state" src={image}/>
-            <h3>Photo Uploaded!</h3>
-            <div className="link-to-userpage">
-              <ReactRouter.Link to={"/" + CurrentUserStore.currentUser().username}>
-                Check Your Page!
-              </ReactRouter.Link>
-            </div>
-          </div>
-        );
-
-      } else if (this.state.uploading) {
+      if (this.state.uploading) {
         image = assets.uploading_image;
         return (
           <div className="photo-form group">
@@ -33,7 +18,6 @@
             <img className="state" src={image}/>
           </div>
         );
-
       } else {
         return (
           <div className="photo-form group">
@@ -101,11 +85,11 @@
       formData.append("photo[image]", file);
       formData.append("photo[tags]", tags);
 
-      ApiUtil.createPhoto(formData, this.resetForm);
+      ApiUtil.createPhoto(formData, this.redirectUserPage);
     },
 
-    resetForm: function() {
-      this.setState({ title: "", caption: "", imageUrl: "", imageFile: null, tags: "", uploading: false, uploaded: true });
+    redirectUserPage: function() {
+      this.history.pushState(null, "/" + CurrentUserStore.currentUser().username);
     }
   });
 })(this);
