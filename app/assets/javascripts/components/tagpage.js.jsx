@@ -90,6 +90,7 @@
     },
 
     componentWillReceiveProps: function(newProps) {
+      debugger
       var newId = parseInt(newProps.location.pathname.slice(6));
       ApiUtil.fetchPhotosForTag(
         newId,
@@ -107,6 +108,7 @@
       this.setState({
         tagid: newId,
         page: 1,
+        view: "grid",
         load: false,
         end: false
       });
@@ -114,6 +116,7 @@
     },
 
     render: function() {
+      debugger
       var showMore;
       if (!this.state.end) {
         showMore = (
@@ -158,8 +161,8 @@
                 <div className="tagpage-header">
                   <h1 className="tagpage-header">{"#" + this.state.tagname}</h1>
                   <div className="viewing-options">
-                    <input type="image" className="active-icon" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
-                    <input type="image" className="list-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
+                    <input type="image" className="list-icon" src={assets.gridview_icon} onClick={this._changeToGrid}></input>
+                    <input type="image" className="active-icon" src={assets.listview_icon} onClick={this._changeToList}></input>
                   </div>
                 </div>
               <ul className="tagpage-ul">
