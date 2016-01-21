@@ -14,16 +14,16 @@
     margin: 20px auto;
     background: image-url("addnew.png");
     background-size: contain;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    transition: background-position-x 0.1s, background-position-y 0.1s, border 0.3s;
-    -webkit-transition: background-position-x 0.1s, background-position-y 0.1s, border 0.3s;
+    filter: brightness(1);
+    -webkit-filter: brightness(1);
+
+    transition: filter 0.2s;
+    -webkit-transition: -webkit-filter 0.2s;
   }
 
   .new-photo:hover{
-    border: 1px solid #737373;
-    background-position-x: 2px;
-    background-position-y: 2px;
+    -webkit-filter: brightness(0.50);
+    filter: brightness(0.50);
     a{
       display: inline-block;
     }
