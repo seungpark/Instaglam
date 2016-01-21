@@ -18,6 +18,7 @@
     componentDidMount: function() {
       window.scrollTo(0,0);
     },
+
     //
     // componentWillUnmount: function(){
     //   PhotoStore.removeChangeListener(this._photosChanged);
@@ -40,8 +41,12 @@
         return (
           <div className="newsfeed">
             <ul className="newsfeed-ul">
+            <div className="post-new-photo">
+              <a className="new-photo" href="/#/newphoto"/>
+            </div>
             <div className="empty-feed">
               <p>Welcome to your Newsfeed!</p>
+              <p>Post a Photo by clicking the button above!</p>
               <p>You are not following any users!</p>
               <p>Here are some users you can follow!</p>
               <p><a href="#/seung">seung</a></p>
@@ -54,6 +59,9 @@
         return (
           <div className="newsfeed">
             <ul className="newsfeed-ul">
+            <div className="post-new-photo">
+              <a className="new-photo" href="/#/newphoto"/>
+            </div>
               {this.props.photos.map(function (photo) {
                 return <IndexPhoto
                   key={photo.id}

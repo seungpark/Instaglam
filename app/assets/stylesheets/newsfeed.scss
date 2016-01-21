@@ -1,11 +1,3 @@
-a {
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 18px;
-  overflow: hidden;
-  color: #125688;
-}
 
 .newsfeed {
   display: block;
@@ -14,12 +6,40 @@ a {
   align-items: center;
   align-self: center;
   background-color: #fafafa;
+
+  .new-photo {
+    display: block;
+    height: 50px;
+    width: 50px;
+    margin: 20px auto;
+    background: image-url("addnew.png");
+    background-size: contain;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    transition: background-position-x 0.1s, background-position-y 0.1s, border 0.3s;
+    -webkit-transition: background-position-x 0.1s, background-position-y 0.1s, border 0.3s;
+  }
+
+  .new-photo:hover{
+    border: 1px solid #737373;
+    background-position-x: 2px;
+    background-position-y: 2px;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    overflow: hidden;
+    color: #125688;
+  }
 }
 
 
 
 .newsfeed-ul {
-  padding-top: 115px;
+  padding-top: 71px;
   display:block;
   position: relative;
   margin: auto;
