@@ -5,26 +5,28 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      var following = this._checkFollow();
+      var following = this._checkFollow(this.props.pageuser);
       return { pageuser: this.props.pageuser, following: following };
     },
 
-    _checkFollow: function () {
+    _checkFollow: function (pageuser) {
       var follow;
-      if (CurrentUserStore.currentUser() && this.props.pageuser) {
+      if (CurrentUserStore.currentUser() && pageuser) {
         follow = CurrentUserStore.currentUser().following_users.find (function (user) {
-          return user.id === this.props.pageuser.id;
-        }.bind(this));
+          return user.id === pageuser.id;
+        });
       }
       return follow;
     },
 
     componentWillReceiveProps: function(newProps) {
-      var followingBoolean = this._checkFollow();
-      this.setState({
-        pageuser: newProps.pageuser,
-        following: followingBoolean
-      });
+      if (newProps.pageuser !== this.state.pageuser) {
+        var followingBoolean = this._checkFollow(newProps.pageuser);
+        this.setState({
+          pageuser: newProps.pageuser,
+          following: followingBoolean
+        });
+      }
     },
 
     _toggleFollow: function () {
