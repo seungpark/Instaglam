@@ -27,10 +27,8 @@
         nav.contents().removeClass("hidden");
         nav.removeClass('hide');
       } else {
+        nav.contents().addClass('hidden');
         nav.addClass('hide');
-        window.setTimeout(function() {
-          nav.contents().addClass('hidden');
-        }, 500);
       }
     },
 
