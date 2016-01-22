@@ -62,7 +62,17 @@
     },
 
     _imageload: function(e) {
-      $(".loading-square#" + e.currentTarget.id).addClass("hide");
+      $("#" + e.currentTarget.id + ".loading-square").addClass("hide");
+    },
+
+    _hoverImage: function(e) {
+      $('#' + e.currentTarget.id + '.hovering').removeClass('hide');
+      $('#' + e.currentTarget.id + '.stats').removeClass('hide');
+    },
+
+    _unhoverImage: function(e) {
+      $('#' + e.currentTarget.id + '.hovering').addClass('hide');
+      $('#' + e.currentTarget.id + '.stats').addClass('hide');
     },
 
     componentWillMount: function() {
@@ -90,7 +100,6 @@
     },
 
     componentWillReceiveProps: function(newProps) {
-      debugger
       var newId = parseInt(newProps.location.pathname.slice(6));
       ApiUtil.fetchPhotosForTag(
         newId,
@@ -116,7 +125,6 @@
     },
 
     render: function() {
-      debugger
       var showMore;
       if (!this.state.end) {
         showMore = (
@@ -140,9 +148,14 @@
               <ul className="tagpage-ul">
                 {this.state.photos.map(function (photo) {
                   return (
-                    <div className="square-photo-container">
+                    <div className="square-photo-container" id={photo.id} onMouseOver={this._hoverImage} onMouseOut={this._unhoverImage}>
                       <div className="loading-square" id={photo.id} />
                       <a href={"/#/photos/" + photo.id}>
+                      <div className="hovering hide" id={photo.id}/>
+                      <div className="stats hide" id={photo.id}>
+                        <img src={assets.transparentHeart}/> {photo.likes.length}
+                        <img src={assets.comment} className="comment-icon"/> {photo.comments.length}
+                      </div>
                       <img className="square-photo" src={photo.image_url} onLoad={this._imageload} id={photo.id}/>
                       </a>
                     </div>

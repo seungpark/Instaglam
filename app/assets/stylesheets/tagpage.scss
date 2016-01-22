@@ -61,6 +61,7 @@ a {
     margin: 0px 95px;
   }
   .square-photo-container{
+    position: relative;
     display: inline-flex;
     display: -webkit-inline-flex;
     align-items: center;
@@ -78,6 +79,41 @@ a {
       overflow: hidden;
       background: image-url("loading.gif") no-repeat center center;
       background-color: white;
+    }
+
+    .hovering {
+      opacity: 0.6;
+      position: absolute;
+      z-index: 1;
+      width: 250px;
+      height: 250px;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    .stats {
+      position: absolute;
+      background-color: transparent;
+      z-index: 2;
+      color: white;
+      font-size: 22px;
+      top: 115px;
+      left: 70px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .comment-icon {
+        margin-left: 20px;
+      }
+
+      span {
+        position: relative;
+        top: -2px;
+      }
+
     }
 
     .hide {
