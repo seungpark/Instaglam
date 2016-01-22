@@ -5,20 +5,26 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function() {
-      return { pageuser: this.props.pageuser, following: null };
+      var following = this._checkFollow();
+      return { pageuser: this.props.pageuser, following: following };
+    },
+
+    _checkFollow: function () {
+      var follow;
+      if (CurrentUserStore.currentUser() && this.props.pageuser) {
+        follow = CurrentUserStore.currentUser().following_users.find (function (user) {
+          return user.id === this.props.pageuser.id;
+        }.bind(this));
+      }
+      return follow;
     },
 
     componentWillReceiveProps: function(newProps) {
-      this.setState({ pageuser: newProps.pageuser });
-      var followingBoolean;
-      if (CurrentUserStore.currentUser() && newProps.pageuser) {
-        followingBoolean = CurrentUserStore.currentUser().following_users.find(function (user) {
-          if (user.id === newProps.pageuser.id) {
-            return true;
-          }
-        });
-      }
-      this.setState({ following: followingBoolean });
+      var followingBoolean = this._checkFollow();
+      this.setState({
+        pageuser: newProps.pageuser,
+        following: followingBoolean
+      });
     },
 
     _toggleFollow: function () {
@@ -63,7 +69,6 @@
       } else {
         following = "FOLLOW";
       }
-
 
       if (this.state.pageuser && this.state.pageuser.id === CurrentUserStore.currentUser().id) {
         return (
