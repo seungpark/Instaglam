@@ -121,6 +121,7 @@
       padding: 10px 10px;
       border: 1px solid #737373;
       border-radius: 3px;
+      border-top-right-radius: 0;
       background-color: white;
       margin-top: 60px;
       text-align: right;
@@ -144,7 +145,7 @@
       height: 0;
       content: "";
       position: absolute;
-      margin-left: 22px;
+      margin-left: 27px;
       top: 52px;
       border-left: 14px solid transparent;
       border-right: 14px solid transparent;
@@ -156,7 +157,7 @@
       height: 0;
       content: "";
       position: absolute;
-      margin-left: -18px;
+      margin-left: -15.5px;
       top: 53px;
       border-left: 13px solid transparent;
       border-right: 13px solid transparent;
