@@ -49,7 +49,6 @@
     },
 
     render: function () {
-      debugger
       return (
         <div className="notification-container">
           <div className="new-notifications">
