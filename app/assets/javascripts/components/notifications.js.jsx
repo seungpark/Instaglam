@@ -52,30 +52,30 @@
       return (
         <div className="notification-container">
           <div className="new-notifications">
-            <h1>Newest Notifications</h1>
             <ul className="notification-list">
+            <h1>Newest Notifications</h1>
               {this.state.newNoti.map(function(noti) {
                 var type = (noti.body) ? " commented on" : " liked";
                 return (
                   <li>
                     <a href={"#/" + noti.user.username}>{noti.user.username}</a>
-                    {type} your
-                    <a href={"#/photos/" + noti.photo.id}>photo</a>
+                    {type + " your "}
+                    <a href={"#/photos/" + noti.photo.id}> photo</a>
                   </li>
                 );
               }.bind(this))}
             </ul>
           </div>
           <div className="old-notifications">
-            <h1>Older Notifications</h1>
             <ul className="notification-list">
+            <h1>Older Notifications</h1>
               {this.state.oldNoti.map(function(noti) {
                 var type = (noti.body) ? " commented on" : " liked";
                 return (
                   <li>
                     <a href={"#/" + noti.user.username}>{noti.user.username}</a>
-                    {type} your
-                    <a href={"#/photos/" + noti.photo.id}>photo</a>
+                    {type + " your "}
+                    <a href={"#/photos/" + noti.photo.id}> photo</a>
                   </li>
                 );
               }.bind(this))}
