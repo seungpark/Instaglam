@@ -11,9 +11,9 @@ json.following_users do
 end
 
 json.received_likes do
-  json.array! @user.received_likes, :id, :photo_id, :user_id, :created_at, :checked
+  json.array! @user.received_likes, :id, :photo_id, :user_id, :created_at, :checked, :user, :photo
 end
 
 json.received_comments do
-  json.array! @user.received_comments, :id, :photo_id, :user_id, :body, :created_at, :checked
+  json.array! @user.received_comments, :id, :photo_id, :user_id, :body, :created_at, :checked, :user, :photo
 end

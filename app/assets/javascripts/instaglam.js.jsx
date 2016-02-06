@@ -96,10 +96,11 @@ $(function(){
     <Route path="/" component={App}>
       <IndexRoute component={FeedFilter} />
       <Route path="/signup" component={UserForm}/>
-      <Route path="signin" component={SessionForm}/>
+      <Route path="/signin" component={SessionForm}/>
       <Route path="/newphoto" component={PhotoForm}/>
       <Route path="/editprofile" component={ProfileEdit}/>
-      <Route path="search" component={Search} />
+      <Route path="/search" component={Search} />
+      <Route path="/notifications" component={Notifications} />
       <Route path="/photos/:photoid" component={PhotoPage}/>
       <Route path="/photos/:photoid/edit" component={PhotoEdit}/>
       <Route path="/tags/:tagid" component={TagPage}/>
