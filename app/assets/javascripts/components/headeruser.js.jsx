@@ -32,14 +32,31 @@
       }
     },
 
+    _newNotifications: function (comments, likes) {
+      var cCount = comments.filter( function (comment) {
+        return !comment.checked;
+      }).length;
+
+      var lCount = likes.filter( function (like) {
+        return !like.checked;
+      }).length;
+
+      return cCount + lCount;
+    },
+
     render: function() {
       if (CurrentUserStore.isSignedIn()) {
-        var currentUserUsername = CurrentUserStore.currentUser().username;
+        var currentUser = CurrentUserStore.currentUser();
+        var receivedComments = currentUser.received_comments;
+        var receivedLikes = currentUser.received_likes;
+        var notificationCount = this._newNotifications(receivedComments, receivedLikes);
+        var notification = (notificationCount === 1) ? "Notification" : "Notifications";
         return (
           <div className="header-user group" >
             <img className="menu-button" src={assets.menu_icon} onClick={ this._expand }/>
             <div className="header-user-nav hide">
-              <a className="hidden" href={"/#/" + currentUserUsername}>{currentUserUsername}</a>
+              <a className="hidden" href={"/#/"}> {notificationCount} New {notification} </a>
+              <a className="hidden" href={"/#/" + currentUser.username}>{currentUser.username}</a>
               <a className="hidden" href="/#/newphoto">Add New Photo</a>
               <button className="hidden" onClick={ this.signout }>Sign Out!</button>
             </div>
