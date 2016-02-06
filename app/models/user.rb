@@ -17,7 +17,19 @@ class User < ActiveRecord::Base
 
   has_many :likes
 
+  has_many(
+    :received_likes,
+    through: :photos,
+    source: :likes
+  )
+
   has_many :comments
+
+  has_many(
+    :received_comments,
+    through: :photos,
+    source: :comments
+  )
 
   has_many(
     :follows,

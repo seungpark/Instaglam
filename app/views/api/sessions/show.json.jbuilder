@@ -9,3 +9,11 @@ end
 json.following_users do
   json.array! @user.following_users, :id, :username, :name
 end
+
+json.received_likes do
+  json.array! @user.received_likes, :id, :photo_id, :user_id, :created_at, :checked
+end
+
+json.received_comments do
+  json.array! @user.received_comments, :id, :photo_id, :user_id, :body, :created_at, :checked
+end
