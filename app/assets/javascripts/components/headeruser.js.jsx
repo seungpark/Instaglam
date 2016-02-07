@@ -55,7 +55,7 @@
           <div className="header-user group" >
             <img className="menu-button" src={assets.menu_icon} onClick={ this._expand }/>
             <div className="header-user-nav hide">
-              <a className="hidden" href={"/#/notifications"}> {notificationCount} New {notification} </a>
+              <a className="hidden" href={"/#/notifications"}> {notificationCount} {notification} </a>
               <a className="hidden" href={"/#/" + currentUser.username}>{currentUser.username}</a>
               <a className="hidden" href="/#/newphoto">Add New Photo</a>
               <button className="hidden" onClick={ this.signout }>Sign Out!</button>
