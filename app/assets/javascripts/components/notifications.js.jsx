@@ -45,6 +45,20 @@
     },
 
     componentWillUnmount: function () {
+      var newLikes = this.state.newNoti.filter(function (noti) {
+        return !noti.body;
+      });
+      var newComments = this.state.newNoti.filter(function (noti) {
+        return noti.body;
+      });
+      debugger
+      newLikes.forEach (function (like) {
+        ApiUtil.checkLike(like.id);
+      });
+      newComments.forEach (function (comment) {
+        ApiUtil.checkComment(comment.id);
+      });
+      SessionsApiUtil.fetchCurrentUser();
       // api request to patch comments/likes to checked??
     },
 

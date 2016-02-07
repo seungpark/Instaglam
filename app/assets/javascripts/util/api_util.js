@@ -250,8 +250,19 @@ ApiUtil = {
         ApiActions.deleteLike(likeid, photoid);
       }
     });
-
   },
+
+  checkLike: function(likeid){
+    $.ajax({
+      url: 'api/likes/' + likeid,
+      type: 'PATCH',
+      dataType: 'json',
+      data: {checked: true},
+      success: function () {
+      }
+    });
+  },
+
   //
   // createLikeFromNewsfeed: function(data, followedUserIds, callback){
   //   $.ajax({
@@ -400,6 +411,17 @@ ApiUtil = {
       success: function() {
         ApiActions.deleteComment(commentid, photoid);
         success && success(commentid);
+      }
+    });
+  },
+
+  checkComment: function(commentid){
+    $.ajax({
+      url: 'api/comments/' + commentid,
+      type: 'PATCH',
+      dataType: 'json',
+      data: {checked: true},
+      success: function () {
       }
     });
   },
