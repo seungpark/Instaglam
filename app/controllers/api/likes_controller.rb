@@ -31,6 +31,12 @@ class Api::LikesController < ApplicationController
     render json: {}
   end
 
+  def update
+    @like = Like.find(params[:id])
+    @like.checked = true
+    @like.save
+  end
+
     # @like = Like.where(photo_id: photoid, user_id: userid)
     # @like.destroy
     # render 'destroy'

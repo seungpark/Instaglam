@@ -32,4 +32,10 @@ class Api::CommentsController < ApplicationController
     render json: {}
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.checked = true
+    @comment.save
+  end
+
 end
