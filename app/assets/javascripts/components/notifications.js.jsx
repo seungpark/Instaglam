@@ -10,9 +10,9 @@
       );
       allNotifications.sort (function (a, b) {
         if (a.created_at > b.created_at) {
-           return 1;
-        } else if (a.created_at < b.created_at) {
            return -1;
+        } else if (a.created_at < b.created_at) {
+           return 1;
         } else {
            return 0;
         }
@@ -51,7 +51,6 @@
       var newComments = this.state.newNoti.filter(function (noti) {
         return noti.body;
       });
-      debugger
       newLikes.forEach (function (like) {
         ApiUtil.checkLike(like.id);
       });

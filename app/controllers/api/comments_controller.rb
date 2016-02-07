@@ -36,6 +36,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.checked = true
     @comment.save
+    render 'show'
   end
 
 end
