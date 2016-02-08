@@ -93,6 +93,7 @@
     },
 
     render: function () {
+      debugger
       return (
         <div className="notification-container">
           <div className="new-notifications">
@@ -107,7 +108,7 @@
                       {noti.user.username}
                     </a>
                     {type + " your "}
-                    <a href={"#/photos/" + noti.photo.id}> photo
+                    <a href={"#/photos/" + noti.photo_id}> photo
                       <img className="photo" src={noti.photo.image.url}/>
                     </a>
                     <age className="age">{this._evaluateAge(noti.created_at)}</age>
@@ -128,7 +129,7 @@
                       {noti.user.username}
                     </a>
                     {type + " your "}
-                    <a href={"#/photos/" + noti.photo.id}> photo
+                    <a href={"#/photos/" + noti.photo_id}> photo
                       <img className="photo" src={noti.photo.image.url}/>
                     </a>
                     <age className="age">{this._evaluateAge(noti.created_at)}</age>
