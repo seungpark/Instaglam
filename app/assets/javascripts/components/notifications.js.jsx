@@ -69,6 +69,29 @@
       }
     },
 
+    _evaluateAge: function(time) {
+      var createTime = Date.parse(time),
+          timeNow = Date.now(),
+          secPassed = parseInt((timeNow - createTime) / 1000),
+          minPassed = parseInt(secPassed / 60),
+          hrPassed = parseInt(minPassed / 60),
+          dayPassed = parseInt(hrPassed / 24),
+          wkPassed = parseInt(dayPassed / 7),
+          age = "";
+      if (wkPassed >= 1) {
+        age = (wkPassed + "w");
+      } else if (dayPassed >= 1) {
+        age = (dayPassed + "d");
+      } else if (hrPassed >= 1) {
+        age = (hrPassed + "h");
+      } else if (minPassed >= 1) {
+        age = (minPassed + "m");
+      } else {
+        age = (secPassed + "s");
+      }
+      return age;
+    },
+
     render: function () {
       return (
         <div className="notification-container">
@@ -87,6 +110,7 @@
                     <a href={"#/photos/" + noti.photo.id}> photo
                       <img className="photo" src={noti.photo.image.url}/>
                     </a>
+                    <age className="age">{this._evaluateAge(noti.created_at)}</age>
                   </li>
                 );
               }.bind(this))}
@@ -107,6 +131,7 @@
                     <a href={"#/photos/" + noti.photo.id}> photo
                       <img className="photo" src={noti.photo.image.url}/>
                     </a>
+                    <age className="age">{this._evaluateAge(noti.created_at)}</age>
                   </li>
                 );
               }.bind(this))}
