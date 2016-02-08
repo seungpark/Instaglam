@@ -61,6 +61,14 @@
       // api request to patch comments/likes to checked??
     },
 
+    _evaluateAvatar: function (url) {
+      if (url === "missingavatar.png") {
+        return assets.missing_avatar;
+      } else {
+        return url;
+      }
+    },
+
     render: function () {
       return (
         <div className="notification-container">
@@ -71,9 +79,14 @@
                 var type = (noti.body) ? " commented on" : " liked";
                 return (
                   <li>
-                    <a href={"#/" + noti.user.username}>{noti.user.username}</a>
+                    <a href={"#/" + noti.user.username}>
+                      <img className="avatar" src={this._evaluateAvatar(noti.user.avatar.url)}/>
+                      {noti.user.username}
+                    </a>
                     {type + " your "}
-                    <a href={"#/photos/" + noti.photo.id}> photo</a>
+                    <a href={"#/photos/" + noti.photo.id}> photo
+                      <img className="photo" src={noti.photo.image.url}/>
+                    </a>
                   </li>
                 );
               }.bind(this))}
@@ -86,9 +99,14 @@
                 var type = (noti.body) ? " commented on" : " liked";
                 return (
                   <li>
-                    <a href={"#/" + noti.user.username}>{noti.user.username}</a>
+                    <a href={"#/" + noti.user.username}>
+                      <img className="avatar" src={this._evaluateAvatar(noti.user.avatar.url)}/>
+                      {noti.user.username}
+                    </a>
                     {type + " your "}
-                    <a href={"#/photos/" + noti.photo.id}> photo</a>
+                    <a href={"#/photos/" + noti.photo.id}> photo
+                      <img className="photo" src={noti.photo.image.url}/>
+                    </a>
                   </li>
                 );
               }.bind(this))}
