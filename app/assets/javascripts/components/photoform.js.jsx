@@ -70,6 +70,9 @@
 
     handleSubmit: function(e) {
       e.preventDefault();
+
+      debugger
+
       this.setState({uploading: true});
 
       var title = this.state.title;
@@ -77,6 +80,9 @@
       var userid = CurrentUserStore.currentUser().id;
       var file = this.state.imageFile;
       var tags = this.state.tags.split(/[ ,#]+/);
+      tags = _.unqiue(tags).filter( function (tag) {
+        return tag.length > 0;
+      });
 
       var formData = new FormData();
       formData.append("photo[title]", title);
