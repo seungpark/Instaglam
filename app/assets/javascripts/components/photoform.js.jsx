@@ -70,9 +70,12 @@
 
     handleSubmit: function(e) {
       e.preventDefault();
-
-
-
+      if (this.state.title.length === 0 || typeof this.state.file === "undefined") {
+        if (typeof $("#error")[0] === "undefined") {
+          $(".add-photo-form").append("<div id='error'>Title and Image are required</div>");
+        }
+        return;
+      }
       this.setState({uploading: true});
 
       var title = this.state.title;

@@ -13,11 +13,13 @@
       var success = function () {
         this.history.pushState(null, "/");
       }.bind(this);
+
       var failure = function () {
         if (typeof $("#error")[0] === "undefined") {
           $(".signin-form").slice(0,1).append("<div id='error'>Invald Login. Username/Passwords are Case Sensitive</div>");
         }
       };
+      
       SessionsApiUtil.signin(credentials, success, failure);
     },
 
