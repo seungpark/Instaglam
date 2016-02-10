@@ -71,7 +71,9 @@
     handleSubmit: function(e) {
       e.preventDefault();
 
-      debugger
+      if (this.state.title.length === 0){
+        throw new Error("Need a title");
+      } 
 
       this.setState({uploading: true});
 
