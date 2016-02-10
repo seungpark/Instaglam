@@ -71,6 +71,13 @@
     .signin-password {
       display: block;
     }
+
+    #error{
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: darkred;
+    }
   }
 
 }

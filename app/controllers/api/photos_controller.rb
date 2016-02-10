@@ -24,10 +24,7 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.save!
-
-
-    # fix this
-    byebug
+    
     tags = params[:photo][:tags].split(",")
     tags.each do |tag|
       exists = Tag.find_by_name(tag)

@@ -71,9 +71,7 @@
     handleSubmit: function(e) {
       e.preventDefault();
 
-      if (this.state.title.length === 0){
-        throw new Error("Need a title");
-      } 
+
 
       this.setState({uploading: true});
 
@@ -82,7 +80,7 @@
       var userid = CurrentUserStore.currentUser().id;
       var file = this.state.imageFile;
       var tags = this.state.tags.split(/[ ,#]+/);
-      tags = _.unqiue(tags).filter( function (tag) {
+      tags = _.unique(tags).filter( function (tag) {
         return tag.length > 0;
       });
 

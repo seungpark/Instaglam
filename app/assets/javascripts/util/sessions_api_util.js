@@ -1,6 +1,6 @@
 var SessionsApiUtil = {
 
-  signin: function(credentials, success) {
+  signin: function(credentials, success, failure) {
     $.ajax({
       url: '/api/session',
       type: 'POST',
@@ -9,6 +9,9 @@ var SessionsApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        failure && failure();
       }
     });
   },
