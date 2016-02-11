@@ -70,7 +70,6 @@
 
     handleSubmit: function(e) {
       e.preventDefault();
-      debugger
       if (this.state.title.length === 0 || typeof this.state.imageFile === "undefined") {
         if (typeof $("#error")[0] === "undefined") {
           $(".add-photo-form").append("<div id='error'>Title and Image are required</div>");
