@@ -52,6 +52,12 @@
 
     },
 
+    _slideLeft: function(e) {
+      e.preventDefault();
+      $(e.currentTarget).removeClass("slide");
+
+    },
+
     render: function() {
       var posts, followers, following;
       if (this.state.pageuser && this.state.pageuser.photos.length === 1) {
@@ -74,7 +80,7 @@
 
       if (this.state.pageuser && this.state.pageuser.id === CurrentUserStore.currentUser().id) {
         return (
-          <div className="userpage-profile group">
+          <div className="userpage-profile group slide" onLoad={this._slideLeft}>
             <div className="userpage-avatar">
               <img src={this.state.pageuser.avatar_url}/>
             </div>
@@ -105,7 +111,7 @@
 
       } else if (this.state.pageuser) {
         return (
-          <div className="userpage-profile group">
+          <div className="userpage-profile group slide" onLoad={this._slideLeft}>
             <div className="userpage-avatar">
               <img src={this.state.pageuser.avatar_url}/>
             </div>
