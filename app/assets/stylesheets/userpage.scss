@@ -4,8 +4,6 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  left: 0px;
-  transition: left 1.5s;
 
   .userpage-avatar {
     float: left;
@@ -211,8 +209,4 @@
 .userpage {
   padding-top: 115px;
   background-color: #fafafa;
-}
-
-.slide {
-  left: 9999px;
 }
